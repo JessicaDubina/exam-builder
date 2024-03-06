@@ -3,7 +3,9 @@ const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
     Query: {
-      users: DATABASE.users,
+      users: async () => {
+        return await User.find({})
+      },
     },
     
     Mutation: {
