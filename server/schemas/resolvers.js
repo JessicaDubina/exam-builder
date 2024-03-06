@@ -18,7 +18,9 @@ const DATABASE = {
 
 const resolvers = {
     Query: {
-      users: DATABASE.users,
+      users: async () => {
+        return await User.find({})
+      },
     },
     
     Mutation: {
