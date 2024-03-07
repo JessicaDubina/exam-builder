@@ -17,7 +17,7 @@ const resolvers = {
     // Query to retrieve all exams
     allExams: async () => {
         try {
-            return await Exam.find({});
+            return await Exam.find({}).populate('questions');
         } catch (error) {
             throw new Error(`Failed to get all exams: ${error.message}`);
         }

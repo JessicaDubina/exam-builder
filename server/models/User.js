@@ -21,7 +21,8 @@ const userSchema = new Schema({
   },
   instructor: {
     type: Boolean,
-    required: true
+    required: true,
+    default: false
   }
 });
 
