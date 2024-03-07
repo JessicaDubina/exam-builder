@@ -1,24 +1,24 @@
 const { Schema, model } = require('mongoose');
 
-const answerSchema = new Schema({
-    answer_text: {
-        type: String,
-        required: true
-    }
-});
-
 const questionSchema = new Schema({
     question_text: {
         type: String,
         required: true
     },
-    answer_choices: [answerSchema],
+    answer_choices: [{
+        type: String,
+        required: true
+    }],
 
-    correct_answer_index: {
+    correct_answer: {
         type: Number,
         required: true
     },
     topic: {
+        type: String,
+        required: true
+    },
+    difficulty: {
         type: String,
         required: true
     }
