@@ -1,12 +1,6 @@
 const { Schema, model } = require('mongoose');
 
 const examSchema = new Schema({
-  _id: {
-    type: ID,
-    required: true,
-    unique: true,
-    trim: true,
-  },
   exam_name: {
     type: String,
     required: true
@@ -19,12 +13,12 @@ const examSchema = new Schema({
   questions: [
     {
     type: Schema.Types.ObjectId,
-    ref: 'Questions'
+    ref: 'Question'
   }
 ]
 });
 
 
-const Exams = model('Exams', examSchema);
+const Exam = model('Exam', examSchema);
 
-module.exports = Exams;
+module.exports = Exam;
