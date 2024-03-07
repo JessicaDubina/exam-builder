@@ -33,7 +33,7 @@ const populateExamData = (questions) => {
       }
       const exam = {
         _id: new mongoose.Types.ObjectId(),
-        name: `Exam on ${topic}`,
+        exam_name: `Exam on ${topic}`,
         topic: topic,
         questions: selectedQuestions,
       }
