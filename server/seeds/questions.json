@@ -202,5 +202,244 @@
         "correct_answer": 2,
         "topic": "CSS",
         "difficulty": "Difficult"
-    }
-]
+    }, 
+    {
+        "question_text": "Who is the author of 'The Lord of the Rings'?",
+        "answer_choices": ["J.R.R. Tolkien", "C.S. Lewis", "George R.R. Martin", "J.K. Rowling"],
+        "correct_answer": 0,
+        "topic": "The Lord of the Rings",
+        "difficulty": "Easy"
+        },
+        {
+        "question_text": "What is the name of the main antagonist in 'The Lord of the Rings'?",
+        "answer_choices": ["Sauron", "Saruman", "Gollum", "Witch-king of Angmar"],
+        "correct_answer": 0,
+        "topic": "The Lord of the Rings",
+        "difficulty": "Easy"
+        },
+        {
+        "question_text": "What is the name of the sword wielded by Aragorn in 'The Lord of the Rings'?",
+        "answer_choices": ["Glamdring", "Andúril", "Sting", "Narsil"],
+        "correct_answer": 1,
+        "topic": "The Lord of the Rings",
+        "difficulty": "Medium"
+        },
+        {
+        "question_text": "Who is known as the 'Steward of Gondor'?",
+        "answer_choices": ["Denethor", "Faramir", "Boromir", "Éomer"],
+        "correct_answer": 0,
+        "topic": "The Lord of the Rings",
+        "difficulty": "Medium"
+        },
+        {
+        "question_text": "What race is Legolas in 'The Lord of the Rings'?",
+        "answer_choices": ["Human", "Elf", "Dwarf", "Hobbit"],
+        "correct_answer": 1,
+        "topic": "The Lord of the Rings",
+        "difficulty": "Easy"
+        },
+        {
+        "question_text": "What is the name of Gandalf's horse?",
+        "answer_choices": ["Shadowfax", "Brego", "Roheryn", "Arod"],
+        "correct_answer": 0,
+        "topic": "The Lord of the Rings",
+        "difficulty": "Medium"
+        },
+        {
+        "question_text": "Which of the following is not one of the Rings of Power?",
+        "answer_choices": ["Nenya", "Narya", "Vilya", "Andúril"],
+        "correct_answer": 3,
+        "topic": "The Lord of the Rings",
+        "difficulty": "Medium"
+        },
+        {
+        "question_text": "What is the name of the creature Gollum was before he became corrupted by the One Ring?",
+        "answer_choices": ["Smeagol", "Deagol", "Sméarag", "Gullin"],
+        "correct_answer": 0,
+        "topic": "The Lord of the Rings",
+        "difficulty": "Medium"
+        },
+        {
+        "question_text": "What is the name of the tower in Mordor where Sauron's Dark Tower resides?",
+        "answer_choices": ["Barad-dûr", "Orthanc", "Minas Tirith", "Isengard"],
+        "correct_answer": 0,
+        "topic": "The Lord of the Rings",
+        "difficulty": "Medium"
+        },
+        {
+        "question_text": "Who is the ruler of Rohan in 'The Lord of the Rings'?",
+        "answer_choices": ["Théoden", "Éowyn", "Éomer", "Denethor"],
+        "correct_answer": 0,
+        "topic": "The Lord of the Rings",
+        "difficulty": "Easy"
+        },
+        {
+        "question_text": "What is the name of the wizard who leads the Fellowship of the Ring?",
+        "answer_choices": ["Gandalf", "Radagast", "Saruman", "Alatar"],
+        "correct_answer": 0,
+        "topic": "The Lord of the Rings",
+        "difficulty": "Easy"
+        },
+        {
+        "question_text": "What is the name of the capital city of Gondor?",
+        "answer_choices": ["Minas Tirith", "Edoras", "Rivendell", "Hobbiton"],
+        "correct_answer": 0,
+        "topic": "The Lord of the Rings",
+        "difficulty": "Medium"
+        },
+        {
+        "question_text": "What is the name of the spider-like creature encountered by Frodo and Sam in Shelob's Lair?",
+        "answer_choices": ["Shelob", "Ungoliant", "Arachne", "Lobelia"],
+        "correct_answer": 0,
+        "topic": "The Lord of the Rings",
+        "difficulty": "Medium"
+        },
+        {
+        "question_text": "What is the name of the Elven city where the Fellowship is formed?",
+        "answer_choices": ["Rivendell", "Lothlórien", "Mirkwood", "Valinor"],
+        "correct_answer": 0,
+        "topic": "The Lord of the Rings",
+        "difficulty": "Easy"
+        }, 
+        {
+            "question_text": "Who is known as the 'Lord of Rivendell'?",
+            "answer_choices": ["Elrond", "Galadriel", "Celeborn", "Glorfindel"],
+            "correct_answer": 0,
+            "topic": "The Lord of the Rings",
+            "difficulty": "Medium"
+        },
+        {
+            "question_text": "What is the name of the land where the Hobbits live?",
+            "answer_choices": ["The Shire", "Rohan", "Gondor", "Mordor"],
+            "correct_answer": 0,
+            "topic": "The Lord of the Rings",
+            "difficulty": "Easy"
+        },
+        {
+            "question_text": "What is the name of Aragorn's father?",
+            "answer_choices": ["Aragorn II", "Aragorn I", "Araglas", "Arathorn II"],
+            "correct_answer": 3,
+            "topic": "The Lord of the Rings",
+            "difficulty": "Medium"
+        },
+        {
+            "question_text": "What is the name of the volcano where the One Ring is destroyed?",
+            "answer_choices": ["Mount Doom", "Mount Erebor", "Mount Celebdil", "Mount Gundabad"],
+            "correct_answer": 0,
+            "topic": "The Lord of the Rings",
+            "difficulty": "Easy"
+        },
+        {
+            "question_text": "Who is known as the 'Shieldmaiden of Rohan'?",
+            "answer_choices": ["Éowyn", "Galadriel", "Arwen", "Tauriel"],
+            "correct_answer": 0,
+            "topic": "The Lord of the Rings",
+            "difficulty": "Medium"
+        },
+        {
+            "question_text": "What is the name of the river that flows through Lothlórien?",
+            "answer_choices": ["Anduin", "Bruinen", "Lhûn", "Isen"],
+            "correct_answer": 1,
+            "topic": "The Lord of the Rings",
+            "difficulty": "Medium"
+        },
+        {
+            "question_text": "What is the name of the Elven city where the Fellowship is formed?",
+            "answer_choices": ["Rivendell", "Lothlórien", "Mirkwood", "Valinor"],
+            "correct_answer": 0,
+            "topic": "The Lord of the Rings",
+            "difficulty": "Easy"
+        },
+        {
+            "question_text": "What is the name of the spider-like creature encountered by Frodo and Sam in Shelob's Lair?",
+            "answer_choices": ["Shelob", "Ungoliant", "Arachne", "Lobelia"],
+            "correct_answer": 0,
+            "topic": "The Lord of the Rings",
+            "difficulty": "Medium"
+        },
+        {
+            "question_text": "What is the name of the tower in Mordor where Sauron's Dark Tower resides?",
+            "answer_choices": ["Barad-dûr", "Orthanc", "Minas Tirith", "Isengard"],
+            "correct_answer": 0,
+            "topic": "The Lord of the Rings",
+            "difficulty": "Medium"
+        },
+        {
+            "question_text": "What is the name of the creature Gollum was before he became corrupted by the One Ring?",
+            "answer_choices": ["Smeagol", "Deagol", "Sméarag", "Gullin"],
+            "correct_answer": 0,
+            "topic": "The Lord of the Rings",
+            "difficulty": "Medium"
+        },
+        {
+            "question_text": "Which of the following is not one of the Rings of Power?",
+            "answer_choices": ["Nenya", "Narya", "Vilya", "Andúril"],
+            "correct_answer": 3,
+            "topic": "The Lord of the Rings",
+            "difficulty": "Medium"
+        },
+        {
+            "question_text": "What is the name of Gandalf's horse?",
+            "answer_choices": ["Shadowfax", "Brego", "Roheryn", "Arod"],
+            "correct_answer": 0,
+            "topic": "The Lord of the Rings",
+            "difficulty": "Medium"
+        },
+        {
+            "question_text": "What is the name of the sword wielded by Aragorn in 'The Lord of the Rings'?",
+            "answer_choices": ["Glamdring", "Andúril", "Sting", "Narsil"],
+            "correct_answer": 1,
+            "topic": "The Lord of the Rings",
+            "difficulty": "Medium"
+        },
+        {
+            "question_text": "What is the name of the main antagonist in 'The Lord of the Rings'?",
+            "answer_choices": ["Sauron", "Saruman", "Gollum", "Witch-king of Angmar"],
+            "correct_answer": 0,
+            "topic": "The Lord of the Rings",
+            "difficulty": "Easy"
+        },
+        {
+            "question_text": "Who is the author of 'The Lord of the Rings'?",
+            "answer_choices": ["J.R.R. Tolkien", "C.S. Lewis", "George R.R. Martin", "J.K. Rowling"],
+            "correct_answer": 0,
+            "topic": "The Lord of the Rings",
+            "difficulty": "Easy"
+        }, 
+        {
+            "question_text": "What is the significance of the name 'Mithrandir', which is another name for Gandalf?",
+            "answer_choices": ["It means 'Grey Pilgrim' in Sindarin", "It means 'Bearer of Light' in Quenya", "It means 'Wise Counselor' in Westron", "It means 'Stormcrow' in Rohirric"],
+            "correct_answer": 1,
+            "topic": "The Lord of the Rings",
+            "difficulty": "Difficult"
+        },
+        {
+            "question_text": "What is the Quenya name for Aragorn?",
+            "answer_choices": ["Eldarion", "Estel", "Telcontar", "Elessar"],
+            "correct_answer": 3,
+            "topic": "The Lord of the Rings",
+            "difficulty": "Difficult"
+        },
+        {
+            "question_text": "What is the name of the ancient being who created the Rings of Power?",
+            "answer_choices": ["Melkor", "Morgoth", "Aulë", "Sauron"],
+            "correct_answer": 1,
+            "topic": "The Lord of the Rings",
+            "difficulty": "Difficult"
+        },
+        {
+            "question_text": "Which two wizards are known as the 'Blue Wizards'?",
+            "answer_choices": ["Gandalf and Radagast", "Saruman and Gandalf", "Pallando and Alatar", "Saruman and Radagast"],
+            "correct_answer": 2,
+            "topic": "The Lord of the Rings",
+            "difficulty": "Difficult"
+        },
+        {
+            "question_text": "What is the Sindarin name for the region of Rivendell?",
+            "answer_choices": ["Imladris", "Lórien", "Edhellond", "Harlindon"],
+            "correct_answer": 0,
+            "topic": "The Lord of the Rings",
+            "difficulty": "Difficult"
+        }
+    ]
+
