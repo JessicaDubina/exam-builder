@@ -1,4 +1,4 @@
-const { User, Exams, Questions } = require('../models')
+const { User, Exam, Question } = require('../models')
 const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
@@ -9,7 +9,7 @@ const resolvers = {
     // Query to retrieve a specific exam by ID
     getExam: async (parent, { examId }) => {
         try {
-            return await Exams.findById(examId);
+            return await Exam.findById(examId);
         } catch (error) {
             throw new Error(`Failed to get exam: ${error.message}`);
         }
@@ -17,7 +17,7 @@ const resolvers = {
     // Query to retrieve all exams
     allExams: async () => {
         try {
-            return await Exams.find({});
+            return await Exam.find({});
         } catch (error) {
             throw new Error(`Failed to get all exams: ${error.message}`);
         }
@@ -25,7 +25,7 @@ const resolvers = {
     // Query to retrieve a specific question by ID
     getQuestion: async (parent, { questionId }) => {
         try {
-            return await Questions.findById(questionId);
+            return await Question.findById(questionId);
         } catch (error) {
             throw new Error(`Failed to get question: ${error.message}`);
         }
@@ -33,7 +33,7 @@ const resolvers = {
     // Query to retrieve all questions
     allQuestions: async () => {
         try {
-            return await Questions.find({});
+            return await Question.find({});
         } catch (error) {
             throw new Error(`Failed to get all questions: ${error.message}`);
         }
