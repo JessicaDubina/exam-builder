@@ -1,45 +1,55 @@
 [{
-    "username": "gandolf",
-    "email": "gandolf@lotr.com",
-    "password": "admin"
+    "username": "gandalf",
+    "email": "gandalf@lotr.com",
+    "password": "admin",
+    "instructor": true
 },
 {
     "username": "frodo",
     "email": "frodo@lotr.com",
-    "password": "user2"
+    "password": "user2",
+    "instructor": false
 },
 {
     "username": "samwise",
     "email": "samwise@lotr.com",
-    "password": "user3"},
+    "password": "user3",
+    "instructor": false
+},
 {
     "username": "aragorn",
     "email": "aragorn@lotr.com",
-    "password": "user4"
+    "password": "user4",
+    "instructor": false
 },
 {
     "username": "legolas",
     "email": "legolas@lotr.com",
-    "password": "user5"
+    "password": "user5",
+    "instructor": false
 },
 {
     "username": "gimli",
     "email": "gimli@lotr.com",
-    "password": "user6"
+    "password": "user6",
+    "instructor": false
 },
 {
     "username": "boromir",
     "email": "boromir@lotr.com",  
-    "password": "user7"
+    "password": "user7",
+    "instructor": false
 },
 {
     "username": "merry",
     "email": "merry@lotr.com",
-    "password": "user8"
+    "password": "user8",
+    "instructor": false
 },
 {
     "username": "pippin",
     "email": "pippin",
-    "password": "user9"
+    "password": "user9",
+    "instructor": false
 }
 ]
