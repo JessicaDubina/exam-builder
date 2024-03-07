@@ -1,0 +1,206 @@
+[
+    {
+        "question_text": "What does CSS stand for?",
+        "answer_choices": ["Computer Style Sheets", "Cascading Style Sheets", "Creative Style Sheets", "Coded Style Sheets"],
+        "correct_answer": 1,
+        "topic": "CSS",
+        "difficulty": "Easy"
+    },
+    {
+        "question_text": "Which CSS property is used to change the text color of an element?",
+        "answer_choices": ["text-color", "color", "font-color", "text-style"],
+        "correct_answer": 1,
+        "topic": "CSS",
+        "difficulty": "Easy"
+    },
+    {
+        "question_text": "How do you select an element with id 'myElement' in CSS?",
+        "answer_choices": [".myElement", "element.myElement", "#myElement", "element#myElement"],
+        "correct_answer": 2,
+        "topic": "CSS",
+        "difficulty": "Easy"
+    },
+    {
+        "question_text": "What does 'CSS specificity' refer to?",
+        "answer_choices": ["The order of CSS rules in a stylesheet", "The ease of writing CSS rules", "The weight of a CSS rule in relation to others determining which styles are applied to an element", "The degree of separation between HTML and CSS"],
+        "correct_answer": 2,
+        "topic": "CSS",
+        "difficulty": "Medium"
+    },
+    {
+        "question_text": "What is the purpose of 'float' property in CSS?",
+        "answer_choices": ["To apply animation effects to an element", "To allow an element to float to the left or right of its container, allowing text and inline elements to wrap around it", "To vertically align an element within its container", "To increase the font size of an element"],
+        "correct_answer": 1,
+        "topic": "CSS",
+        "difficulty": "Medium"
+    },
+    {
+        "question_text": "What is the 'box model' in CSS?",
+        "answer_choices": ["A layout technique to create flexible and responsive designs", "A method for organizing CSS code into modular components", "A set of properties to style text within a container", "A model that describes how elements are rendered on a web page as a box with content, padding, border, and margin"],
+        "correct_answer": 3,
+        "topic": "CSS",
+        "difficulty": "Medium"
+    },
+    {
+        "question_text": "How can you center an element horizontally in CSS?",
+        "answer_choices": ["Using the 'align: center;' property", "Using the 'margin: 0 auto;' property", "Using the 'text-align: center;' property", "Using the 'float: center;' property"],
+        "correct_answer": 1,
+        "topic": "CSS",
+        "difficulty": "Easy"
+    },
+    {
+        "question_text": "What does the CSS property 'display: none;' do?",
+        "answer_choices": ["Displays the element as an inline element", "Reduces the opacity of the element to make it partially transparent", "Hides the element completely, including its space", "Applies a border around the element"],
+        "correct_answer": 2,
+        "topic": "CSS",
+        "difficulty": "Easy"
+    },
+    {
+        "question_text": "What is the purpose of 'media queries' in CSS?",
+        "answer_choices": ["To target specific HTML elements", "To create animations and transitions", "To apply different styles for different devices or screen sizes", "To define the layout of a webpage"],
+        "correct_answer": 2,
+        "topic": "CSS",
+        "difficulty": "Medium"
+    },
+    {
+        "question_text": "What is the CSS property used to set the background color of an element?",
+        "answer_choices": ["color", "background", "background-color", "bgcolor"],
+        "correct_answer": 2,
+        "topic": "CSS",
+        "difficulty": "Easy"
+    },
+    {
+        "question_text": "What is the 'box-sizing' property in CSS used for?",
+        "answer_choices": ["To specify the positioning of an element", "To define the shape of a box", "To control how the total width and height of an element is calculated", "To apply a border around the element"],
+        "correct_answer": 2,
+        "topic": "CSS",
+        "difficulty": "Medium"
+    },
+    {
+        "question_text": "How do you apply a shadow to an element in CSS?",
+        "answer_choices": ["Using the 'shadow' property", "Using the 'text-shadow' property", "Using the 'outline' property", "Using the 'box-shadow' property"],
+        "correct_answer": 3,
+        "topic": "CSS",
+        "difficulty": "Medium"
+    },
+    {
+        "question_text": "What is the purpose of 'z-index' property in CSS?",
+        "answer_choices": ["To prevent conflicts between different CSS rules", "To control the transparency of an element", "To define the width and height of an element", "To specify the stack order of an element"],
+        "correct_answer": 3,
+        "topic": "CSS",
+        "difficulty": "Medium"
+    },
+    {
+        "question_text": "What does the 'position: relative;' property do in CSS?",
+        "answer_choices": ["Makes an element stick to the top of the page", "Allows an element to be positioned relative to its normal position", "Creates a fixed position element", "Aligns an element to the right side of its container"],
+        "correct_answer": 1,
+        "topic": "CSS",
+        "difficulty": "Easy"
+    },
+    {
+        "question_text": "What is the 'flex-direction' property used for in CSS flexbox?",
+        "answer_choices": ["To control the spacing between flex items", "To define the direction of the main axis in a flex container", "To specify the order of flex items", "To rotate an element around its axis" ],
+        "correct_answer": 0,
+        "topic": "CSS",
+        "difficulty": "Medium"
+    }, 
+    {
+        "question_text": "How do you include comments in CSS?",
+        "answer_choices": ["// This is a comment", "<!-- This is a comment -->", "# This is a comment", "/* This is a comment */"],
+        "correct_answer": 3,
+        "topic": "CSS",
+        "difficulty": "Easy"
+    },
+    {
+        "question_text": "What is the purpose of the 'overflow' property in CSS?",
+        "answer_choices": ["To make an element semi-transparent", "To add a scroll bar to an element", "To control what happens if the content of an element exceeds its size", "To specify the order of overlapping elements"],
+        "correct_answer": 2,
+        "topic": "CSS",
+        "difficulty": "Medium"
+    },
+    {
+        "question_text": "How do you group multiple selectors in CSS?",
+        "answer_choices": ["Enclose them in curly braces", "Precede them with the '+' symbol", "Separate them with commas", "Use the 'group' keyword"],
+        "correct_answer": 2,
+        "topic": "CSS",
+        "difficulty": "Easy"
+    },
+    {
+        "question_text": "What is the purpose of 'flexbox' in CSS?",
+        "answer_choices": ["To apply gradients to backgrounds", "To create 3D transformations", "To provide a more efficient way to layout, align, and distribute space among items in a container, even when their size is unknown or dynamic", "To define custom fonts for text"],
+        "correct_answer": 2,
+        "topic": "CSS",
+        "difficulty": "Medium"
+    },
+    {
+        "question_text": "What does 'SCSS' stand for in CSS?",
+        "answer_choices": ["Styled CSS", "Simplified CSS", "Standardized CSS", "Sassy CSS"],
+        "correct_answer": 3,
+        "topic": "CSS",
+        "difficulty": "Difficult"
+    },
+    {
+        "question_text": "What is the difference between 'inline' and 'block' elements in CSS?",
+        "answer_choices": ["Block elements cannot contain other elements, while inline elements can", "Inline elements are always centered, while block elements are not", "Inline elements do not start on a new line and only take up as much width as necessary, while block elements start on a new line and take up the full width available", "Block elements are only visible in certain media queries"],
+        "correct_answer": 2,
+        "topic": "CSS",
+        "difficulty": "Medium"
+    },
+    {
+        "question_text": "What is 'CSS Grid' used for?",
+        "answer_choices": ["To create 3D transformations", "To define custom fonts for text", "To create complex layouts with rows and columns", "To add animation effects to elements"],
+        "correct_answer": 2,
+        "topic": "CSS",
+        "difficulty": "Difficult"
+    },
+    {
+        "question_text": "What is the purpose of the 'transition' property in CSS?",
+        "answer_choices": ["To add a border around an element", "To change the font of an element", "To smoothly animate changes in CSS properties", "To position an element on the page"],
+        "correct_answer": 2,
+        "topic": "CSS",
+        "difficulty": "Medium"
+    },
+    {
+        "ID": "25",
+        "question_text": "What does the CSS property 'position: absolute;' do?",
+        "answer_choices": ["Positions an element relative to its parent element", "Positions an element relative to the viewport, meaning it stays fixed while scrolling", "Positions an element relative to its nearest positioned ancestor", "Positions an element relative to its normal position in the document flow"],
+        "correct_answer": 2,
+        "topic": "CSS",
+        "difficulty": "Medium"
+    },
+    {
+        "question_text": "What is the purpose of 'CSS variables'?",
+        "answer_choices": ["To define custom fonts for text", "To create 3D transformations", "To store and reuse values throughout a stylesheet", "To add animation effects to elements"],
+        "correct_answer": 2,
+        "topic": "CSS",
+        "difficulty": "Difficult"
+    },
+    {
+        "question_text": "What is the 'flex-wrap' property used for in CSS flexbox?",
+        "answer_choices": ["To control the spacing between flex items", "To define the direction of the main axis in a flex container", "To specify the order of flex items", "To control whether flex items are forced onto one line or can wrap onto multiple lines"],
+        "correct_answer": 3,
+        "topic": "CSS",
+        "difficulty": "Medium"
+    },
+    {
+        "question_text": "What is the purpose of 'CSS preprocessors'?",
+        "answer_choices": ["To create 3D transformations", "To define custom fonts for text", "To provide additional functionality and features to CSS, such as variables, nesting, and mixins", "To add animation effects to elements"],
+        "correct_answer": 2,
+        "topic": "CSS",
+        "difficulty": "Difficult"
+    },
+    {
+        "question_text": "What is the purpose of 'CSS frameworks'?",
+        "answer_choices": ["To create 3D transformations", "To define custom fonts for text", "To provide a pre-built set of styles and components for faster and easier web development", "To add animation effects to elements"],
+        "correct_answer": 2,
+        "topic": "CSS",
+        "difficulty": "Difficult"
+    },
+    {
+        "question_text": "What is the purpose of 'CSS animations'?",
+        "answer_choices": ["To create 3D transformations", "To define custom fonts for text", "To add animation effects to elements", "To provide a pre-built set of styles and components for faster and easier web development"],
+        "correct_answer": 2,
+        "topic": "CSS",
+        "difficulty": "Difficult"
+    }
+]
