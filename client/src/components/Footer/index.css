@@ -1,8 +1,18 @@
-
 footer {
-    background-color: #f8f8f8;
+    background-color: #4dd7db;
     position: fixed;
     left: 0;
     bottom: 0;
     right: 0;
+}
+
+
+
+themecolorsForLater {
+    background-color: #4dd7db;
+    background-color: #f0f5f5;
+    background-color: #088c8c;
+    background-color: #f8f8f8;
+    background-color: #f6f8fa;
+    /* #4 and #5 were old header and footer bg colors */
 }
