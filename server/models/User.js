@@ -19,6 +19,10 @@ const userSchema = new Schema({
     required: true,
     minlength: 8,
   },
+  instructor: {
+    type: Boolean,
+    required: true
+  }
 });
 
 userSchema.pre('save', async function (next) {
