@@ -7,17 +7,13 @@ const typeDefs = `
     password: String
   }
 
-  type Answer {
-    _id: ID
-    answer_text: String
-  }
-
   type Question {
     _id: ID
     question_text: String
-    answer_choices: [Answer]
-    correct_answer_index: Int
+    answer_choices: [String]
+    correct_answer: Int
     topic: String
+    difficulty: String
   } 
 
   type Exam {
