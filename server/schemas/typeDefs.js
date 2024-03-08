@@ -33,6 +33,7 @@ const typeDefs = `
 
   type Query {
     users: [User]
+    me: User
     getExam(examId: ID!): Exam
     allExams: [Exam]
     getQuestion(questionId: ID!): Question
