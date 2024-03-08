@@ -8,6 +8,7 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Error from './pages/Error';
 import Home from './pages/Home.jsx';
+import InstLanding from './pages/InstLanding.jsx';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
         path: '/signup',
         element: <Signup />
       },
+      {
+        path: '/InstLanding',
+        element: <InstLanding />
+      }
     ]
   }
 ])

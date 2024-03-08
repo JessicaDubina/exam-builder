@@ -1,4 +1,63 @@
+.protest-guerrilla-regular {
+    font-family: "Protest Guerrilla", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
 header {
     display: 'flex';
-    background-color: #f6f8fa;
+    background-color: #4dd7db;
+}
+
+.header-container {
+    display: flex;
+    box-shadow: 0 6px 12px 0 #088c8c;
+}
+
+.title-bar {
+    width: 85%;
+}
+
+#header-title {
+    color: #f6f8fa;
+    text-shadow: 2px 2px 4px #c5c7c9;
+    font-size: 4rem;
+    font-family: "Protest Guerrilla", sans-serif;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 15%;
+}
+
+.logbtn {
+    background-color:#f6f8fa;
+    color: #088c8c;
+    padding: 0 3px;
+    width: 4rem;
+    border-radius: 5px;
+    border: 1px solid #088c8c;
+    box-shadow: 0 8px 16px 0 #088c8c;
+    margin: 2px;
+    font-size: .9rem;
+}
+
+.logbtn:hover {
+    background-color: #d9e3f3;
+    color: #057575;
+}
+
+.mebtn {
+    background-color:#f6f8fa;
+    color: #088c8c;
+    padding: 0 3px;
+    width: 4rem;
+    border-radius: 5px;
+    border: 1px solid #088c8c;
+    box-shadow: 0 8px 16px 0 #088c8c;
+    margin: 2px;
+    font-size: .9rem;
 }

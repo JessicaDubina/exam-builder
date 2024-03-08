@@ -7,96 +7,116 @@ import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 const Signup = () => {
-    const [formState, setFormState] = useState({
-      username: '',
-      email: '',
-      password: '',
+  const [formState, setFormState] = useState({
+    username: '',
+    email: '',
+    password: '',
+  });
+
+  const [isInstructor, setIsInstructor] = useState(false); // State for instructor checkbox
+
+  const [addUser, { error, data }] = useMutation(ADD_USER);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: value,
     });
-    const [addUser, { error, data }] = useMutation(ADD_USER);
-  
-    const handleChange = (event) => {
-      const { name, value } = event.target;
-  
-      setFormState({
-        ...formState,
-        [name]: value,
+  };
+
+  const handleCheckboxChange = () => {
+    setIsInstructor(!isInstructor); // Toggle the value of isInstructor
+  };
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log(formState);
+
+    try {
+      const { data } = await addUser({
+        variables: {
+          ...formState,
+          instructor: isInstructor, // Include instructor value in the variables
+        },
       });
-    };
-  
-    const handleFormSubmit = async (event) => {
-      event.preventDefault();
-      console.log(formState);
-  
-      try {
-        const { data } = await addUser({
-          variables: { ...formState },
-        });
-  
-        Auth.login(data.addUser.token);
-      } catch (e) {
-        console.error(e);
-      }
-    };
-  
-    return (
-        //TODO: Update these classes. Taken from boilerplate signup page
-      <main className="flex-row justify-center mb-4">
-        <div className="col-12 col-lg-10">
-          <div className="card">
-            <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
-            <div className="card-body">
-              {data ? (
-                <p>
-                  Success! You may now head{' '}
-                  <Link to="/">back to the homepage.</Link>
-                </p>
-              ) : (
-                <form onSubmit={handleFormSubmit}>
+
+      Auth.login(data.addUser.token);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  return (
+    <main className="flex-row justify-center mb-4">
+      <div className="col-12 col-lg-10">
+        <div className="card">
+          <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
+          <div className="card-body">
+            {data ? (
+              <p>
+                Success! You may now head{' '}
+                <Link to="/">back to the homepage.</Link>
+              </p>
+            ) : (
+              <form onSubmit={handleFormSubmit}>
+                <input
+                  className="form-input"
+                  placeholder="Your username"
+                  name="username"
+                  type="text"
+                  value={formState.username}
+                  onChange={handleChange}
+                />
+                <input
+                  className="form-input"
+                  placeholder="Your email"
+                  name="email"
+                  type="email"
+                  value={formState.email}
+                  onChange={handleChange}
+                />
+                <input
+                  className="form-input"
+                  placeholder="******"
+                  name="password"
+                  type="password"
+                  value={formState.password}
+                  onChange={handleChange}
+                />
+                <div className="form-check">
                   <input
-                    className="form-input"
-                    placeholder="Your username"
-                    name="username"
-                    type="text"
-                    value={formState.name}
-                    onChange={handleChange}
+                    className="form-check-input"
+                    type="checkbox"
+                    id="isInstructor"
+                    checked={isInstructor}
+                    onChange={handleCheckboxChange}
                   />
-                  <input
-                    className="form-input"
-                    placeholder="Your email"
-                    name="email"
-                    type="email"
-                    value={formState.email}
-                    onChange={handleChange}
-                  />
-                  <input
-                    className="form-input"
-                    placeholder="******"
-                    name="password"
-                    type="password"
-                    value={formState.password}
-                    onChange={handleChange}
-                  />
-                  <button
-                    className="btn btn-block btn-primary"
-                    style={{ cursor: 'pointer' }}
-                    type="submit"
-                  >
-                    Submit
-                  </button>
-                </form>
-              )}
-  
-              {error && (
-                <div className="my-3 p-3 bg-danger text-white">
-                  {error.message}
+                  <label className="form-check-label" htmlFor="isInstructor">
+                    Are you an instructor?
+                  </label>
                 </div>
-              )}
-            </div>
+                <button
+                  className="btn btn-block btn-primary"
+                  style={{ cursor: 'pointer' }}
+                  type="submit"
+                >
+                  Submit
+                </button>
+              </form>
+            )}
+
+            {error && (
+              <div className="my-3 p-3 bg-danger text-white">
+                {error.message}
+              </div>
+            )}
           </div>
         </div>
-      </main>
-    );
-  };
-  
-  export default Signup;
-  
+      </div>
+    </main>
+  );
+};
+
+export default Signup;
