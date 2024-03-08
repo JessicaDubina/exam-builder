@@ -1,7 +1,7 @@
 [{
     "username": "gandalf",
     "email": "gandalf@lotr.com",
-    "password": "admin",
+    "password": "password1234",
     "instructor": true
 },
 {
@@ -48,7 +48,7 @@
 },
 {
     "username": "pippin",
-    "email": "pippin",
+    "email": "pippin@lotr.com",
     "password": "user9",
     "instructor": false
 }

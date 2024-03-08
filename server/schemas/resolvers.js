@@ -4,12 +4,12 @@ const { signToken, AuthenticationError } = require('../utils/auth');
 const resolvers = {
   Query: {
     users: async () => {
-        return await User.find({});
+        return await User.find({}).populate('exams').populate('created_exams');
     },
     // Query to retrieve a specific exam by ID
     getExam: async (parent, { examId }) => {
         try {
-            return await Exam.findById(examId);
+            return await Exam.findById(examId).populate('questions');
         } catch (error) {
             throw new Error(`Failed to get exam: ${error.message}`);
         }
@@ -48,12 +48,16 @@ const resolvers = {
           },
         login: async (parent, { email, password }) => {
             const user = await User.findOne({ email });
-      
+            
+            console.log("User: ", user);
+            
             if (!user) {
               throw AuthenticationError;
             }
       
             const correctPw = await user.isCorrectPassword(password);
+
+            console.log("Correct PW: ", correctPw);
       
             if (!correctPw) {
               throw AuthenticationError;

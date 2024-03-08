@@ -1,13 +1,5 @@
 const typeDefs = `
 
-  type User {
-    _id: ID
-    username: String
-    email: String
-    password: String
-    instructor: Boolean
-  }
-
   type Question {
     _id: ID
     question_text: String
@@ -24,6 +16,16 @@ const typeDefs = `
     questions: [Question]
   }
   
+  type User {
+    _id: ID
+    username: String
+    email: String
+    password: String
+    instructor: Boolean
+    exams: [Exam]
+    created_exams: [Exam]
+  }
+
   type Auth {
     token: ID
     user: User
@@ -31,14 +33,10 @@ const typeDefs = `
 
   type Query {
     users: [User]
-
     getExam(examId: ID!): Exam
-    
-    allExams: [Exam!]!
-    
+    allExams: [Exam]
     getQuestion(questionId: ID!): Question
-    
-    allQuestions: [Question!]!
+    allQuestions: [Question]
   }
 
   type Mutation {
