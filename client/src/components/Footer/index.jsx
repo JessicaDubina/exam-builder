@@ -6,16 +6,9 @@ const Footer = () => {
   const navigate = useNavigate();
   return (
     <footer className="container w-100 mt-auto">
-      <div className="text-center mb-5">
-        {location.pathname !== '/' && (
-          <button
-            className="backbtn"
-            onClick={() => navigate(-1)}
-          >
-            &larr; Back
-          </button>
-        )}
-        <h4>
+      
+        
+        <h4 className='footer-content text-center mb-5'>
           Find us{' '}
           <span
             className="emoji"
@@ -27,7 +20,18 @@ const Footer = () => {
           </span>{' '}
           HERE
         </h4>
-      </div>
+        <div classname="btn-container">
+          {location.pathname !== '/' && (
+            <button
+              className="backbtn"
+              onClick={() => navigate(-1)}
+            >
+              &larr; Back
+            </button>
+          )}
+        </div>
+        
+     
     </footer>
   );
 };

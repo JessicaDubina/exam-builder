@@ -1,4 +1,6 @@
 footer {
+    display: flex;
+    padding: .3rem 0;
     background-color: #4dd7db;
     position: fixed;
     left: 0;
@@ -6,6 +8,18 @@ footer {
     right: 0;
     justify-content: center;
     box-shadow: 0 -6px 16px 0 #088c8c;
+}
+
+.footer-content {
+    width: 85%;
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 15%;
 }
 
 .backbtn {
