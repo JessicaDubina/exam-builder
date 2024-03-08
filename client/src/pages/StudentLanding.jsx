@@ -19,12 +19,12 @@ const StudentLanding = () => {
     return (
         <div>
             {/* Render exams */}
-            {exams.map(exam => (
+            {/* {exams.map(exam => (
                 <div key={exam.id}>
-                    <p>Exam: {exam.name}</p>
+                    <p>Exam: {exam.name}</p> */}
                     {/* <p>Grade: {exam.grade}</p> */}
-                </div>
-            ))}
+                {/* </div>
+            ))} */}
             <Link to="/NewExam">Take New Exam</Link>
         </div>
     );
