@@ -24,6 +24,8 @@ const typeDefs = `
     instructor: Boolean
     exams: [Exam]
     created_exams: [Exam]
+    exam_grades: [Float]
+    exam_completed: [Boolean]
   }
 
   type Auth {

@@ -3,21 +3,22 @@ import { gql } from "@apollo/client";
 export const QUERY_USERS = gql`
   query users {
     users {
-      username
-      email
-      instructor
-      exams {
-        _id
-        exam_name
-        topic
-      }
-      created_exams {
-        _id
-        exam_name
-        topic
-      }
-      password
+    username
+    email
+    instructor
+    exams {
+      _id
+      exam_name
+      topic
     }
+    created_exams {
+      _id
+      exam_name
+      topic
+    }
+    exam_grades
+    exam_completed
+  }
   }
 `;
 
