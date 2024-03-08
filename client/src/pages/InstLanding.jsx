@@ -1,53 +1,66 @@
 import React, { useState, useEffect } from 'react';
-import { useQuery } from '@apollo/client';
-import { ALL_QUESTIONS } from '../utils/queries';
+import { useQuery, useMutation } from '@apollo/client';
+import { ALL_QUESTIONS} from '../utils/queries';
+import { ADD_EXAM } from '../utils/mutations';
 
 const InstLanding = () => {
-    const [createExamClicked, setCreateExamClicked] = useState(false); // State to track button click
-    const { loading, error, data } = useQuery(ALL_QUESTIONS);
-
-    // State for selected questions
+    const [createExamClicked, setCreateExamClicked] = useState(false);
+    const [examName, setExamName] = useState('');
+    const [examTopic, setExamTopic] = useState('');
     const [selectedQuestions, setSelectedQuestions] = useState([]);
     const [questions, setQuestions] = useState([]);
-    const [selectedTopics, setSelectedTopics] = useState([]); // State for selected topics
+    const [selectedTopics, setSelectedTopics] = useState([]);
+    const { loading, error, data } = useQuery(ALL_QUESTIONS);
+    const [addExam] = useMutation(ADD_EXAM);
 
-    // Update questions state when data is fetched
     useEffect(() => {
         if (!loading && data) {
             setQuestions(data.allQuestions);
         }
     }, [loading, data]);
 
-    // Event handler for selecting a question
     const handleQuestionSelect = (questionId) => {
-        if (!selectedQuestions.includes(questionId)) {
-            setSelectedQuestions([...selectedQuestions, questionId]);
-        }
+        setSelectedQuestions([...selectedQuestions, questionId]);
     };
 
-    // Event handler for deselecting a question
     const handleQuestionDeselect = (questionId) => {
         setSelectedQuestions(selectedQuestions.filter(id => id !== questionId));
     };
 
-    // Event handler for creating an exam with selected questions
     const handleCreateExam = () => {
         setCreateExamClicked(true);
     };
 
-    // Event handler for viewing students
     const handleViewStudents = () => {
         navigate('/view-students');
     };
 
-    // Event handler for selecting topics
-    const handleTopicSelect = (e) => {
-        setSelectedTopics(Array.from(e.target.selectedOptions, option => option.value));
+    const handleExamNameChange = (e) => {
+        setExamName(e.target.value);
     };
 
-    const filteredQuestions = selectedTopics.length > 0 ? 
-    questions.filter(question => selectedTopics.includes(question.topic)) : questions;
+    const handleExamTopicChange = (e) => {
+        setExamTopic(e.target.value);
+    };
 
+    const handleAddExam = async () => {
+        try {
+            await addExam({
+                variables: {
+                    examData: {
+                        exam_name: examName,
+                        topic: examTopic,
+                        questions: selectedQuestions
+                    }
+                }
+            });
+        } catch (error) {
+            console.error('Error adding exam:', error);
+        }
+    };
+
+    const filteredQuestions = selectedTopics.length > 0 ?
+        questions.filter(question => selectedTopics.includes(question.topic)) : questions;
 
     return (
         <main>
@@ -56,30 +69,44 @@ const InstLanding = () => {
                 <button onClick={handleViewStudents}>See Students</button>
             </div>
             {createExamClicked && (
-                <div className="questions-container" style={{ maxHeight: '300px', overflowY: 'auto' }}>
-                    <h2>Questions:</h2>
-                    {/* Dropdown for selecting topics */}
-                    <select multiple onChange={handleTopicSelect}>
-                        <option value="">All Topics</option>
-                        {/* Fetch all unique topics and map them to options */}
-                        {data && Array.from(new Set(data.allQuestions.map(question => question.topic))).map(topic => (
-                            <option key={topic} value={topic}>{topic}</option>
-                        ))}
-                    </select>
-                    {loading ? (
-                        <p>Loading questions...</p>
-                    ) : error ? (
-                        <p>Error loading questions</p>
-                    ) : (
-                        // Render list of filtered questions here
-                        <ul>
-                            {filteredQuestions.map(question => (
-                                <li key={question._id} onClick={() => handleQuestionSelect(question._id)}>
-                                    {question.question_text}
-                                </li>
-                            ))}
-                        </ul>
-                    )}
+                <div>
+                    <input
+                        type="text"
+                        value={examName}
+                        onChange={handleExamNameChange}
+                        placeholder="Enter exam name"
+                    />
+                    <input
+                        type="text"
+                        value={examTopic}
+                        onChange={handleExamTopicChange}
+                        placeholder="Enter exam topic"
+                    />
+                    <div className="flex-row" style={{ display: 'flex', width: '100%' }}>
+                        <div className="questions-container" style={{ flex: 1, height: '50vh', overflowY: 'auto' }}>
+                            <h2>All Questions:</h2>
+                            <ul style={{ listStyleType: 'none', padding: 0, margin: 0, fontSize: '0.8em' }}>
+                                {questions.map(question => (
+                                    <li key={question._id} style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>
+                                        {question.question_text}
+                                        <button onClick={() => handleQuestionSelect(question._id)}>Select</button>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                        <div className="selected-questions" style={{ flex: 1, height: '50vh', overflowY: 'auto' }}>
+                            <h2>Selected Questions:</h2>
+                            <ul style={{ listStyleType: 'none', padding: 0, margin: 0, fontSize: '0.8em' }}>
+                                {selectedQuestions.map(questionId => (
+                                    <li key={questionId} style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>
+                                        {questions.find(question => question._id === questionId)?.question_text}
+                                        <button onClick={() => handleQuestionDeselect(questionId)}>Deselect</button>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                    <button onClick={handleAddExam}>Add Exam</button>
                 </div>
             )}
         </main>
