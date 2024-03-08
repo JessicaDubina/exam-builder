@@ -51,6 +51,7 @@ const populateUserData = async (exams) => {
 
     for (i = 0; i < exams.length; i++ ) {
       newExam = {
+        _id: new mongoose.Types.ObjectId(),        
         exam_id: exams[i]._id,
         grade: 0,
         completed: false,
@@ -78,7 +79,7 @@ db.once('open', async () => {
         await cleanDB('User', 'users');
        
         for(i=0; i <questionData.length; i++){
-            questionData[i]._id= new mongoose.Types.ObjectId();
+            questionData[i]._id = new mongoose.Types.ObjectId();
         }
 
         examData = populateExamData(questionData);

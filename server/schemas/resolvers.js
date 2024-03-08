@@ -3,8 +3,11 @@ const { signToken, AuthenticationError } = require("../utils/auth");
 
 const resolvers = {
   Query: {
-    users: async () => {
-      return await User.find({}).populate("exams").populate("created_exams");
+    users: async (parent, args, context) => {
+      if (context.user) {
+        return await User.find({}).populate("exams").populate("created_exams");
+      }
+      throw AuthenticationError;
     },
     me: async (parent, args, context) => {
       if (context.user) {
@@ -108,7 +111,7 @@ const resolvers = {
           { _id: context.user._id },
           { $push: { exams: { ...newExam } }},
           { new: true }
-        ).populate('exams');
+        );
       }
       throw AuthenticationError;
     },
