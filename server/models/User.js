@@ -1,5 +1,25 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
+const { isNumberObject } = require("util/types");
+
+const assignedExamSchema = new Schema(
+  {
+    exam_id: {
+      type: Schema.Types.ObjectId,
+      required: true
+    },
+    grade: {
+      type: Number,
+      required: true,
+      default: 0,
+    },
+    completed: {
+      type: Boolean,
+      required: true,
+      default: false,
+    }
+  }
+)
 
 const userSchema = new Schema(
   {
@@ -27,8 +47,7 @@ const userSchema = new Schema(
     },
     exams: [
       {
-        type: Schema.Types.ObjectId,
-        ref: "exam",
+        type: [assignedExamSchema],
       },
     ],
     created_exams: [

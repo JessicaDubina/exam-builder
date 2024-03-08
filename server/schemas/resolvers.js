@@ -88,12 +88,29 @@ const resolvers = {
         const exam = await Exam.create(examData);
         return exam;
       }
+      throw AuthenticationError;
     },
     addQuestion: async (parent, { questionData }, context) => {
       if (context.user) {
         const question = await Question.create(questionData);
         return question;
       }
+      throw AuthenticationError;
+    },
+    assignExam: async (parent, { examId }, context) => {
+      if (context.user) {
+        const newExam = {
+          exam_id: examId,
+          grade: 0,
+          completed: false
+        }
+        return User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $push: { exams: { ...newExam } }},
+          { new: true }
+        ).populate('exams');
+      }
+      throw AuthenticationError;
     },
   },
 };

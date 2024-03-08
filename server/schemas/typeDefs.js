@@ -15,6 +15,13 @@ const typeDefs = `
     topic: String
     questions: [Question]
   }
+
+  type AssignedExam {
+    _id: ID
+    exam_id: ID
+    grade: Float
+    completed: Boolean
+  }
   
   type User {
     _id: ID
@@ -22,10 +29,8 @@ const typeDefs = `
     email: String
     password: String
     instructor: Boolean
-    exams: [Exam]
+    exams: [AssignedExam]
     created_exams: [Exam]
-    exam_grades: [Float]
-    exam_completed: [Boolean]
   }
 
   type Auth {
@@ -61,6 +66,7 @@ const typeDefs = `
     login(email: String!, password: String!): Auth
     addExam(examData: examData!): Exam
     addQuestion(questionData: questionData!): Question
+    assignExam(examId: String!): User
   }
 `;
 

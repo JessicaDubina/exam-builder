@@ -46,20 +46,26 @@ const populateExamData = (questions) => {
   };
 
 const populateUserData = async (exams) => {
+    let examArray = [];
     let examIds = [];
-    let examTaken = [];
+
     for (i = 0; i < exams.length; i++ ) {
+      newExam = {
+        exam_id: exams[i]._id,
+        grade: 0,
+        completed: false,
+      };
+      examArray.push(newExam);
       examIds.push(exams[i]._id);
-      examTaken.push(false);
     }
+
     userData[0].created_exams = examIds;
     const passwordHash = await bcrypt.hash(userData[0].password, 10);
     userData[0].password = passwordHash;    
     for (i = 1; i < userData.length; i++) {
       const passwordHash = await bcrypt.hash(userData[i].password, 10);
       userData[i].password = passwordHash;
-      userData[i].exams = examIds;
-      userData[i].exam_completed = examTaken;
+      userData[i].exams = examArray;
     }
 
     return userData;
