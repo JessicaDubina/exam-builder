@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 
 const db = require('../config/connection');
 const { Question, Exam, User } = require('../models'); 
@@ -43,6 +44,23 @@ const populateExamData = (questions) => {
   
     return examData;
   };
+
+const populateUserData = async (exams) => {
+    let examIds = [];
+    for (i = 0; i < exams.length; i++ ) {
+      examIds.push(exams[i]._id);
+    }
+    userData[0].created_exams = examIds;
+    const passwordHash = await bcrypt.hash(userData[0].password, 10);
+    userData[0].password = passwordHash;    
+    for (i = 1; i < userData.length; i++) {
+      const passwordHash = await bcrypt.hash(userData[i].password, 10);
+      userData[i].password = passwordHash;
+      userData[i].exams = examIds;
+    }
+
+    return userData;
+}
   
 db.once('open', async () => {
     try {
@@ -55,9 +73,11 @@ db.once('open', async () => {
         }
 
         examData = populateExamData(questionData);
-        
+        userExamData = await populateUserData(examData);
+
         await Question.collection.insertMany(questionData);
         await Exam.collection.insertMany(examData);
+        await User.collection.insertMany(userExamData);
 
         console.log('Seed data has been added!');
         process.exit(0);
