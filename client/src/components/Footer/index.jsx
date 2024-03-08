@@ -9,10 +9,10 @@ const Footer = () => {
       <div className="text-center mb-5">
         {location.pathname !== '/' && (
           <button
-            className="btn btn-dark my-3"
+            className="backbtn"
             onClick={() => navigate(-1)}
           >
-            &larr; Go Back
+            &larr; Back
           </button>
         )}
         <h4>
