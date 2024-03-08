@@ -1,9 +1,9 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model } = require("mongoose");
 
 const examSchema = new Schema({
   exam_name: {
     type: String,
-    required: true
+    required: true,
   },
   topic: {
     type: String,
@@ -12,13 +12,12 @@ const examSchema = new Schema({
 
   questions: [
     {
-    type: Schema.Types.ObjectId,
-    ref: 'Question'
-  }
-]
+      type: Schema.Types.ObjectId,
+      ref: "question",
+    },
+  ],
 });
 
-
-const Exam = model('Exam', examSchema);
+const Exam = model("exam", examSchema);
 
 module.exports = Exam;
