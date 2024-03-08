@@ -37,11 +37,11 @@ const StudentLanding = () => {
                 </div>
 
            </div>
-        {/* {exams.some(exam => !exam.complete) ? ( */}
+        {exams.some(exam => !exam.complete) ? (
             <Link to="/NewExam" style={{ marginTop: '10px', display: 'block' }}>Take New Exam</Link>
-        {/* ) : (
+        ) : (
             <p>No new exams</p>
-        )} */}
+        )}
         </div>
     );
 };
