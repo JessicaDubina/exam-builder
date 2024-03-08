@@ -69,6 +69,18 @@ const resolvers = {
 
       return { token, user };
     },
+    addExam: async (parent, { examData }, context) => {
+      if (context.user) {
+        const exam = await Exam.create(examData);
+        return exam;
+      }
+    },
+    addQuestion: async (parent, { questionData }, context) => {
+      if (context.user) {
+        const question = await Question.create(questionData);
+        return question;
+      }
+    },
   },
 };
 

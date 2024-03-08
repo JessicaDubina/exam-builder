@@ -40,9 +40,25 @@ const typeDefs = `
     allQuestions: [Question]
   }
 
+  input examData {
+    exam_name: String
+    topic: String
+    questions: [ID]
+  }
+
+  input questionData {
+    question_text: String
+    answer_choices: [String]
+    correct_answer: Int
+    topic: String
+    difficulty: String    
+  }
+
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
+    addExam(examData: examData!): Exam
+    addQuestion(questionData: questionData!): Question
   }
 `;
 
