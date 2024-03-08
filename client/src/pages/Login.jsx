@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 
 const Login = () => {
+  const navigate = useNavigate();
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [login, { error, data }] = useMutation(LOGIN_USER);
 
@@ -19,20 +20,19 @@ const Login = () => {
   };
 
   const handleFormSubmit = async (event) => {
-    event.preventDefault();
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-        
-    console.log(formState);
+    event.preventDefault(event);
     try {
       const { data } = await login({
         variables: { ...formState },
       });
-
-      Auth.login(data.login.token);
+        // Log the user data received from the server
+        Auth.login(data.login.token);
+        console.log(data.login.user);
+        if (data.login.user.instructor) {
+          navigate('/InstLanding'); // Redirect to InstLanding if user is instructor
+        } else {
+          // navigate('/StudentLanding'); // Redirect to StuLanding if user is student
+        }
     } catch (e) {
       console.error(e);
     }
