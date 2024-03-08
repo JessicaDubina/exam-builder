@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import './index.css'
+import './index.css';
 
 import Auth from '../../utils/auth';
 
@@ -20,7 +20,9 @@ const Header = () => {
             <>
               <Link className="mebtn" to="/me">
                 {/* Run the getProfile() method to get access to the unencrypted token value in order to retrieve the user's username  */}
+                
                 {Auth.getUser().authenticatedPerson.username}
+                {console.log(Auth.getUser().authenticatedPerson)}
               </Link>
               <button className="logbtn" onClick={logout}>
                 Logout
