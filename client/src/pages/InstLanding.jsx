@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
 import { ALL_QUESTIONS} from '../utils/queries';
 import { ADD_EXAM } from '../utils/mutations';
+import './index.css'
 
 const InstLanding = () => {
     const [createExamClicked, setCreateExamClicked] = useState(false);
@@ -69,7 +70,7 @@ const InstLanding = () => {
                 <button onClick={handleViewStudents}>See Students</button>
             </div>
             {createExamClicked && (
-                <div>
+                <div id="exam-inputs">
                     <input
                         type="text"
                         value={examName}
@@ -82,23 +83,23 @@ const InstLanding = () => {
                         onChange={handleExamTopicChange}
                         placeholder="Enter exam topic"
                     />
-                    <div className="flex-row" style={{ display: 'flex', width: '100%' }}>
-                        <div className="questions-container" style={{ flex: 1, height: '50vh', overflowY: 'auto' }}>
+                    <div className="segment ">
+                        <div className="questions-container">
                             <h2>All Questions:</h2>
-                            <ul style={{ listStyleType: 'none', padding: 0, margin: 0, fontSize: '0.8em' }}>
+                            <ul className="selection-box">
                                 {questions.map(question => (
-                                    <li key={question._id} style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>
+                                    <li key={question._id} className="selection-list-item" >
                                         {question.question_text}
                                         <button onClick={() => handleQuestionSelect(question._id)}>Select</button>
                                     </li>
                                 ))}
                             </ul>
                         </div>
-                        <div className="selected-questions" style={{ flex: 1, height: '50vh', overflowY: 'auto' }}>
+                        <div className="selected-questions" >
                             <h2>Selected Questions:</h2>
                             <ul style={{ listStyleType: 'none', padding: 0, margin: 0, fontSize: '0.8em' }}>
                                 {selectedQuestions.map(questionId => (
-                                    <li key={questionId} style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>
+                                    <li key={questionId} className='selection-list-item' >
                                         {questions.find(question => question._id === questionId)?.question_text}
                                         <button onClick={() => handleQuestionDeselect(questionId)}>Deselect</button>
                                     </li>

@@ -12,6 +12,11 @@
   text-align: center;
 }
 
+#main-body {
+  margin: 1rem;
+  margin-bottom: 3rem;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

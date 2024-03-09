@@ -23,20 +23,21 @@ footer {
 }
 
 .backbtn {
-    background-color:#f6f8fa;
+    background-color:#f0f5f5;
     color: #088c8c;
     padding: 0 3px;
     width: 5rem;
     border-radius: 5px;
-    border: 1px solid #088c8c;
     box-shadow: 0 8px 16px 0 #088c8c;
-    margin: 2px;
+    margin: .3rem;
     font-size: .9rem;
 }
 
 .backbtn:hover {
-    background-color: #d9e3f3;
+    background-color: #ffffff;
     color: #057575;
+    font-weight: bold;
+    transform: scale(1.1);
 }
 
 themecolorsForLater {
@@ -44,6 +45,7 @@ themecolorsForLater {
     background-color: #f0f5f5;
     background-color: #088c8c;
     background-color: #f8f8f8;
+    background-color: #f6f8fa;
     background-color: #f6f8fa;
     /* #4 and #5 were old header and footer bg colors */
 }
