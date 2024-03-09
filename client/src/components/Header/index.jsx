@@ -22,8 +22,6 @@ const Header = () => {
       setMeRoute(isInstructor ? '/InstLanding' : '/StudentLanding');
     }
   }, [data, loading]);  
-  
-  console.log(meRoute);
 
   return (
     <header className="mb-4 py-3 flex-row align-center">
