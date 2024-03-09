@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
 import { ALL_QUESTIONS} from '../utils/queries';
 import { ADD_EXAM } from '../utils/mutations';
-import './index.css'
 
 const InstLanding = () => {
     const [createExamClicked, setCreateExamClicked] = useState(false);
