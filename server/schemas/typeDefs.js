@@ -39,7 +39,7 @@ const typeDefs = `
   }
 
   type Query {
-    users: [User]
+    users(id: ID): [User]
     me: User
     getExam(examId: ID!): Exam
     allExams: [Exam]

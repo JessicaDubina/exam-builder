@@ -53,14 +53,16 @@ export const ADD_QUESTION = gql`
 `;
 
 export const ASSIGN_EXAM = gql`
-  assignExam(examId: $examId) {
-    username
-    email
-    exams {
-      _id
-      completed
-      exam_id
-      grade
+  mutation assignExam($examId: String!) {
+    assignExam(examId: $examId) {
+      username
+      email
+      exams {
+        _id
+        completed
+        exam_id
+        grade
+      }
     }
   }
 `;
