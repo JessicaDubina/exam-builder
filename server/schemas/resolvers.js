@@ -100,7 +100,7 @@ const resolvers = {
       }
       throw AuthenticationError;
     },
-    assignExam: async (parent, { examId }, context) => {
+    assignExam: async (parent, { examId, userId }, context) => {
       if (context.user) {
         const newExam = {
           exam_id: examId,
@@ -108,7 +108,7 @@ const resolvers = {
           completed: false
         }
         return User.findOneAndUpdate(
-          { _id: context.user._id },
+          { _id: userId },
           { $push: { exams: { ...newExam } }},
           { new: true }
         );

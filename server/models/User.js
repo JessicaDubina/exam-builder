@@ -5,6 +5,7 @@ const assignedExamSchema = new Schema(
   {
     exam_id: {
       type: Schema.Types.ObjectId,
+      ref: 'exam',
       required: true
     },
     grade: {

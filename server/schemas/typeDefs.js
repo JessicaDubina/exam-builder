@@ -66,7 +66,7 @@ const typeDefs = `
     login(email: String!, password: String!): Auth
     addExam(examData: examData!): Exam
     addQuestion(questionData: questionData!): Question
-    assignExam(examId: String!): User
+    assignExam(examId: String!, userId: String!): User
   }
 `;
 
