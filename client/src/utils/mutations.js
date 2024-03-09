@@ -14,11 +14,20 @@ export const LOGIN_USER = gql`
 `;
 
 export const ADD_USER = gql`
-  mutation addUser($username: String!, $email: String!, $password: String!) {
-    addUser(username: $username, email: $email, password: $password) {
+  mutation addUser(
+    $username: String!
+    $email: String!
+    $password: String!
+    $instructor: Boolean!
+  ) {
+    addUser(
+      username: $username
+      email: $email
+      password: $password
+      instructor: $instructor
+    ) {
       token
       user {
-        _id
         username
         email
         instructor
@@ -48,6 +57,21 @@ export const ADD_QUESTION = gql`
       difficulty
       answer_choices
       correct_answer
+    }
+  }
+`;
+
+export const ASSIGN_EXAM = gql`
+  mutation assignExam($examId: String!) {
+    assignExam(examId: $examId) {
+      username
+      email
+      exams {
+        _id
+        completed
+        exam_id
+        grade
+      }
     }
   }
 `;

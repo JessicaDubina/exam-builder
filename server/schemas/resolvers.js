@@ -3,13 +3,16 @@ const { signToken, AuthenticationError } = require("../utils/auth");
 
 const resolvers = {
   Query: {
-    users: async () => {
-      return await User.find({}).populate("exams").populate("created_exams");
+    users: async (parent, { id }, context) => {
+      if (context.user) {
+        const userId = id ? { _id: id } : {};
+        return await User.find(userId).populate("created_exams");
+      }
+      throw AuthenticationError;
     },
     me: async (parent, args, context) => {
       if (context.user) {
         return User.findOne({ _id: context.user._id })
-          .populate("exams")
           .populate("created_exams");
       }
       throw AuthenticationError;
@@ -61,8 +64,8 @@ const resolvers = {
   },
 
   Mutation: {
-    addUser: async (parent, { username, email, password }) => {
-      const user = await User.create({ username, email, password });
+    addUser: async (parent, { username, email, password, instructor }) => {
+      const user = await User.create({ username, email, password, instructor });
       const token = signToken(user);
       return { token, user };
     },
@@ -88,12 +91,29 @@ const resolvers = {
         const exam = await Exam.create(examData);
         return exam;
       }
+      throw AuthenticationError;
     },
     addQuestion: async (parent, { questionData }, context) => {
       if (context.user) {
         const question = await Question.create(questionData);
         return question;
       }
+      throw AuthenticationError;
+    },
+    assignExam: async (parent, { examId }, context) => {
+      if (context.user) {
+        const newExam = {
+          exam_id: examId,
+          grade: 0,
+          completed: false
+        }
+        return User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $push: { exams: { ...newExam } }},
+          { new: true }
+        );
+      }
+      throw AuthenticationError;
     },
   },
 };
