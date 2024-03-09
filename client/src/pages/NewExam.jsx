@@ -9,18 +9,26 @@ const NewExam = () => {
   
   };
 
-  return (
+const handleSubmit = () => {
+    // Logic to submit the answers
+};
+
+return (
     <div>
-      <h2>{data.exam.name}</h2>
-      <p>{data.exam.topic}</p>
-      {data.exam.questions.map((question, index) => (
-        <div key={index}>
-          <h3>{question.questionText}</h3>
-          {question.answerChoices.map((choice, index) => (
-            <p key={index}>{choice}</p>
-          ))}
-        </div>
-      ))}
+        <h2>{data.exam.name}</h2>
+        <p>{data.exam.topic}</p>
+        {data.exam.questions.map((question, index) => (
+            <div key={index}>
+                <h3>{question.questionText}</h3>
+                {question.answerChoices.map((choice, index) => (
+                    <div key={index}>
+                        <input type="checkbox" id={`choice-${index}`} name={`choice-${index}`} value={choice} />
+                        <label htmlFor={`choice-${index}`}>{choice}</label>
+                    </div>
+                ))}
+            </div>      
+        ))}
+        <button onClick={handleSubmit}>Submit</button>
     </div>
-  );
+);
 export default NewExam;
