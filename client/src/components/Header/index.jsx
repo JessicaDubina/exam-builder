@@ -1,13 +1,28 @@
 import { Link } from 'react-router-dom';
-import './index.css'
+import './index.css';
 
 import Auth from '../../utils/auth';
+import { useEffect, useState } from 'react';
+import { useQuery } from '@apollo/client';
+import { GET_ME } from '../../utils/queries';
 
 const Header = () => {
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
   };
+
+  const [meRoute, setMeRoute] = useState('/');
+
+  const { data, loading } = useQuery(GET_ME);
+
+  useEffect(() => {
+    if (!loading && data) {
+      const isInstructor = data.me.instructor;
+      setMeRoute(isInstructor ? '/InstLanding' : '/StudentLanding');
+    }
+  }, [data, loading]);  
+
   return (
     <header className="mb-4 py-3 flex-row align-center">
       <div className="header-container">
@@ -18,8 +33,7 @@ const Header = () => {
         <div className="profile-info">
           {Auth.loggedIn() ? (
             <>
-              <Link className="mebtn" to="/me">
-                {/* Run the getProfile() method to get access to the unencrypted token value in order to retrieve the user's username  */}
+              <Link className="mebtn" to={meRoute}>
                 {Auth.getUser().authenticatedPerson.username}
               </Link>
               <button className="logbtn" onClick={logout}>
