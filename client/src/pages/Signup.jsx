@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
@@ -12,6 +12,8 @@ const Signup = () => {
     email: '',
     password: '',
   });
+
+  const navigate = useNavigate();
 
   const [isInstructor, setIsInstructor] = useState(false); // State for instructor checkbox
 
@@ -41,8 +43,13 @@ const Signup = () => {
           instructor: isInstructor, // Include instructor value in the variables
         },
       });
-
+     
       Auth.login(data.addUser.token);
+      if (data.addUser.user.instructor) {
+        navigate('/InstLanding'); // Redirect to InstLanding if user is instructor
+      } else {
+        navigate('/StudentLanding'); // Redirect to StuLanding if user is student
+      }
     } catch (e) {
       console.error(e);
     }

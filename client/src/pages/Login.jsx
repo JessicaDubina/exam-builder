@@ -31,7 +31,7 @@ const Login = () => {
         if (data.login.user.instructor) {
           navigate('/InstLanding'); // Redirect to InstLanding if user is instructor
         } else {
-          // navigate('/StudentLanding'); // Redirect to StuLanding if user is student
+          navigate('/StudentLanding'); // Redirect to StuLanding if user is student
         }
     } catch (e) {
       console.error(e);
