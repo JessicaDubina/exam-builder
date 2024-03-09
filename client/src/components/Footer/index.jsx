@@ -20,7 +20,7 @@ const Footer = () => {
           </span>{' '}
           HERE
         </h4>
-        <div classname="btn-container">
+        <div className="btn-container">
           {location.pathname !== '/' && (
             <button
               className="backbtn"
