@@ -33,23 +33,7 @@ header {
     width: 15%;
 }
 
-.logbtn {
-    background-color:#f6f8fa;
-    color: #088c8c;
-    padding: 0 3px;
-    width: 4rem;
-    border-radius: 5px;
-    border: 1px solid #088c8c;
-    box-shadow: 0 8px 16px 0 #088c8c;
-    margin: 2px;
-    font-size: .9rem;
-}
-
-.logbtn:hover {
-    background-color: #d9e3f3;
-    color: #057575;
-}
-
+.logbtn,
 .mebtn {
     background-color:#f6f8fa;
     color: #088c8c;
@@ -58,6 +42,20 @@ header {
     border-radius: 5px;
     border: 1px solid #088c8c;
     box-shadow: 0 8px 16px 0 #088c8c;
-    margin: 2px;
+    margin: .3rem;
     font-size: .9rem;
+}
+
+.logbtn:hover,
+.mebtn:hover {
+    background-color: #d9e3f3;
+    color: #057575;
+    transform: scale(1.1);
+}
+
+.logbtn:focus,
+.logbtn:focus-visible,
+.mebtn:focus,
+.mebtn:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
 }
