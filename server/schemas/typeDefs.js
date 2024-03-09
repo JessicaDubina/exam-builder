@@ -15,6 +15,13 @@ const typeDefs = `
     topic: String
     questions: [Question]
   }
+
+  type AssignedExam {
+    _id: ID
+    exam_id: ID
+    grade: Float
+    completed: Boolean
+  }
   
   type User {
     _id: ID
@@ -22,7 +29,7 @@ const typeDefs = `
     email: String
     password: String
     instructor: Boolean
-    exams: [Exam]
+    exams: [AssignedExam]
     created_exams: [Exam]
   }
 
@@ -32,7 +39,7 @@ const typeDefs = `
   }
 
   type Query {
-    users: [User]
+    users(id: ID): [User]
     me: User
     getExam(examId: ID!): Exam
     allExams: [Exam]
@@ -55,10 +62,11 @@ const typeDefs = `
   }
 
   type Mutation {
-    addUser(username: String!, email: String!, password: String!): Auth
+    addUser(username: String!, email: String!, password: String!, instructor: Boolean!): Auth
     login(email: String!, password: String!): Auth
     addExam(examData: examData!): Exam
     addQuestion(questionData: questionData!): Question
+    assignExam(examId: String!): User
   }
 `;
 
