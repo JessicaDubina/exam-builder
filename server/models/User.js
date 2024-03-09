@@ -55,16 +55,6 @@ const userSchema = new Schema(
         ref: "exam",
       },
     ],
-    exam_grades: [
-      {
-        type: Number,
-      }
-    ],
-    exam_completed: [
-      {
-        type: Boolean,
-      }
-    ]
   },
 );
 
