@@ -9,6 +9,7 @@ import Login from './pages/Login';
 import Error from './pages/Error';
 import Home from './pages/Home.jsx';
 import InstLanding from './pages/InstLanding.jsx';
+import StudentLanding from './pages/StudentLanding.jsx';
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: '/InstLanding',
         element: <InstLanding />
+      },
+      {
+        path: '/StudentLanding',
+        element: <StudentLanding />
       }
     ]
   }
