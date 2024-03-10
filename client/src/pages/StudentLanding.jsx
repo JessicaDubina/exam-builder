@@ -1,15 +1,15 @@
 // import  { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { QUERY_USERS } from '../utils/queries'; // Import the queryimport { _id } from '../utils/localStorage'; // Import the user id from local storage
+import { GET_ME } from '../utils/queries'; // Import the queryimport { _id } from '../utils/localStorage'; // Import the user id from local storage
 
 const StudentLanding = () => {
     // const [exams, setExams] = useState([]);
     // const { _id } = useParams();
 
-    const { loading, data } = useQuery(QUERY_USERS);
+    const { loading, data } = useQuery(GET_ME);
     console.log(data);
-    const exams = data?.users[1].exams || {};
+    const exams = data?.me.exams || [];
     
     if (loading) { 
         return <div>Loading...</div>;
