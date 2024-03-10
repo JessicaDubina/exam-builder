@@ -9,7 +9,7 @@ const StudentLanding = () => {
 
     const { loading, data } = useQuery(GET_ME);
     console.log(data);
-    const exams = data?.me.exams || [];
+    const exams = data?.me.exams.filter(exam => exam.completed) || [];
     
     if (loading) { 
         return <div>Loading...</div>;
