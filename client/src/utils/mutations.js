@@ -98,3 +98,13 @@ export const DELETE_EXAM = gql`
     }
   }
 `;
+
+export const DELETE_QUESTION = gql`
+  mutation deleteQuestion($questionId: String!) {
+    deleteQuestion(questionId: $questionId) {
+      question_text
+      topic
+      difficulty
+    }
+  }
+`;

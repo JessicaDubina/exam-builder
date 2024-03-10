@@ -69,6 +69,7 @@ const typeDefs = `
     assignExam(examId: String!, userId: String!): User
     deleteExam(examId: String!): Exam
     deleteUser(userId: String!): User
+    deleteQuestion(questionId: String!): Question
   }
 `;
 

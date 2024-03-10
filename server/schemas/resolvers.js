@@ -142,6 +142,12 @@ const resolvers = {
         };
       }
       throw AuthenticationError;
+    },
+    deleteQuestion: async (parent, { questionId }, context) => {
+      if (context.user) {
+        return Question.findOneAndDelete({ _id: questionId });
+      }
+      throw AuthenticationError;
     }
   },
 };
