@@ -77,3 +77,12 @@ export const ASSIGN_EXAM = gql`
     }
   }
 `;
+
+export const DELETE_EXAM = gql`
+mutation deleteExam($examId: String!) {
+  deleteExam(examId: $examId) {
+    _id
+    exam_name
+    topic
+  }
+}`;

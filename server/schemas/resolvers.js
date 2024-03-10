@@ -115,6 +115,21 @@ const resolvers = {
       }
       throw AuthenticationError;
     },
+    deleteExam: async (parent, { examId }, context) => {
+      if (context.user) {
+        if (context.user.instructor) {
+          await User.updateMany(
+            { "exams.exam_id": examId },
+            { $pull: { exams: { exam_id: examId } } }
+          );
+          return Exam.findOneAndDelete({ _id: examId });
+        } else {
+          console.error("Must be an instructor to delete an exam!");
+          throw new Error("User not an instructor");
+        };
+      }
+      throw AuthenticationError;
+    }
   },
 };
 
