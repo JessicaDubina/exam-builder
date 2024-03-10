@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import ebLogo from '../../assets/EB-Logo.png'
 import './index.css';
 
 import Auth from '../../utils/auth';
@@ -27,7 +28,9 @@ const Header = () => {
     <header className="mb-4 py-3 flex-row align-center">
       <div className="header-container">
         <div className="title-bar">
-          <h1 id="header-title" className="text-light">Exam Builder</h1>
+            <div id="header-title" className="text-light">
+            <img src={ebLogo} className="heading-logo" alt="Exam Builder logo" />
+              Exam Builder</div>
           <p>Customize and reuse exams without the headache</p>
         </div>
         <div className="profile-info">
