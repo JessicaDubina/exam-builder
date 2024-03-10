@@ -18,6 +18,11 @@ header {
     width: 85%;
 }
 
+.heading-logo {
+    height: 4rem;
+    width: 4rem;
+}
+
 #header-title {
     color: #f6f8fa;
     text-shadow: 2px 2px 4px #c5c7c9;
@@ -49,7 +54,6 @@ header {
 .mebtn:hover {
     background-color: #ffffff;
     color: #057575;
-    font-weight: bold;
     transform: scale(1.1);
 }
 

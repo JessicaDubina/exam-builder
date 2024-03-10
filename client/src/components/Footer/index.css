@@ -7,7 +7,7 @@ footer {
     bottom: 0;
     right: 0;
     justify-content: center;
-    box-shadow: 0 -6px 16px 0 #088c8c;
+    box-shadow: 0 -4px 16px 0 #088c8c;
 }
 
 .footer-content {
@@ -36,7 +36,6 @@ footer {
 .backbtn:hover {
     background-color: #ffffff;
     color: #057575;
-    font-weight: bold;
     transform: scale(1.1);
 }
 
