@@ -36,6 +36,17 @@ export const ADD_USER = gql`
   }
 `;
 
+export const DELETE_USER = gql`
+  mutation deleteUser($userId: String!) {
+    deleteUser(userId: $userId) {
+      _id
+      username
+      email
+      instructor
+    }
+  }
+`;
+
 export const ADD_EXAM = gql`
   mutation addExam($examData: examData!) {
     addExam(examData: $examData) {
@@ -79,10 +90,11 @@ export const ASSIGN_EXAM = gql`
 `;
 
 export const DELETE_EXAM = gql`
-mutation deleteExam($examId: String!) {
-  deleteExam(examId: $examId) {
-    _id
-    exam_name
-    topic
+  mutation deleteExam($examId: String!) {
+    deleteExam(examId: $examId) {
+      _id
+      exam_name
+      topic
+    }
   }
-}`;
+`;

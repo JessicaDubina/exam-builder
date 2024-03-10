@@ -64,11 +64,13 @@ const resolvers = {
   },
 
   Mutation: {
+    // Mutation to add a new user
     addUser: async (parent, { username, email, password, instructor }) => {
       const user = await User.create({ username, email, password, instructor });
       const token = signToken(user);
       return { token, user };
     },
+    // Mutation to log in
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
@@ -86,6 +88,14 @@ const resolvers = {
 
       return { token, user };
     },
+     // Mutation to delete a user
+    deleteUser: async (parent, { userId }, context) => {
+      if (context.user) {
+        return User.findOneAndDelete({ _id: userId });
+      }
+      throw AuthenticationError;
+    },
+    // Mutation to add a new exam
     addExam: async (parent, { examData }, context) => {
       if (context.user) {
         const exam = await Exam.create(examData);
@@ -93,6 +103,7 @@ const resolvers = {
       }
       throw AuthenticationError;
     },
+    // Mutation to add a new question
     addQuestion: async (parent, { questionData }, context) => {
       if (context.user) {
         const question = await Question.create(questionData);
@@ -100,6 +111,7 @@ const resolvers = {
       }
       throw AuthenticationError;
     },
+    // Mutation to assign an exam to a user
     assignExam: async (parent, { examId, userId }, context) => {
       if (context.user) {
         const newExam = {
@@ -115,6 +127,7 @@ const resolvers = {
       }
       throw AuthenticationError;
     },
+    // Mutation to delete an exam
     deleteExam: async (parent, { examId }, context) => {
       if (context.user) {
         if (context.user.instructor) {
