@@ -89,6 +89,19 @@ export const ASSIGN_EXAM = gql`
   }
 `;
 
+export const UPDATE_QUESTION = gql`
+  mutation updateQuestion($questionId: String!, $questionData: questionData!) {
+    updateQuestion(questionId: $questionId, questionData: $questionData) {
+      _id
+      question_text
+      topic
+      difficulty
+      answer_choices
+      correct_answer
+    }
+  }
+`;
+
 export const DELETE_EXAM = gql`
   mutation deleteExam($examId: String!) {
     deleteExam(examId: $examId) {

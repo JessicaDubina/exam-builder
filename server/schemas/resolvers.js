@@ -127,6 +127,17 @@ const resolvers = {
       }
       throw AuthenticationError;
     },
+    // Mutation to update a question
+    updateQuestion: async (parent, { questionId, questionData}, context) => {
+      if (context.user) {
+        const question = await Question.findByIdAndUpdate(
+          { _id: questionId },
+          { ...questionData },
+          { new: true }
+        )
+        return question;
+      }
+    },
     // Mutation to delete an exam
     deleteExam: async (parent, { examId }, context) => {
       if (context.user) {
