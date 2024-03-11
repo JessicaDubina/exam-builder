@@ -81,7 +81,7 @@ export const ASSIGN_EXAM = gql`
       instructor
       exams {
         _id
-        exam_id
+
         completed
         grade
       }
@@ -98,6 +98,20 @@ export const UPDATE_QUESTION = gql`
       difficulty
       answer_choices
       correct_answer
+    }
+  }
+`;
+
+export const UPDATE_EXAM = gql`
+  mutation updateExam($examId: String!, $examData: examData!) {
+    updateExam(examId: $examId, examData: $examData) {
+      _id
+      exam_name
+      topic
+      questions {
+        _id
+        question_text
+      }
     }
   }
 `;

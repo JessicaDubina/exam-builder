@@ -18,7 +18,7 @@ const typeDefs = `
 
   type AssignedExam {
     _id: ID
-    exam_id: ID
+    exam: Exam
     grade: Float
     completed: Boolean
   }
@@ -68,6 +68,7 @@ const typeDefs = `
     addQuestion(questionData: questionData!): Question
     assignExam(examId: String!, userId: String!): User
     updateQuestion(questionId: String!, questionData: questionData!): Question
+    updateExam(examId: String!, examData: examData!): Exam
     deleteExam(examId: String!): Exam
     deleteUser(userId: String!): User
     deleteQuestion(questionId: String!): Question

@@ -52,7 +52,7 @@ const populateUserData = async (exams) => {
     for (i = 0; i < exams.length; i++ ) {
       newExam = {
         _id: new mongoose.Types.ObjectId(),        
-        exam_id: exams[i]._id,
+        exam: exams[i]._id,
         grade: 0,
         completed: false,
       };
