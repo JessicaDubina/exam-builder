@@ -33,7 +33,6 @@ const Header = () => {
             <h1 id="header-title" className="text-light">
             <img src={ebLogo} className="heading-logo" alt="Exam Builder logo" />
               Exam Builder</h1>
-          <p>Customize and reuse exams without the headache</p>
         </div>
         <div className="profile-info">
           {Auth.loggedIn() ? (

@@ -11,6 +11,7 @@ import Home from './pages/Home.jsx';
 import InstLanding from './pages/InstLanding.jsx';
 import StudentLanding from './pages/StudentLanding.jsx';
 import NewExam from './pages/NewExam.jsx';
+import StudentList from './pages/StudentList.jsx';
 
 const router = createBrowserRouter([
   {
@@ -37,11 +38,15 @@ const router = createBrowserRouter([
       {
         path: '/StudentLanding',
         element: <StudentLanding />
-      }, 
+      } ,
       {
         path: '/NewExam',
         element: <NewExam />
       },
+      {
+        path: '/StudentList',
+        element: <StudentList />
+      }
     ]
   }
 ])

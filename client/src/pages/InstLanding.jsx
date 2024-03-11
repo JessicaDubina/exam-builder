@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
-import { ALL_QUESTIONS, GET_ME} from '../utils/queries';
+import { ALL_QUESTIONS, QUERY_USERS, GET_ME } from '../utils/queries';
 import { ADD_EXAM } from '../utils/mutations';
+import { useNavigate} from 'react-router-dom'; 
 
 const InstLanding = () => {
     const [createExamClicked, setCreateExamClicked] = useState(false);
@@ -10,16 +11,21 @@ const InstLanding = () => {
     const [selectedQuestions, setSelectedQuestions] = useState([]);
     const [questions, setQuestions] = useState([]);
     const [selectedTopics, setSelectedTopics] = useState([]);
-    const { loading, error, data } = useQuery(ALL_QUESTIONS);
+    const { loading: questionsLoading, data: questionsData, refetch: refetchQuestions } = useQuery(ALL_QUESTIONS);
     const [addExam] = useMutation(ADD_EXAM);
-
-    const { loading2, data2 } = useQuery(GET_ME);
+    const navigate = useNavigate(); 
+    const topicsFromQuestions = questions.reduce((topics, question) => {
+        if (!topics.includes(question.topic)) {
+            return [...topics, question.topic];
+        }
+        return topics;
+    }, []);
 
     useEffect(() => {
-        if (!loading && data) {
-            setQuestions(data.allQuestions);
+        if (!questionsLoading && questionsData) {
+            setQuestions(questionsData.allQuestions);
         }
-    }, [loading, data]);
+    }, [questionsLoading, questionsData]);
 
     const handleQuestionSelect = (questionId) => {
         setSelectedQuestions([...selectedQuestions, questionId]);
@@ -34,7 +40,8 @@ const InstLanding = () => {
     };
 
     const handleViewStudents = () => {
-        navigate('/view-students');
+        // Redirect user to the StudentList page
+        navigate('/StudentList');
     };
 
     const handleExamNameChange = (e) => {
@@ -56,13 +63,33 @@ const InstLanding = () => {
                     }
                 }
             });
+            setCreateExamClicked(false); // Reset exam creation after successful addition
+            setExamName('');
+            setExamTopic('');
+            setSelectedQuestions([]);
         } catch (error) {
             console.error('Error adding exam:', error);
         }
     };
 
+    const handleTopicFilter = (topic) => {
+        if (selectedTopics.includes(topic)) {
+            setSelectedTopics(selectedTopics.filter((prevTopic) => prevTopic !== topic));
+        } else {
+            setSelectedTopics([...selectedTopics, topic]);
+        }
+    };
+
+    const handleClearFilter = () => {
+        setSelectedTopics([]);
+    };
+
     const filteredQuestions = selectedTopics.length > 0 ?
         questions.filter(question => selectedTopics.includes(question.topic)) : questions;
+
+    useEffect(() => {
+        refetchQuestions({ topics: selectedTopics });
+    }, [selectedTopics]);
 
     return (
         <main>
@@ -70,7 +97,8 @@ const InstLanding = () => {
                 <button onClick={handleCreateExam}>Create Exam</button>
                 <button onClick={handleViewStudents}>See Students</button>
             </div>
-            {createExamClicked && (
+
+            {createExamClicked ? (
                 <div id="exam-inputs">
                     <input
                         type="text"
@@ -87,20 +115,27 @@ const InstLanding = () => {
                     <div className="segment ">
                         <div className="questions-container">
                             <h2>All Questions:</h2>
+                            <div>
+                                <h3>Filter by Topic:</h3>
+                                <button onClick={handleClearFilter}>All Topics</button>
+                                {topicsFromQuestions.map(topic => (
+                                    <button key={topic} onClick={() => handleTopicFilter(topic)}>{topic}</button>
+                                ))}
+                            </div>
                             <ul className="selection-box">
-                                {questions.map(question => (
-                                    <li key={question._id} className="selection-list-item" >
+                                {filteredQuestions.map(question => (
+                                    <li key={question._id} className="selection-list-item">
                                         {question.question_text}
                                         <button onClick={() => handleQuestionSelect(question._id)}>Select</button>
                                     </li>
                                 ))}
                             </ul>
                         </div>
-                        <div className="selected-questions" >
+                        <div className="selected-questions">
                             <h2>Selected Questions:</h2>
                             <ul style={{ listStyleType: 'none', padding: 0, margin: 0, fontSize: '0.8em' }}>
                                 {selectedQuestions.map(questionId => (
-                                    <li key={questionId} className='selection-list-item' >
+                                    <li key={questionId} className='selection-list-item'>
                                         {questions.find(question => question._id === questionId)?.question_text}
                                         <button onClick={() => handleQuestionDeselect(questionId)}>Deselect</button>
                                     </li>
@@ -108,9 +143,9 @@ const InstLanding = () => {
                             </ul>
                         </div>
                     </div>
-                    <button onClick={handleAddExam}>Add Exam</button>
+                    <button style={{ marginTop: '40px', backgroundColor: '#4dd7db', color: 'white' }} onClick={handleAddExam}>Add Exam</button>
                 </div>
-            )}
+            ) : null}
         </main>
     );
 };
