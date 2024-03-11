@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import ebLogo from '../../assets/EB-Logo.png'
 import './index.css';
 
@@ -8,8 +8,10 @@ import { useQuery } from '@apollo/client';
 import { GET_ME } from '../../utils/queries';
 
 const Header = () => {
+  const navigate = useNavigate();
   const logout = (event) => {
     event.preventDefault();
+    navigate('/'); //Navigate back to homepage after logout
     Auth.logout();
   };
 
