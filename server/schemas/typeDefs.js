@@ -18,7 +18,7 @@ const typeDefs = `
 
   type AssignedExam {
     _id: ID
-    exam_id: ID
+    exam: Exam
     grade: Float
     completed: Boolean
   }
@@ -66,7 +66,12 @@ const typeDefs = `
     login(email: String!, password: String!): Auth
     addExam(examData: examData!): Exam
     addQuestion(questionData: questionData!): Question
-    assignExam(examId: String!): User
+    assignExam(examId: String!, userId: String!): User
+    updateQuestion(questionId: String!, questionData: questionData!): Question
+    updateExam(examId: String!, examData: examData!): Exam
+    deleteExam(examId: String!): Exam
+    deleteUser(userId: String!): User
+    deleteQuestion(questionId: String!): Question
   }
 `;
 
