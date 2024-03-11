@@ -57,6 +57,11 @@ const userSchema = new Schema(
       },
     ],
   },
+  {
+    toJSON: {
+      virtuals: true,
+    },
+  }
 );
 
 userSchema.pre("save", async function (next) {
@@ -71,6 +76,23 @@ userSchema.pre("save", async function (next) {
 userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
+
+userSchema.virtual('grade').get(function () {
+  let acc = 0;
+  let count = 0;
+
+  this.exams.forEach((exam) => {
+    if (exam.completed) {
+      acc += exam.grade;
+      count++;
+    }
+  });
+
+  if (count === 0) {
+    return 0;
+  }
+  return acc / count;
+});
 
 const User = model("user", userSchema);
 
