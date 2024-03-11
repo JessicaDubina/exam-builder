@@ -56,8 +56,8 @@ const StudentList = () => {
     if (usersLoading || examsLoading) return <div>Loading...</div>;
 
     return (
-        <div>
-             <h2>Students</h2>
+        <div className='segment'>
+             <h2 className='page-title'>Students</h2>
             {assignmentSuccess && <div><strong>{selectedStudent.username}'s exam assigned successfully!</strong></div>}
             {filteredUsers.map(user => (
                 <div key={user._id}>
