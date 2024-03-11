@@ -19,14 +19,14 @@ header {
 }
 
 .heading-logo {
-    height: 4rem;
-    width: 4rem;
+    height: calc(3rem + 1vw);
+    width: calc(3rem + 1vw);
 }
 
 #header-title {
     color: #f6f8fa;
     text-shadow: 2px 2px 4px #c5c7c9;
-    font-size: 4rem;
+    font-size: calc(2.5rem + 1.5vw);
     font-family: "Protest Guerrilla", sans-serif;
 }
 
