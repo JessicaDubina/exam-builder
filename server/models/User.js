@@ -3,8 +3,9 @@ const bcrypt = require("bcrypt");
 
 const assignedExamSchema = new Schema(
   {
-    exam_id: {
+    exam: {
       type: Schema.Types.ObjectId,
+      ref: 'exam',
       required: true
     },
     grade: {
