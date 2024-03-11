@@ -26,7 +26,8 @@ const TakeExam = () => {
     const calculateScore = () => {
         let correctCount = 0;
         exam.questions.forEach(question => {
-            if (selectedAnswers[question._id] === question.correct_answer) {
+            const selectedAnswerIndex = question.answer_choices.findIndex(choice => choice === selectedAnswers[question._id]);
+            if (selectedAnswerIndex === question.correct_answer) {
                 correctCount++;
             }
         });
