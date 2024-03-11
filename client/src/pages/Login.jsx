@@ -48,7 +48,7 @@ const Login = () => {
     <main className="login-container">
       <div className="segment">
         <div className="card">
-          <h2 className="login-title">Login</h2>
+          <h2 className="page-title">Login</h2>
           <div className="card-body">
             {data ? (
               <p>
