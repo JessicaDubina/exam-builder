@@ -1,13 +1,13 @@
 // import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { QUERY_USERS } from '../path/to/your/queries';
+import { QUERY_USERS } from '../utils/queries';
 
 const StudentList = () => {
-    const { loading, error, data } = useQuery(QUERY_USERS);
-    const users = data?.users.filter(instructor => instructor.false) || [];
-
+    const { loading, data } = useQuery(QUERY_USERS);
+    const users = data?.users.filter(user => !user.instructor) || [];
+    console.log(data);
     if (loading) return <div>Loading...</div>;
-    if (error) return <div>Error: {error.message}</div>;
+    // if (error) return <div>Error: {error.message}</div>;
 
     return (
         <div>
