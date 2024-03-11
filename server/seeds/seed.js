@@ -46,17 +46,27 @@ const populateExamData = (questions) => {
   };
 
 const populateUserData = async (exams) => {
+    let examArray = [];
     let examIds = [];
+
     for (i = 0; i < exams.length; i++ ) {
+      newExam = {
+        _id: new mongoose.Types.ObjectId(),        
+        exam: exams[i]._id,
+        grade: 0,
+        completed: false,
+      };
+      examArray.push(newExam);
       examIds.push(exams[i]._id);
     }
+
     userData[0].created_exams = examIds;
     const passwordHash = await bcrypt.hash(userData[0].password, 10);
     userData[0].password = passwordHash;    
     for (i = 1; i < userData.length; i++) {
       const passwordHash = await bcrypt.hash(userData[i].password, 10);
       userData[i].password = passwordHash;
-      userData[i].exams = examIds;
+      userData[i].exams = examArray;
     }
 
     return userData;
@@ -69,7 +79,7 @@ db.once('open', async () => {
         await cleanDB('User', 'users');
        
         for(i=0; i <questionData.length; i++){
-            questionData[i]._id= new mongoose.Types.ObjectId();
+            questionData[i]._id = new mongoose.Types.ObjectId();
         }
 
         examData = populateExamData(questionData);
