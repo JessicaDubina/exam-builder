@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import ebLogo from '../../assets/EB-Logo.png'
 import './index.css';
 
@@ -8,8 +8,10 @@ import { useQuery } from '@apollo/client';
 import { GET_ME } from '../../utils/queries';
 
 const Header = () => {
+  const navigate = useNavigate();
   const logout = (event) => {
     event.preventDefault();
+    navigate('/'); //Navigate back to homepage after logout
     Auth.logout();
   };
 
@@ -31,7 +33,6 @@ const Header = () => {
             <h1 id="header-title" className="text-light">
             <img src={ebLogo} className="heading-logo" alt="Exam Builder logo" />
               Exam Builder</h1>
-          <p>Customize and reuse exams without the headache</p>
         </div>
         <div className="profile-info">
           {Auth.loggedIn() ? (
