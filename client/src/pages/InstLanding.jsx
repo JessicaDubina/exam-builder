@@ -1,19 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
 import { ALL_QUESTIONS, QUERY_USERS, GET_ME } from '../utils/queries';
-import { ADD_EXAM } from '../utils/mutations';
+import { ADD_EXAM, ADD_QUESTION } from '../utils/mutations';
 import { useNavigate } from 'react-router-dom'; 
 
 const InstLanding = () => {
     const [createExamClicked, setCreateExamClicked] = useState(false);
+    const [createQuestionClicked, setCreateQuestionClicked] = useState(false);
     const [examName, setExamName] = useState('');
     const [examTopic, setExamTopic] = useState('');
     const [selectedQuestions, setSelectedQuestions] = useState([]);
+    const [ questionText, setQuestionText ] = useState('');
+    const [ questionTopic, setQuestionTopic ] = useState('');
     const [questions, setQuestions] = useState([]);
+    const [ difficulty, setDifficulty ] = useState('');
     const [selectedTopics, setSelectedTopics] = useState([]);
+    const [ correctAnswerIndex, setCorrectAnswerIndex ] = useState();
     const { loading: questionsLoading, data: questionsData } = useQuery(ALL_QUESTIONS);
+    const { addQuestion } = useMutation(ADD_QUESTION)
     const [addExam] = useMutation(ADD_EXAM);
     const navigate = useNavigate(); 
+    const [answerChoice1, setAnswerChoice1] = useState('');
+    const [answerChoice2, setAnswerChoice2] = useState('');
+    const [answerChoice3, setAnswerChoice3] = useState('');
+    const [answerChoice4, setAnswerChoice4] = useState('');
 
     useEffect(() => {
         if (!questionsLoading && questionsData) {
@@ -42,9 +52,53 @@ const InstLanding = () => {
         setExamName(e.target.value);
     };
 
+    const handleQuestionTextChange = (e) => {
+        setQuestionText(e.target.value);
+    };
+
     const handleExamTopicChange = (e) => {
         setExamTopic(e.target.value);
     };
+
+    const handleCreateQuestion = (e) => {
+        setCreateQuestionClicked(true);
+    }
+
+    const handleAddQuestion = async () => {
+        try {
+            await addQuestion({
+                variables: {
+                    question_text: questionText,
+                    topic: questionTopic,
+                    answer_choices: [answerChoices],
+                    difficulty: difficulty,
+                    correct_answer: correctAnswerIndex
+                }
+            })
+        }
+        catch (error) {
+            console.error('Error Adding Question', error)
+        }
+    };
+
+    const handleQuestionNameChange = (e) => {
+        setQuestionText(e.target.value)
+    };
+
+    const handleAnswerChoiceChange = (e, setAnswerChoice) => {
+        setAnswerChoice(e.target.value);
+    };
+
+    const addNewQuestion = (e) => {
+        e.preventDefault(); // Prevent form submission
+        // Push answer choices to the array
+        newAnswerChoices.push(answerChoice1, answerChoice2, answerChoice3, answerChoice4);
+    };
+    
+
+    // const addNewQuestion = (e) => {
+    //     newAnswerChoices.push(formData.)
+    // }
 
     const handleAddExam = async () => {
         try {
@@ -75,13 +129,73 @@ const InstLanding = () => {
     const filteredQuestions = selectedTopics.length > 0 ?
         questions.filter(question => selectedTopics.includes(question.topic)) : questions;
 
+    const newAnswerChoices = [];
+
     return (
         <main>
             <div className="flex-row justify-center">
                 <button onClick={handleCreateExam}>Create Exam</button>
                 <button onClick={handleViewStudents}>See Students</button>
+                <button onClick={handleCreateQuestion}>Create New Questions</button>
             </div>
 
+            {createQuestionClicked ? 
+
+            <form id='new-question-form' style={{ marginTop: '50px', marginLeft: '20%', display: 'flex', flexDirection: 'column', width: '60%', justfyContent: 'center', textAlign: 'center'}}>
+            <div id='question-text-input'>
+            <input 
+                type='text'
+                value = {questionText}
+                onChange={handleQuestionNameChange}
+                placeholder="Enter the new question"
+                />
+            
+            </div>
+            <div id='question-topic-input'>
+                <input 
+                type='text'
+                value = {questionTopic}
+                onChange={handleQuestionNameChange}
+                placeholder="Enter the topic of the question"
+                />
+            </div>
+                <label style={{ marginTop: '3%'}}>Difficulty:</label>
+                <select id="dropdown" name="dropdown" style={{ width: '10%', alignSelf: 'center', margin: '20px'}}>
+                    <option value="Easy">Easy</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Difficult">Difficult</option>
+                </select>
+                <label> Answer Choices: </label>
+                <div style={{ display: 'flex', flexDirection: 'column', justfyContent: 'space-between'}}>
+                <input 
+                    type='text'
+                    value={answerChoice1}
+                    onChange={(e) => handleAnswerChoiceChange(e, setAnswerChoice1)}
+                    placeholder="Enter the first answer choice"
+                />
+                <input 
+                    type='text'
+                    value={answerChoice2}
+                    onChange={(e) => handleAnswerChoiceChange(e, setAnswerChoice2)}
+                    placeholder="Enter the second answer choice"
+                />
+                <input 
+                    type='text'
+                    value={answerChoice3}
+                    onChange={(e) => handleAnswerChoiceChange(e, setAnswerChoice3)}
+                    placeholder="Enter the third answer choice"
+                />
+                <input 
+                    type='text'
+                    value={answerChoice4}
+                    onChange={(e) => handleAnswerChoiceChange(e, setAnswerChoice4)}
+                    placeholder="Enter the fourth answer choice"
+                />
+                </div>
+                <input onClick={addNewQuestion} type="submit" value="Submit"></input>
+            </form>
+            : null}
+               
             {createExamClicked ? (
                 <div id="exam-inputs">
                     <input
