@@ -30,21 +30,6 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-/* @keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-} */
-
 .cover-background {
   display: flex;
   justify-content: center;
@@ -52,6 +37,19 @@
   background-image: url('./assets/landing-bg.jpg');
   background-size: cover;
   min-height: 80vh;
+  min-width: fit-content;
+}
+
+.cover-filter {
+  display: flex;
+  background: rgba(0, 0, 0, .4);
+  justify-content: center;
+  align-items: center;
+  min-width: fit-content;
+  max-height: fit-content;
+  padding: 2rem;
+  border-radius: 15px;
+  margin: 1rem;
 }
 
 .cover-container {
@@ -59,8 +57,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  min-height: 60vh;
-  max-width: 30vw;
 }
 
 .cover {
@@ -68,9 +64,8 @@
   justify-content: center;
   align-items: center;
   margin: .5rem 0;
-  /* color: #ccc; */
   font-weight: bold;
-  /* color:color-mix(in srgb, #34c9eb 20%, white) */
+  font-size: calc(2.5rem + 1.5vw);
   background: -webkit-linear-gradient(#01969b, #7df0f0);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -79,16 +74,16 @@
 }
 
 .sub-cover {
-  font-size: 1.5rem;
+  font-size: calc(.75rem + .5vw);
   margin: .5rem;
   color: white;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: white;
+  font-weight: bold;
 }
 
 #getStarted {
   margin-top: 1rem;
-  margin-left: 3rem;
+  /* margin-left: 3rem; */
+  align-self: center;
 }
 
 .card {
@@ -155,4 +150,15 @@ input {
 #isInstructor {
   margin: 1rem;
   margin-bottom: 1.5rem;
+}
+
+@media only screen and (max-width: 720px) {
+  .card-body {
+    display: flex;
+    flex-direction: column;
+  }
+  .form-input {
+    display: flex;
+    flex-direction: column;
+  }
 }
