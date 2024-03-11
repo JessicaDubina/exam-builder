@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
 import { ALL_QUESTIONS, QUERY_USERS, GET_ME } from '../utils/queries';
 import { ADD_EXAM } from '../utils/mutations';
-import { useNavigate} from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom'; 
 
 const InstLanding = () => {
     const [createExamClicked, setCreateExamClicked] = useState(false);
@@ -11,15 +11,9 @@ const InstLanding = () => {
     const [selectedQuestions, setSelectedQuestions] = useState([]);
     const [questions, setQuestions] = useState([]);
     const [selectedTopics, setSelectedTopics] = useState([]);
-    const { loading: questionsLoading, data: questionsData, refetch: refetchQuestions } = useQuery(ALL_QUESTIONS);
+    const { loading: questionsLoading, data: questionsData } = useQuery(ALL_QUESTIONS);
     const [addExam] = useMutation(ADD_EXAM);
     const navigate = useNavigate(); 
-    const topicsFromQuestions = questions.reduce((topics, question) => {
-        if (!topics.includes(question.topic)) {
-            return [...topics, question.topic];
-        }
-        return topics;
-    }, []);
 
     useEffect(() => {
         if (!questionsLoading && questionsData) {
@@ -73,23 +67,13 @@ const InstLanding = () => {
     };
 
     const handleTopicFilter = (topic) => {
-        if (selectedTopics.includes(topic)) {
-            setSelectedTopics(selectedTopics.filter((prevTopic) => prevTopic !== topic));
-        } else {
-            setSelectedTopics([...selectedTopics, topic]);
-        }
+        setSelectedTopics([topic]);
     };
 
-    const handleClearFilter = () => {
-        setSelectedTopics([]);
-    };
+    const uniqueTopics = questionsData ? [...new Set(questionsData.allQuestions.map(question => question.topic))] : [];
 
     const filteredQuestions = selectedTopics.length > 0 ?
         questions.filter(question => selectedTopics.includes(question.topic)) : questions;
-
-    useEffect(() => {
-        refetchQuestions({ topics: selectedTopics });
-    }, [selectedTopics]);
 
     return (
         <main>
@@ -117,8 +101,8 @@ const InstLanding = () => {
                             <h2>All Questions:</h2>
                             <div>
                                 <h3>Filter by Topic:</h3>
-                                <button onClick={handleClearFilter}>All Topics</button>
-                                {topicsFromQuestions.map(topic => (
+                                <button onClick={() => setSelectedTopics([])}>All Topics</button>
+                                {uniqueTopics.map(topic => (
                                     <button key={topic} onClick={() => handleTopicFilter(topic)}>{topic}</button>
                                 ))}
                             </div>

@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 const { User, Exam, Question } = require("../models");
 const { signToken, AuthenticationError } = require("../utils/auth");
 
@@ -8,15 +9,19 @@ const resolvers = {
       if (context.user) {
         try {
           const userId = id ? { _id: id } : {};
-          return await User.find(userId).populate("created_exams").populate({path: "exams", populate: {path: "exam", populate: {path: "questions"}}});
+          return await User.find(userId)
+            .populate("created_exams")
+            .populate({
+              path: "exams",
+              populate: { path: "exam", populate: { path: "questions" } },
+            });
         } catch (error) {
           if (id) {
             console.error("Invalid user ID!");
-            throw new Error(`Failed to get user: ${error.message}`);            
+            throw new Error(`Failed to get user: ${error.message}`);
           } else {
             console.error("Failed to get all users!");
-            throw new Error(`Failed to get all users: ${error.message}`);            
-
+            throw new Error(`Failed to get all users: ${error.message}`);
           }
         }
       }
@@ -27,10 +32,18 @@ const resolvers = {
       if (context.user) {
         try {
           return User.findOne({ _id: context.user._id })
-          .populate("created_exams").populate({path: "created_exams", populate: { path: "questions"  }}).populate({path: "exams", populate: {path: "exam", populate: {path: "questions"}}});
+            .populate("created_exams")
+            .populate({
+              path: "created_exams",
+              populate: { path: "questions" },
+            })
+            .populate({
+              path: "exams",
+              populate: { path: "exam", populate: { path: "questions" } },
+            });
         } catch (error) {
           console.error("Failed to get logged in user!");
-          throw new Error(`Failed to get user: ${error.message}`);          
+          throw new Error(`Failed to get user: ${error.message}`);
         }
       }
       throw AuthenticationError;
@@ -89,12 +102,17 @@ const resolvers = {
     // Mutation to add a new user
     addUser: async (parent, { username, email, password, instructor }) => {
       try {
-        const user = await User.create({ username, email, password, instructor });
+        const user = await User.create({
+          username,
+          email,
+          password,
+          instructor,
+        });
         const token = signToken(user);
         return { token, user };
       } catch (error) {
         console.error("Failed to add user!");
-        throw new Error(`Failed to add user: ${error.message}`);        
+        throw new Error(`Failed to add user: ${error.message}`);
       }
     },
     // Mutation to log in
@@ -115,14 +133,14 @@ const resolvers = {
 
       return { token, user };
     },
-     // Mutation to delete a user
+    // Mutation to delete a user
     deleteUser: async (parent, { userId }, context) => {
       if (context.user) {
         try {
           return User.findOneAndDelete({ _id: userId });
         } catch (error) {
           console.error("Failed to delete user!");
-          throw new Error(`Failed to delete user: ${error.message}`);  
+          throw new Error(`Failed to delete user: ${error.message}`);
         }
       }
       throw AuthenticationError;
@@ -135,7 +153,7 @@ const resolvers = {
           return exam;
         } catch (error) {
           console.error("Failed to add exam!");
-          throw new Error(`Failed to add exam: ${error.message}`);            
+          throw new Error(`Failed to add exam: ${error.message}`);
         }
       }
       throw AuthenticationError;
@@ -148,7 +166,7 @@ const resolvers = {
           return question;
         } catch (error) {
           console.error("Failed to add question!");
-          throw new Error(`Failed to add question: ${error.message}`);            
+          throw new Error(`Failed to add question: ${error.message}`);
         }
       }
       throw AuthenticationError;
@@ -160,16 +178,16 @@ const resolvers = {
           const newExam = {
             exam: examId,
             grade: 0,
-            completed: false
-          }
+            completed: false,
+          };
           return User.findOneAndUpdate(
             { _id: userId },
-            { $push: { exams: { ...newExam } }},
+            { $push: { exams: { ...newExam } } },
             { new: true }
           );
         } catch (error) {
           console.error("Failed to assign exam!");
-          throw new Error(`"Failed to assign exam: ${error.message}`);             
+          throw new Error(`Failed to assign exam: ${error.message}`);
         }
       }
       throw AuthenticationError;
@@ -182,11 +200,11 @@ const resolvers = {
             { _id: questionId },
             { ...questionData },
             { new: true }
-          )
+          );
           return question;
         } catch (error) {
           console.error("Failed to update question!");
-          throw new Error(`"Failed to update question: ${error.message}`);             
+          throw new Error(`Failed to update question: ${error.message}`);
         }
       }
       throw AuthenticationError;
@@ -197,15 +215,56 @@ const resolvers = {
           const exam = await Exam.findByIdAndUpdate(
             { _id: examId },
             { ...examData },
-            { new: true }          
+            { new: true }
           ).populate("questions");
           return exam;
         } catch (error) {
           console.error("Failed to update exam!");
-          throw new Error(`"Failed to update exam: ${error.message}`);             
+          throw new Error(`Failed to update exam: ${error.message}`);
         }
       }
       throw AuthenticationError;
+    },
+    updateExamGrade: async (parent, { userId, examId, grade }, context) => {
+      if (context.user) {
+        try {
+          // Find the user by userId
+          const user = await User.findById(userId).populate({
+            path: "exams",
+            populate: { path: "exam", populate: { path: "questions" } },
+          });
+
+          if (!user) {
+            console.error("User not found");
+            throw new Error("User not found");
+          }
+
+          // Find the index of the exam in the user's exams array
+          const examIndex = user.exams.findIndex(
+            (exam) => exam.exam._id.toString() == examId
+          );
+
+          if (examIndex === -1) {
+            console.error("Exam not found");            
+            throw new Error("Exam not found");
+          }
+
+          // Update the grade of the exam
+          user.exams[examIndex].grade = grade;
+          user.exams[examIndex].completed = true;
+
+          // Save the updated user
+          await user.save();
+
+          // Return the updated user
+          return user;
+        } catch (error) {
+          console.error("Failed to update exam grade");            
+          throw new Error(`Failed to update exam grade: ${error.message}`);
+        }
+      } else {
+        throw AuthenticationError;
+      }
     },
     // Mutation to delete an exam
     deleteExam: async (parent, { examId }, context) => {
@@ -219,12 +278,12 @@ const resolvers = {
             return Exam.findOneAndDelete({ _id: examId });
           } catch (error) {
             console.error("Failed to delete exam!");
-            throw new Error(`"Failed to delete exam: ${error.message}`);                 
+            throw new Error(`"Failed to delete exam: ${error.message}`);
           }
         } else {
           console.error("Must be an instructor to delete an exam!");
           throw new Error("Current user not an instructor");
-        };
+        }
       }
       throw AuthenticationError;
     },
@@ -235,7 +294,7 @@ const resolvers = {
             return Question.findOneAndDelete({ _id: questionId });
           } catch (error) {
             console.error("Failed to delete question!");
-            throw new Error(`"Failed to delete question: ${error.message}`);                 
+            throw new Error(`"Failed to delete question: ${error.message}`);
           }
         } else {
           console.error("Must be an instructor to delete a question!");
@@ -243,7 +302,7 @@ const resolvers = {
         }
       }
       throw AuthenticationError;
-    }
+    },
   },
 };
 
