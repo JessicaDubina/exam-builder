@@ -42,7 +42,7 @@ const typeDefs = `
   type Query {
     users(id: ID): [User]
     me: User
-    getExam(examId: String!): Exam
+    getExam(examId: ID!): Exam
     allExams: [Exam]
     getQuestion(questionId: ID!): Question
     allQuestions: [Question]
