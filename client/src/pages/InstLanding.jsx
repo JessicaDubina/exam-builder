@@ -10,20 +10,30 @@ const InstLanding = () => {
     const [examName, setExamName] = useState('');
     const [examTopic, setExamTopic] = useState('');
     const [selectedQuestions, setSelectedQuestions] = useState([]);
-    const [ questionText, setQuestionText ] = useState('');
-    const [ questionTopic, setQuestionTopic ] = useState('');
+ 
     const [questions, setQuestions] = useState([]);
-    const [ difficulty, setDifficulty ] = useState('');
+  
     const [selectedTopics, setSelectedTopics] = useState([]);
-    const [ correctAnswerIndex, setCorrectAnswerIndex ] = useState();
+
     const { loading: questionsLoading, data: questionsData } = useQuery(ALL_QUESTIONS);
-    const { addQuestion } = useMutation(ADD_QUESTION)
+    const [ addQuestion, {error} ] = useMutation(ADD_QUESTION);
     const [addExam] = useMutation(ADD_EXAM);
     const navigate = useNavigate(); 
     const [answerChoice1, setAnswerChoice1] = useState('');
     const [answerChoice2, setAnswerChoice2] = useState('');
     const [answerChoice3, setAnswerChoice3] = useState('');
     const [answerChoice4, setAnswerChoice4] = useState('');
+    const [ difficulty, setDifficulty ] = useState('');
+    const [ questionTopic, setQuestionTopic ] = useState('');
+    const [ questionText, setQuestionText ] = useState('');
+    const [ correctAnswerIndex, setCorrectAnswerIndex ] = useState();
+    const [ newQuestion, setNewQuestion ] = useState({
+        answer_choices: ['', '', '', ''], 
+        question_text: '',
+        correct_answer: 0,
+        difficulty: 'Easy',
+        topic: ''
+    })
 
     useEffect(() => {
         if (!questionsLoading && questionsData) {
@@ -64,41 +74,40 @@ const InstLanding = () => {
         setCreateQuestionClicked(true);
     }
 
-    const handleAddQuestion = async () => {
+    const handleAddQuestion = async (e) => {
+        e.preventDefault();
         try {
-            await addQuestion({
+            const correctAnswerInt = parseInt(newQuestion.correct_answer); // Define correctAnswerInt
+            console.log(newQuestion);
+            const { data } = await addQuestion({
                 variables: {
-                    question_text: questionText,
-                    topic: questionTopic,
-                    answer_choices: [answerChoices],
-                    difficulty: difficulty,
-                    correct_answer: correctAnswerIndex
+                    questionData: {...newQuestion, correct_answer: correctAnswerInt}
                 }
-            })
+            });
+            console.log(data);
         }
         catch (error) {
             console.error('Error Adding Question', error)
         }
     };
 
-    const handleQuestionNameChange = (e) => {
-        setQuestionText(e.target.value)
-    };
-
-    const handleAnswerChoiceChange = (e, setAnswerChoice) => {
-        setAnswerChoice(e.target.value);
-    };
-
-    const addNewQuestion = (e) => {
+    const addQuestionData = (e) => {
         e.preventDefault(); // Prevent form submission
-        // Push answer choices to the array
-        newAnswerChoices.push(answerChoice1, answerChoice2, answerChoice3, answerChoice4);
+        const { name, value } = e.target;
+        if(name.includes('choice')) {
+            const newArray = [...newQuestion.answer_choices];
+            newArray[parseInt(name.charAt(6))] = value;
+            console.log(newArray);
+            setNewQuestion({...newQuestion, answer_choices: [...newArray]});
+        }     
+        else {
+            setNewQuestion({
+                ...newQuestion, 
+                [name]: value
+            })
+        }    
     };
-    
 
-    // const addNewQuestion = (e) => {
-    //     newAnswerChoices.push(formData.)
-    // }
 
     const handleAddExam = async () => {
         try {
@@ -145,8 +154,9 @@ const InstLanding = () => {
             <div id='question-text-input'>
             <input 
                 type='text'
-                value = {questionText}
-                onChange={handleQuestionNameChange}
+                name='question_text'
+                value = {newQuestion.question_text}
+                onChange={addQuestionData}
                 placeholder="Enter the new question"
                 />
             
@@ -154,13 +164,14 @@ const InstLanding = () => {
             <div id='question-topic-input'>
                 <input 
                 type='text'
-                value = {questionTopic}
-                onChange={handleQuestionNameChange}
+                name='topic'
+                value = {newQuestion.topic}
+                onChange={addQuestionData}
                 placeholder="Enter the topic of the question"
                 />
             </div>
                 <label style={{ marginTop: '3%'}}>Difficulty:</label>
-                <select id="dropdown" name="dropdown" style={{ width: '10%', alignSelf: 'center', margin: '20px'}}>
+                <select onChange={addQuestionData} id="dropdown" name="difficulty" style={{ width: '10%', alignSelf: 'center', margin: '20px'}}>
                     <option value="Easy">Easy</option>
                     <option value="Medium">Medium</option>
                     <option value="Difficult">Difficult</option>
@@ -169,30 +180,42 @@ const InstLanding = () => {
                 <div style={{ display: 'flex', flexDirection: 'column', justfyContent: 'space-between'}}>
                 <input 
                     type='text'
-                    value={answerChoice1}
-                    onChange={(e) => handleAnswerChoiceChange(e, setAnswerChoice1)}
+                    name='choice0'
+                    value={newQuestion.answer_choices[0]}
+                    onChange={addQuestionData}
                     placeholder="Enter the first answer choice"
                 />
                 <input 
                     type='text'
-                    value={answerChoice2}
-                    onChange={(e) => handleAnswerChoiceChange(e, setAnswerChoice2)}
+                    name='choice1'
+                    value={newQuestion.answer_choices[1]}
+                    onChange={addQuestionData}
                     placeholder="Enter the second answer choice"
                 />
                 <input 
                     type='text'
-                    value={answerChoice3}
-                    onChange={(e) => handleAnswerChoiceChange(e, setAnswerChoice3)}
+                    name='choice2'
+                    value={newQuestion.answer_choices[2]}
+                    onChange={addQuestionData}
                     placeholder="Enter the third answer choice"
                 />
                 <input 
                     type='text'
-                    value={answerChoice4}
-                    onChange={(e) => handleAnswerChoiceChange(e, setAnswerChoice4)}
+                    name='choice3'
+                    value={newQuestion.answer_choices[3]}
+                    onChange={addQuestionData}
                     placeholder="Enter the fourth answer choice"
                 />
+                <label htmlFor='correct_answer'>Select the correct answer from the above choices (1-4)
+                <select onChange={addQuestionData} id='correct_answer' name='correct_answer' type='integer'> 
+                    <option value='0'>1</option>
+                    <option value='1'>2</option>
+                    <option value='2'>3</option>
+                    <option value='3'>4</option>
+                </select>
+                </label>
                 </div>
-                <input onClick={addNewQuestion} type="submit" value="Submit"></input>
+                <input onClick={handleAddQuestion} type="submit" value="Submit"></input>
             </form>
             : null}
                
