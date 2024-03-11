@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
 import { ALL_QUESTIONS, QUERY_USERS, GET_ME } from '../utils/queries';
 import { ADD_EXAM } from '../utils/mutations';
+import { useNavigate } from 'react-router-dom'; 
 
 const InstLanding = () => {
     const [createExamClicked, setCreateExamClicked] = useState(false);
@@ -10,18 +11,9 @@ const InstLanding = () => {
     const [selectedQuestions, setSelectedQuestions] = useState([]);
     const [questions, setQuestions] = useState([]);
     const [selectedTopics, setSelectedTopics] = useState([]);
-    const { loading: questionsLoading, error: questionsError, data: questionsData, refetch: refetchQuestions } = useQuery(ALL_QUESTIONS);
-    const { loading: usersLoading, error: usersError, data: usersData } = useQuery(QUERY_USERS);
+    const { loading: questionsLoading, data: questionsData } = useQuery(ALL_QUESTIONS);
     const [addExam] = useMutation(ADD_EXAM);
-    const [displayStudents, setDisplayStudents] = useState(false);
-    const topicsFromQuestions = questions.reduce((topics, question) => {
-        if (!topics.includes(question.topic)) {
-            return [...topics, question.topic];
-        }
-        return topics;
-    }, []);
-
-    const { loading2, data2 } = useQuery(GET_ME);
+    const navigate = useNavigate(); 
 
     useEffect(() => {
         if (!questionsLoading && questionsData) {
@@ -39,12 +31,11 @@ const InstLanding = () => {
 
     const handleCreateExam = () => {
         setCreateExamClicked(true);
-        setDisplayStudents(false); // Hide students when creating exam
     };
 
     const handleViewStudents = () => {
-        setDisplayStudents(true);
-        setCreateExamClicked(false); // Hide exam creation when viewing students
+        // Redirect user to the StudentList page
+        navigate('/StudentList');
     };
 
     const handleExamNameChange = (e) => {
@@ -76,25 +67,13 @@ const InstLanding = () => {
     };
 
     const handleTopicFilter = (topic) => {
-        if (selectedTopics.includes(topic)) {
-            setSelectedTopics(selectedTopics.filter((prevTopic) => prevTopic !== topic));
-        } else {
-            setSelectedTopics([...selectedTopics, topic]);
-        }
+        setSelectedTopics([topic]);
     };
 
-    const handleClearFilter = () => {
-        setSelectedTopics([]);
-    };
+    const uniqueTopics = questionsData ? [...new Set(questionsData.allQuestions.map(question => question.topic))] : [];
 
     const filteredQuestions = selectedTopics.length > 0 ?
         questions.filter(question => selectedTopics.includes(question.topic)) : questions;
-
-    const filteredUsers = usersData?.users.filter(user => !user.instructor);
-
-    useEffect(() => {
-        refetchQuestions({ topics: selectedTopics });
-    }, [selectedTopics]);
 
     return (
         <main>
@@ -103,20 +82,8 @@ const InstLanding = () => {
                 <button onClick={handleViewStudents}>See Students</button>
             </div>
 
-            {displayStudents ? (
-                <div>
-                    <h2>Students:</h2>
-                    <ul>
-                        {filteredUsers.map(user => (
-                            <li key={user.username}>{user.username} - {user.email}</li>
-                        ))}
-                    </ul>
-                </div>
-            ) : null}
             {createExamClicked ? (
-          
                 <div id="exam-inputs">
-
                     <input
                         type="text"
                         value={examName}
@@ -134,26 +101,25 @@ const InstLanding = () => {
                             <h2>All Questions:</h2>
                             <div>
                                 <h3>Filter by Topic:</h3>
-                                <button onClick={handleClearFilter}>All Topics</button>
-                                {topicsFromQuestions.map(topic => (
+                                <button onClick={() => setSelectedTopics([])}>All Topics</button>
+                                {uniqueTopics.map(topic => (
                                     <button key={topic} onClick={() => handleTopicFilter(topic)}>{topic}</button>
                                 ))}
                             </div>
                             <ul className="selection-box">
                                 {filteredQuestions.map(question => (
                                     <li key={question._id} className="selection-list-item">
-
                                         {question.question_text}
                                         <button onClick={() => handleQuestionSelect(question._id)}>Select</button>
                                     </li>
                                 ))}
                             </ul>
                         </div>
-                        <div className="selected-questions" >
+                        <div className="selected-questions">
                             <h2>Selected Questions:</h2>
                             <ul style={{ listStyleType: 'none', padding: 0, margin: 0, fontSize: '0.8em' }}>
                                 {selectedQuestions.map(questionId => (
-                                    <li key={questionId} className='selection-list-item' >
+                                    <li key={questionId} className='selection-list-item'>
                                         {questions.find(question => question._id === questionId)?.question_text}
                                         <button onClick={() => handleQuestionDeselect(questionId)}>Deselect</button>
                                     </li>
