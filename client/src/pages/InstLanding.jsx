@@ -35,7 +35,7 @@ const InstLanding = () => {
 
     const handleViewStudents = () => {
         // Redirect user to the StudentList page
-        navigate('/StudentList');
+        navigate('/students');
     };
 
     const handleExamNameChange = (e) => {

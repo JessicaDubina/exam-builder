@@ -52,7 +52,7 @@ const resolvers = {
     getExam: async (parent, { examId }, context) => {
       if (context.user) {
         try {
-          return await Exam.findById(examId).populate("questions");
+          return await Exam.find({_id: examId}).populate("questions");
         } catch (error) {
           console.error("Invalid exam ID!");
           throw new Error(`Failed to get exam: ${error.message}`);

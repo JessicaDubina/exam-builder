@@ -29,9 +29,9 @@ const Login = () => {
         Auth.login(data.login.token);
         console.log(data.login.user);
         if (data.login.user.instructor) {
-          navigate('/InstLanding'); // Redirect to InstLanding if user is instructor
+          navigate('/instructor'); // Redirect to InstLanding if user is instructor
         } else {
-          navigate('/StudentLanding'); // Redirect to StuLanding if user is student
+          navigate('/student'); // Redirect to StuLanding if user is student
         }
     } catch (e) {
       console.error(e);
