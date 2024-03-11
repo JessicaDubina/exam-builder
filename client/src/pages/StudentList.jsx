@@ -59,27 +59,22 @@ const StudentList = () => {
         <div className='segment'>
              <h2 className='page-title'>Students</h2>
             {assignmentSuccess && <div><strong>{selectedStudent.username}'s exam assigned successfully!</strong></div>}
-            {filteredUsers.map(user => (
-                <div key={user._id}>
-                    {assignExamMode && selectedStudent._id === user._id && (
-                        <div>
-                            <h3>Select Exams for {selectedStudent.username}</h3>
-                            <ul>
-                                {examsData.allExams.map(exam => (
-                                    <li key={exam._id}>
-                                        {exam.exam_name}
-                                        <button onClick={() => handleSelectExam(exam._id)}>Select</button>
-                                    </li>
-                                ))}
-                            </ul>
-                            <button onClick={handleAssignExam}>Assign Selected Exams</button>
-                        </div>
-                    )}
-                    {!assignExamMode && (
-                        <div>
-                            <h3>{user.username}</h3>
-                            <p>Email: {user.email}</p>
-                            <p>Exams:</p>
+            <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student</th>
+                        <th>Email</th>
+                        <th>Exams</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {filteredUsers.map(user => (
+                    <tr key={user._id}>
+                        <td>{user.username}</td>
+                        <td>{user.email}</td>
+                        <td>
                             <ul>
                                 {user.exams.map((exam, index) => (
                                     <li key={index}>
@@ -87,16 +82,34 @@ const StudentList = () => {
                                     </li>
                                 ))}
                             </ul>
+                        </td>
+                        <td>
                             <button onClick={() => {
                                 setSelectedStudent(user);
                                 setAssignExamMode(true);
                                 setAssignmentSuccess(false); // Reset success message
                                 setSuccessMessage('');
                             }}>Assign Exam</button>
-                        </div>
-                    )}
-                </div>
-            ))}
+                        </td>
+                    </tr>
+                ))}
+                </tbody>
+            </table>
+            {assignExamMode && selectedStudent._id && (
+            <div>
+                <h3>Select Exams for {selectedStudent.username}</h3>
+                <ul>
+                    {examsData.allExams.map(exam => (
+                        <li key={exam._id}>
+                            {exam.exam_name}
+                            <button onClick={() => handleSelectExam(exam._id)}>Select</button>
+                        </li>
+                    ))}
+                </ul>
+                <button onClick={handleAssignExam}>Assign Selected Exams</button>
+            </div>
+        )}
+        </div>
         </div>
     );
 };
