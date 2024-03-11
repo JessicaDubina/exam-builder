@@ -10,6 +10,7 @@ const Home = () => {
     return (
       <main>
         <div className="cover-background">
+          <div className="cover-filter">
           <div className="cover-container">
               <h1 className="cover">Build.</h1>
               <h1 className="cover">Customize.</h1>
@@ -17,6 +18,7 @@ const Home = () => {
               <p className="sub-cover">Less time reiterating</p>
               <p className="sub-cover">More time where it matters.</p>
               <button id="getStarted" onClick={signUp}>Get Started</button>
+          </div>
           </div>
             
         </div>
