@@ -28,9 +28,9 @@ const Header = () => {
     <header className="mb-4 py-3 flex-row align-center">
       <div className="header-container">
         <div className="title-bar">
-            <div id="header-title" className="text-light">
+            <h1 id="header-title" className="text-light">
             <img src={ebLogo} className="heading-logo" alt="Exam Builder logo" />
-              Exam Builder</div>
+              Exam Builder</h1>
           <p>Customize and reuse exams without the headache</p>
         </div>
         <div className="profile-info">
