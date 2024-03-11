@@ -57,9 +57,11 @@ const StudentList = () => {
 
     return (
         <div className='segment'>
-             <h2 className='page-title'>Students</h2>
+            <div className='card'></div>
+            <h2 className='page-title'>Students</h2>
+            <div className='card'>
             {assignmentSuccess && <div><strong>{selectedStudent.username}'s exam assigned successfully!</strong></div>}
-            <div>
+            
             <table>
                 <thead>
                     <tr>
@@ -95,6 +97,7 @@ const StudentList = () => {
                 ))}
                 </tbody>
             </table>
+            <div className='card'>
             {assignExamMode && selectedStudent._id && (
             <div>
                 <h3>Select Exams for {selectedStudent.username}</h3>
@@ -109,6 +112,7 @@ const StudentList = () => {
                 <button onClick={handleAssignExam}>Assign Selected Exams</button>
             </div>
         )}
+        </div>
         </div>
         </div>
     );
