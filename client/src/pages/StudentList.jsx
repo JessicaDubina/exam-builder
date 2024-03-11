@@ -12,6 +12,7 @@ const StudentList = () => {
     const [assignExamMode, setAssignExamMode] = useState(false);
     const [assignmentSuccess, setAssignmentSuccess] = useState(false);
     const [successMessage, setSuccessMessage] = useState('');
+    const filteredUsers = usersData?.users.filter(user => user.instructor === false) || [];
 
     const handleAssignExam = async () => {
         console.log('Assigning exams...');
@@ -56,9 +57,9 @@ const StudentList = () => {
 
     return (
         <div>
-            <h2>Students</h2>
-            {assignmentSuccess && <div style={{ color: 'green', fontWeight: 'bold' }}>{successMessage}</div>}
-            {usersData.users.map(user => (
+             <h2>Students</h2>
+            {assignmentSuccess && <div><strong>{selectedStudent.username}'s exam assigned successfully!</strong></div>}
+            {filteredUsers.map(user => (
                 <div key={user._id}>
                     {assignExamMode && selectedStudent._id === user._id && (
                         <div>
