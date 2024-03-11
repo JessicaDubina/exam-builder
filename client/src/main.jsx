@@ -10,7 +10,7 @@ import Error from './pages/Error';
 import Home from './pages/Home.jsx';
 import InstLanding from './pages/InstLanding.jsx';
 import StudentLanding from './pages/StudentLanding.jsx';
-import NewExam from './pages/NewExam.jsx';
+import TakeExam from './pages/TakeExam.jsx';
 import StudentList from './pages/StudentList.jsx';
 
 const router = createBrowserRouter([
@@ -32,19 +32,19 @@ const router = createBrowserRouter([
         element: <Signup />
       },
       {
-        path: '/InstLanding',
+        path: '/instructor',
         element: <InstLanding />
       },
       {
-        path: '/StudentLanding',
+        path: '/student',
         element: <StudentLanding />
       } ,
       {
-        path: '/NewExam',
-        element: <NewExam />
+        path: '/exam/:examId',
+        element: <TakeExam />
       },
       {
-        path: '/StudentList',
+        path: '/students',
         element: <StudentList />
       }
     ]

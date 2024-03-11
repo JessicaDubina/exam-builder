@@ -1,38 +1,43 @@
-import { Link, useNavigate } from 'react-router-dom';
-import ebLogo from '../../assets/EB-Logo.png'
-import './index.css';
+import { Link, useNavigate } from "react-router-dom";
+import ebLogo from "../../assets/EB-Logo.png";
+import "./index.css";
 
-import Auth from '../../utils/auth';
-import { useEffect, useState } from 'react';
-import { useQuery } from '@apollo/client';
-import { GET_ME } from '../../utils/queries';
+import Auth from "../../utils/auth";
+import { useEffect, useState } from "react";
+import { useQuery } from "@apollo/client";
+import { GET_ME } from "../../utils/queries";
 
 const Header = () => {
   const navigate = useNavigate();
   const logout = (event) => {
     event.preventDefault();
-    navigate('/'); //Navigate back to homepage after logout
+    navigate("/"); //Navigate back to homepage after logout
     Auth.logout();
   };
 
-  const [meRoute, setMeRoute] = useState('/');
+  const [meRoute, setMeRoute] = useState("/");
 
   const { data, loading } = useQuery(GET_ME);
 
   useEffect(() => {
     if (!loading && data) {
       const isInstructor = data.me.instructor;
-      setMeRoute(isInstructor ? '/InstLanding' : '/StudentLanding');
+      setMeRoute(isInstructor ? "/instructor" : "/student");
     }
-  }, [data, loading]);  
+  }, [data, loading]);
 
   return (
     <header className="mb-4 py-3 flex-row align-center">
       <div className="header-container">
         <div className="title-bar">
-            <h1 id="header-title" className="text-light">
-            <img src={ebLogo} className="heading-logo" alt="Exam Builder logo" />
-              Exam Builder</h1>
+          <h1 id="header-title" className="text-light">
+            <img
+              src={ebLogo}
+              className="heading-logo"
+              alt="Exam Builder logo"
+            />
+            Exam Builder
+          </h1>
         </div>
         <div className="profile-info">
           {Auth.loggedIn() ? (
