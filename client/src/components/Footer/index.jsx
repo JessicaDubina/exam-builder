@@ -5,7 +5,7 @@ const Footer = () => {
   const location = useLocation();
   const navigate = useNavigate();
   return (
-    <footer className="container w-100 mt-auto">
+    <footer className="">
       
         
         <h4 className='footer-content text-center mb-5'>

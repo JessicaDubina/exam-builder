@@ -57,6 +57,13 @@
   margin: 1rem
 }
 
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+}
+
 .segment {
   display: flex;
   width: auto;
@@ -64,6 +71,10 @@
   border: lightgray;
   padding: .3rem;
   box-shadow: 0 2px 4px 0 #afb1b1;
+}
+
+.login-title {
+  margin: 1rem;
 }
 
 input {
@@ -93,4 +104,9 @@ input {
   flex: 1;
   height: 50vh;
   overflow-y: auto;
+}
+
+#isInstructor {
+  margin: 1rem;
+  margin-bottom: 1.5rem;
 }
