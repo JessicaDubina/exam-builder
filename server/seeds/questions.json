@@ -1,161 +1,276 @@
 [
     {
         "question_text": "What does CSS stand for?",
-        "answer_choices": ["Computer Style Sheets", "Cascading Style Sheets", "Creative Style Sheets", "Coded Style Sheets"],
+        "answer_choices": [
+            "Computer Style Sheets",
+            "Cascading Style Sheets",
+            "Creative Style Sheets",
+            "Coded Style Sheets"
+        ],
         "correct_answer": 1,
         "topic": "CSS",
         "difficulty": "Easy"
     },
     {
         "question_text": "Which CSS property is used to change the text color of an element?",
-        "answer_choices": ["text-color", "color", "font-color", "text-style"],
+        "answer_choices": [
+            "text-color",
+            "color",
+            "font-color",
+            "text-style"
+        ],
         "correct_answer": 1,
         "topic": "CSS",
         "difficulty": "Easy"
     },
     {
         "question_text": "How do you select an element with id 'myElement' in CSS?",
-        "answer_choices": [".myElement", "element.myElement", "#myElement", "element#myElement"],
+        "answer_choices": [
+            ".myElement",
+            "element.myElement",
+            "#myElement",
+            "element#myElement"
+        ],
         "correct_answer": 2,
         "topic": "CSS",
         "difficulty": "Easy"
     },
     {
         "question_text": "What does 'CSS specificity' refer to?",
-        "answer_choices": ["The order of CSS rules in a stylesheet", "The ease of writing CSS rules", "The weight of a CSS rule in relation to others determining which styles are applied to an element", "The degree of separation between HTML and CSS"],
+        "answer_choices": [
+            "The order of CSS rules in a stylesheet",
+            "The ease of writing CSS rules",
+            "The weight of a CSS rule in relation to others determining which styles are applied to an element",
+            "The degree of separation between HTML and CSS"
+        ],
         "correct_answer": 2,
         "topic": "CSS",
         "difficulty": "Medium"
     },
     {
         "question_text": "What is the purpose of 'float' property in CSS?",
-        "answer_choices": ["To apply animation effects to an element", "To allow an element to float to the left or right of its container, allowing text and inline elements to wrap around it", "To vertically align an element within its container", "To increase the font size of an element"],
+        "answer_choices": [
+            "To apply animation effects to an element",
+            "To allow an element to float to the left or right of its container, allowing text and inline elements to wrap around it",
+            "To vertically align an element within its container",
+            "To increase the font size of an element"
+        ],
         "correct_answer": 1,
         "topic": "CSS",
         "difficulty": "Medium"
     },
     {
         "question_text": "What is the 'box model' in CSS?",
-        "answer_choices": ["A layout technique to create flexible and responsive designs", "A method for organizing CSS code into modular components", "A set of properties to style text within a container", "A model that describes how elements are rendered on a web page as a box with content, padding, border, and margin"],
+        "answer_choices": [
+            "A layout technique to create flexible and responsive designs",
+            "A method for organizing CSS code into modular components",
+            "A set of properties to style text within a container",
+            "A model that describes how elements are rendered on a web page as a box with content, padding, border, and margin"
+        ],
         "correct_answer": 3,
         "topic": "CSS",
         "difficulty": "Medium"
     },
     {
         "question_text": "How can you center an element horizontally in CSS?",
-        "answer_choices": ["Using the 'align: center;' property", "Using the 'margin: 0 auto;' property", "Using the 'text-align: center;' property", "Using the 'float: center;' property"],
+        "answer_choices": [
+            "Using the 'align: center;' property",
+            "Using the 'margin: 0 auto;' property",
+            "Using the 'text-align: center;' property",
+            "Using the 'float: center;' property"
+        ],
         "correct_answer": 1,
         "topic": "CSS",
         "difficulty": "Easy"
     },
     {
         "question_text": "What does the CSS property 'display: none;' do?",
-        "answer_choices": ["Displays the element as an inline element", "Reduces the opacity of the element to make it partially transparent", "Hides the element completely, including its space", "Applies a border around the element"],
+        "answer_choices": [
+            "Displays the element as an inline element",
+            "Reduces the opacity of the element to make it partially transparent",
+            "Hides the element completely, including its space",
+            "Applies a border around the element"
+        ],
         "correct_answer": 2,
         "topic": "CSS",
         "difficulty": "Easy"
     },
     {
         "question_text": "What is the purpose of 'media queries' in CSS?",
-        "answer_choices": ["To target specific HTML elements", "To create animations and transitions", "To apply different styles for different devices or screen sizes", "To define the layout of a webpage"],
+        "answer_choices": [
+            "To target specific HTML elements",
+            "To create animations and transitions",
+            "To apply different styles for different devices or screen sizes",
+            "To define the layout of a webpage"
+        ],
         "correct_answer": 2,
         "topic": "CSS",
         "difficulty": "Medium"
     },
     {
         "question_text": "What is the CSS property used to set the background color of an element?",
-        "answer_choices": ["color", "background", "background-color", "bgcolor"],
+        "answer_choices": [
+            "color",
+            "background",
+            "background-color",
+            "bgcolor"
+        ],
         "correct_answer": 2,
         "topic": "CSS",
         "difficulty": "Easy"
     },
     {
         "question_text": "What is the 'box-sizing' property in CSS used for?",
-        "answer_choices": ["To specify the positioning of an element", "To define the shape of a box", "To control how the total width and height of an element is calculated", "To apply a border around the element"],
+        "answer_choices": [
+            "To specify the positioning of an element",
+            "To define the shape of a box",
+            "To control how the total width and height of an element is calculated",
+            "To apply a border around the element"
+        ],
         "correct_answer": 2,
         "topic": "CSS",
         "difficulty": "Medium"
     },
     {
         "question_text": "How do you apply a shadow to an element in CSS?",
-        "answer_choices": ["Using the 'shadow' property", "Using the 'text-shadow' property", "Using the 'outline' property", "Using the 'box-shadow' property"],
+        "answer_choices": [
+            "Using the 'shadow' property",
+            "Using the 'text-shadow' property",
+            "Using the 'outline' property",
+            "Using the 'box-shadow' property"
+        ],
         "correct_answer": 3,
         "topic": "CSS",
         "difficulty": "Medium"
     },
     {
         "question_text": "What is the purpose of 'z-index' property in CSS?",
-        "answer_choices": ["To prevent conflicts between different CSS rules", "To control the transparency of an element", "To define the width and height of an element", "To specify the stack order of an element"],
+        "answer_choices": [
+            "To prevent conflicts between different CSS rules",
+            "To control the transparency of an element",
+            "To define the width and height of an element",
+            "To specify the stack order of an element"
+        ],
         "correct_answer": 3,
         "topic": "CSS",
         "difficulty": "Medium"
     },
     {
         "question_text": "What does the 'position: relative;' property do in CSS?",
-        "answer_choices": ["Makes an element stick to the top of the page", "Allows an element to be positioned relative to its normal position", "Creates a fixed position element", "Aligns an element to the right side of its container"],
+        "answer_choices": [
+            "Makes an element stick to the top of the page",
+            "Allows an element to be positioned relative to its normal position",
+            "Creates a fixed position element",
+            "Aligns an element to the right side of its container"
+        ],
         "correct_answer": 1,
         "topic": "CSS",
         "difficulty": "Easy"
     },
     {
         "question_text": "What is the 'flex-direction' property used for in CSS flexbox?",
-        "answer_choices": ["To control the spacing between flex items", "To define the direction of the main axis in a flex container", "To specify the order of flex items", "To rotate an element around its axis" ],
+        "answer_choices": [
+            "To control the spacing between flex items",
+            "To define the direction of the main axis in a flex container",
+            "To specify the order of flex items",
+            "To rotate an element around its axis"
+        ],
         "correct_answer": 0,
         "topic": "CSS",
         "difficulty": "Medium"
-    }, 
+    },
     {
         "question_text": "How do you include comments in CSS?",
-        "answer_choices": ["// This is a comment", "<!-- This is a comment -->", "# This is a comment", "/* This is a comment */"],
+        "answer_choices": [
+            "// This is a comment",
+            "<!-- This is a comment -->",
+            "# This is a comment",
+            "/* This is a comment */"
+        ],
         "correct_answer": 3,
         "topic": "CSS",
         "difficulty": "Easy"
     },
     {
         "question_text": "What is the purpose of the 'overflow' property in CSS?",
-        "answer_choices": ["To make an element semi-transparent", "To add a scroll bar to an element", "To control what happens if the content of an element exceeds its size", "To specify the order of overlapping elements"],
+        "answer_choices": [
+            "To make an element semi-transparent",
+            "To add a scroll bar to an element",
+            "To control what happens if the content of an element exceeds its size",
+            "To specify the order of overlapping elements"
+        ],
         "correct_answer": 2,
         "topic": "CSS",
         "difficulty": "Medium"
     },
     {
         "question_text": "How do you group multiple selectors in CSS?",
-        "answer_choices": ["Enclose them in curly braces", "Precede them with the '+' symbol", "Separate them with commas", "Use the 'group' keyword"],
+        "answer_choices": [
+            "Enclose them in curly braces",
+            "Precede them with the '+' symbol",
+            "Separate them with commas",
+            "Use the 'group' keyword"
+        ],
         "correct_answer": 2,
         "topic": "CSS",
         "difficulty": "Easy"
     },
     {
         "question_text": "What is the purpose of 'flexbox' in CSS?",
-        "answer_choices": ["To apply gradients to backgrounds", "To create 3D transformations", "To provide a more efficient way to layout, align, and distribute space among items in a container, even when their size is unknown or dynamic", "To define custom fonts for text"],
+        "answer_choices": [
+            "To apply gradients to backgrounds",
+            "To create 3D transformations",
+            "To provide a more efficient way to layout, align, and distribute space among items in a container, even when their size is unknown or dynamic",
+            "To define custom fonts for text"
+        ],
         "correct_answer": 2,
         "topic": "CSS",
         "difficulty": "Medium"
     },
     {
         "question_text": "What does 'SCSS' stand for in CSS?",
-        "answer_choices": ["Styled CSS", "Simplified CSS", "Standardized CSS", "Sassy CSS"],
+        "answer_choices": [
+            "Styled CSS",
+            "Simplified CSS",
+            "Standardized CSS",
+            "Sassy CSS"
+        ],
         "correct_answer": 3,
         "topic": "CSS",
         "difficulty": "Difficult"
     },
     {
         "question_text": "What is the difference between 'inline' and 'block' elements in CSS?",
-        "answer_choices": ["Block elements cannot contain other elements, while inline elements can", "Inline elements are always centered, while block elements are not", "Inline elements do not start on a new line and only take up as much width as necessary, while block elements start on a new line and take up the full width available", "Block elements are only visible in certain media queries"],
+        "answer_choices": [
+            "Block elements cannot contain other elements, while inline elements can",
+            "Inline elements are always centered, while block elements are not",
+            "Inline elements do not start on a new line and only take up as much width as necessary, while block elements start on a new line and take up the full width available",
+            "Block elements are only visible in certain media queries"
+        ],
         "correct_answer": 2,
         "topic": "CSS",
         "difficulty": "Medium"
     },
     {
         "question_text": "What is 'CSS Grid' used for?",
-        "answer_choices": ["To create 3D transformations", "To define custom fonts for text", "To create complex layouts with rows and columns", "To add animation effects to elements"],
+        "answer_choices": [
+            "To create 3D transformations",
+            "To define custom fonts for text",
+            "To create complex layouts with rows and columns",
+            "To add animation effects to elements"
+        ],
         "correct_answer": 2,
         "topic": "CSS",
         "difficulty": "Difficult"
     },
     {
         "question_text": "What is the purpose of the 'transition' property in CSS?",
-        "answer_choices": ["To add a border around an element", "To change the font of an element", "To smoothly animate changes in CSS properties", "To position an element on the page"],
+        "answer_choices": [
+            "To add a border around an element",
+            "To change the font of an element",
+            "To smoothly animate changes in CSS properties",
+            "To position an element on the page"
+        ],
         "correct_answer": 2,
         "topic": "CSS",
         "difficulty": "Medium"
@@ -163,283 +278,722 @@
     {
         "ID": "25",
         "question_text": "What does the CSS property 'position: absolute;' do?",
-        "answer_choices": ["Positions an element relative to its parent element", "Positions an element relative to the viewport, meaning it stays fixed while scrolling", "Positions an element relative to its nearest positioned ancestor", "Positions an element relative to its normal position in the document flow"],
+        "answer_choices": [
+            "Positions an element relative to its parent element",
+            "Positions an element relative to the viewport, meaning it stays fixed while scrolling",
+            "Positions an element relative to its nearest positioned ancestor",
+            "Positions an element relative to its normal position in the document flow"
+        ],
         "correct_answer": 2,
         "topic": "CSS",
         "difficulty": "Medium"
     },
     {
         "question_text": "What is the purpose of 'CSS variables'?",
-        "answer_choices": ["To define custom fonts for text", "To create 3D transformations", "To store and reuse values throughout a stylesheet", "To add animation effects to elements"],
+        "answer_choices": [
+            "To define custom fonts for text",
+            "To create 3D transformations",
+            "To store and reuse values throughout a stylesheet",
+            "To add animation effects to elements"
+        ],
         "correct_answer": 2,
         "topic": "CSS",
         "difficulty": "Difficult"
     },
     {
         "question_text": "What is the 'flex-wrap' property used for in CSS flexbox?",
-        "answer_choices": ["To control the spacing between flex items", "To define the direction of the main axis in a flex container", "To specify the order of flex items", "To control whether flex items are forced onto one line or can wrap onto multiple lines"],
+        "answer_choices": [
+            "To control the spacing between flex items",
+            "To define the direction of the main axis in a flex container",
+            "To specify the order of flex items",
+            "To control whether flex items are forced onto one line or can wrap onto multiple lines"
+        ],
         "correct_answer": 3,
         "topic": "CSS",
         "difficulty": "Medium"
     },
     {
         "question_text": "What is the purpose of 'CSS preprocessors'?",
-        "answer_choices": ["To create 3D transformations", "To define custom fonts for text", "To provide additional functionality and features to CSS, such as variables, nesting, and mixins", "To add animation effects to elements"],
+        "answer_choices": [
+            "To create 3D transformations",
+            "To define custom fonts for text",
+            "To provide additional functionality and features to CSS, such as variables, nesting, and mixins",
+            "To add animation effects to elements"
+        ],
         "correct_answer": 2,
         "topic": "CSS",
         "difficulty": "Difficult"
     },
     {
         "question_text": "What is the purpose of 'CSS frameworks'?",
-        "answer_choices": ["To create 3D transformations", "To define custom fonts for text", "To provide a pre-built set of styles and components for faster and easier web development", "To add animation effects to elements"],
+        "answer_choices": [
+            "To create 3D transformations",
+            "To define custom fonts for text",
+            "To provide a pre-built set of styles and components for faster and easier web development",
+            "To add animation effects to elements"
+        ],
         "correct_answer": 2,
         "topic": "CSS",
         "difficulty": "Difficult"
     },
     {
         "question_text": "What is the purpose of 'CSS animations'?",
-        "answer_choices": ["To create 3D transformations", "To define custom fonts for text", "To add animation effects to elements", "To provide a pre-built set of styles and components for faster and easier web development"],
+        "answer_choices": [
+            "To create 3D transformations",
+            "To define custom fonts for text",
+            "To add animation effects to elements",
+            "To provide a pre-built set of styles and components for faster and easier web development"
+        ],
         "correct_answer": 2,
         "topic": "CSS",
         "difficulty": "Difficult"
-    }, 
+    },
     {
         "question_text": "Who is the author of 'The Lord of the Rings'?",
-        "answer_choices": ["J.R.R. Tolkien", "C.S. Lewis", "George R.R. Martin", "J.K. Rowling"],
+        "answer_choices": [
+            "J.R.R. Tolkien",
+            "C.S. Lewis",
+            "George R.R. Martin",
+            "J.K. Rowling"
+        ],
         "correct_answer": 0,
         "topic": "The Lord of the Rings",
         "difficulty": "Easy"
-        },
-        {
+    },
+    {
         "question_text": "What is the name of the main antagonist in 'The Lord of the Rings'?",
-        "answer_choices": ["Sauron", "Saruman", "Gollum", "Witch-king of Angmar"],
+        "answer_choices": [
+            "Sauron",
+            "Saruman",
+            "Gollum",
+            "Witch-king of Angmar"
+        ],
         "correct_answer": 0,
         "topic": "The Lord of the Rings",
         "difficulty": "Easy"
-        },
-        {
+    },
+    {
         "question_text": "What is the name of the sword wielded by Aragorn in 'The Lord of the Rings'?",
-        "answer_choices": ["Glamdring", "Andúril", "Sting", "Narsil"],
+        "answer_choices": [
+            "Glamdring",
+            "Andúril",
+            "Sting",
+            "Narsil"
+        ],
         "correct_answer": 1,
         "topic": "The Lord of the Rings",
         "difficulty": "Medium"
-        },
-        {
+    },
+    {
         "question_text": "Who is known as the 'Steward of Gondor'?",
-        "answer_choices": ["Denethor", "Faramir", "Boromir", "Éomer"],
+        "answer_choices": [
+            "Denethor",
+            "Faramir",
+            "Boromir",
+            "Éomer"
+        ],
         "correct_answer": 0,
         "topic": "The Lord of the Rings",
         "difficulty": "Medium"
-        },
-        {
+    },
+    {
         "question_text": "What race is Legolas in 'The Lord of the Rings'?",
-        "answer_choices": ["Human", "Elf", "Dwarf", "Hobbit"],
+        "answer_choices": [
+            "Human",
+            "Elf",
+            "Dwarf",
+            "Hobbit"
+        ],
         "correct_answer": 1,
         "topic": "The Lord of the Rings",
         "difficulty": "Easy"
-        },
-        {
+    },
+    {
         "question_text": "What is the name of Gandalf's horse?",
-        "answer_choices": ["Shadowfax", "Brego", "Roheryn", "Arod"],
+        "answer_choices": [
+            "Shadowfax",
+            "Brego",
+            "Roheryn",
+            "Arod"
+        ],
         "correct_answer": 0,
         "topic": "The Lord of the Rings",
         "difficulty": "Medium"
-        },
-        {
+    },
+    {
         "question_text": "Which of the following is not one of the Rings of Power?",
-        "answer_choices": ["Nenya", "Narya", "Vilya", "Andúril"],
+        "answer_choices": [
+            "Nenya",
+            "Narya",
+            "Vilya",
+            "Andúril"
+        ],
         "correct_answer": 3,
         "topic": "The Lord of the Rings",
         "difficulty": "Medium"
-        },
-        {
+    },
+    {
         "question_text": "What is the name of the creature Gollum was before he became corrupted by the One Ring?",
-        "answer_choices": ["Smeagol", "Deagol", "Sméarag", "Gullin"],
+        "answer_choices": [
+            "Smeagol",
+            "Deagol",
+            "Sméarag",
+            "Gullin"
+        ],
         "correct_answer": 0,
         "topic": "The Lord of the Rings",
         "difficulty": "Medium"
-        },
-        {
+    },
+    {
         "question_text": "What is the name of the tower in Mordor where Sauron's Dark Tower resides?",
-        "answer_choices": ["Barad-dûr", "Orthanc", "Minas Tirith", "Isengard"],
+        "answer_choices": [
+            "Barad-dûr",
+            "Orthanc",
+            "Minas Tirith",
+            "Isengard"
+        ],
         "correct_answer": 0,
         "topic": "The Lord of the Rings",
         "difficulty": "Medium"
-        },
-        {
+    },
+    {
         "question_text": "Who is the ruler of Rohan in 'The Lord of the Rings'?",
-        "answer_choices": ["Théoden", "Éowyn", "Éomer", "Denethor"],
+        "answer_choices": [
+            "Théoden",
+            "Éowyn",
+            "Éomer",
+            "Denethor"
+        ],
         "correct_answer": 0,
         "topic": "The Lord of the Rings",
         "difficulty": "Easy"
-        },
-        {
+    },
+    {
         "question_text": "What is the name of the wizard who leads the Fellowship of the Ring?",
-        "answer_choices": ["Gandalf", "Radagast", "Saruman", "Alatar"],
+        "answer_choices": [
+            "Gandalf",
+            "Radagast",
+            "Saruman",
+            "Alatar"
+        ],
         "correct_answer": 0,
         "topic": "The Lord of the Rings",
         "difficulty": "Easy"
-        },
-        {
+    },
+    {
         "question_text": "What is the name of the capital city of Gondor?",
-        "answer_choices": ["Minas Tirith", "Edoras", "Rivendell", "Hobbiton"],
+        "answer_choices": [
+            "Minas Tirith",
+            "Edoras",
+            "Rivendell",
+            "Hobbiton"
+        ],
         "correct_answer": 0,
         "topic": "The Lord of the Rings",
         "difficulty": "Medium"
-        },
-        {
+    },
+    {
         "question_text": "What is the name of the spider-like creature encountered by Frodo and Sam in Shelob's Lair?",
-        "answer_choices": ["Shelob", "Ungoliant", "Arachne", "Lobelia"],
+        "answer_choices": [
+            "Shelob",
+            "Ungoliant",
+            "Arachne",
+            "Lobelia"
+        ],
         "correct_answer": 0,
         "topic": "The Lord of the Rings",
         "difficulty": "Medium"
-        },
-        {
+    },
+    {
         "question_text": "What is the name of the Elven city where the Fellowship is formed?",
-        "answer_choices": ["Rivendell", "Lothlórien", "Mirkwood", "Valinor"],
+        "answer_choices": [
+            "Rivendell",
+            "Lothlórien",
+            "Mirkwood",
+            "Valinor"
+        ],
         "correct_answer": 0,
         "topic": "The Lord of the Rings",
         "difficulty": "Easy"
-        }, 
-        {
-            "question_text": "Who is known as the 'Lord of Rivendell'?",
-            "answer_choices": ["Elrond", "Galadriel", "Celeborn", "Glorfindel"],
-            "correct_answer": 0,
-            "topic": "The Lord of the Rings",
-            "difficulty": "Medium"
-        },
-        {
-            "question_text": "What is the name of the land where the Hobbits live?",
-            "answer_choices": ["The Shire", "Rohan", "Gondor", "Mordor"],
-            "correct_answer": 0,
-            "topic": "The Lord of the Rings",
-            "difficulty": "Easy"
-        },
-        {
-            "question_text": "What is the name of Aragorn's father?",
-            "answer_choices": ["Aragorn II", "Aragorn I", "Araglas", "Arathorn II"],
-            "correct_answer": 3,
-            "topic": "The Lord of the Rings",
-            "difficulty": "Medium"
-        },
-        {
-            "question_text": "What is the name of the volcano where the One Ring is destroyed?",
-            "answer_choices": ["Mount Doom", "Mount Erebor", "Mount Celebdil", "Mount Gundabad"],
-            "correct_answer": 0,
-            "topic": "The Lord of the Rings",
-            "difficulty": "Easy"
-        },
-        {
-            "question_text": "Who is known as the 'Shieldmaiden of Rohan'?",
-            "answer_choices": ["Éowyn", "Galadriel", "Arwen", "Tauriel"],
-            "correct_answer": 0,
-            "topic": "The Lord of the Rings",
-            "difficulty": "Medium"
-        },
-        {
-            "question_text": "What is the name of the river that flows through Lothlórien?",
-            "answer_choices": ["Anduin", "Bruinen", "Lhûn", "Isen"],
-            "correct_answer": 1,
-            "topic": "The Lord of the Rings",
-            "difficulty": "Medium"
-        },
-        {
-            "question_text": "What is the name of the Elven city where the Fellowship is formed?",
-            "answer_choices": ["Rivendell", "Lothlórien", "Mirkwood", "Valinor"],
-            "correct_answer": 0,
-            "topic": "The Lord of the Rings",
-            "difficulty": "Easy"
-        },
-        {
-            "question_text": "What is the name of the spider-like creature encountered by Frodo and Sam in Shelob's Lair?",
-            "answer_choices": ["Shelob", "Ungoliant", "Arachne", "Lobelia"],
-            "correct_answer": 0,
-            "topic": "The Lord of the Rings",
-            "difficulty": "Medium"
-        },
-        {
-            "question_text": "What is the name of the tower in Mordor where Sauron's Dark Tower resides?",
-            "answer_choices": ["Barad-dûr", "Orthanc", "Minas Tirith", "Isengard"],
-            "correct_answer": 0,
-            "topic": "The Lord of the Rings",
-            "difficulty": "Medium"
-        },
-        {
-            "question_text": "What is the name of the creature Gollum was before he became corrupted by the One Ring?",
-            "answer_choices": ["Smeagol", "Deagol", "Sméarag", "Gullin"],
-            "correct_answer": 0,
-            "topic": "The Lord of the Rings",
-            "difficulty": "Medium"
-        },
-        {
-            "question_text": "Which of the following is not one of the Rings of Power?",
-            "answer_choices": ["Nenya", "Narya", "Vilya", "Andúril"],
-            "correct_answer": 3,
-            "topic": "The Lord of the Rings",
-            "difficulty": "Medium"
-        },
-        {
-            "question_text": "What is the name of Gandalf's horse?",
-            "answer_choices": ["Shadowfax", "Brego", "Roheryn", "Arod"],
-            "correct_answer": 0,
-            "topic": "The Lord of the Rings",
-            "difficulty": "Medium"
-        },
-        {
-            "question_text": "What is the name of the sword wielded by Aragorn in 'The Lord of the Rings'?",
-            "answer_choices": ["Glamdring", "Andúril", "Sting", "Narsil"],
-            "correct_answer": 1,
-            "topic": "The Lord of the Rings",
-            "difficulty": "Medium"
-        },
-        {
-            "question_text": "What is the name of the main antagonist in 'The Lord of the Rings'?",
-            "answer_choices": ["Sauron", "Saruman", "Gollum", "Witch-king of Angmar"],
-            "correct_answer": 0,
-            "topic": "The Lord of the Rings",
-            "difficulty": "Easy"
-        },
-        {
-            "question_text": "Who is the author of 'The Lord of the Rings'?",
-            "answer_choices": ["J.R.R. Tolkien", "C.S. Lewis", "George R.R. Martin", "J.K. Rowling"],
-            "correct_answer": 0,
-            "topic": "The Lord of the Rings",
-            "difficulty": "Easy"
-        }, 
-        {
-            "question_text": "What is the significance of the name 'Mithrandir', which is another name for Gandalf?",
-            "answer_choices": ["It means 'Grey Pilgrim' in Sindarin", "It means 'Bearer of Light' in Quenya", "It means 'Wise Counselor' in Westron", "It means 'Stormcrow' in Rohirric"],
-            "correct_answer": 1,
-            "topic": "The Lord of the Rings",
-            "difficulty": "Difficult"
-        },
-        {
-            "question_text": "What is the Quenya name for Aragorn?",
-            "answer_choices": ["Eldarion", "Estel", "Telcontar", "Elessar"],
-            "correct_answer": 3,
-            "topic": "The Lord of the Rings",
-            "difficulty": "Difficult"
-        },
-        {
-            "question_text": "What is the name of the ancient being who created the Rings of Power?",
-            "answer_choices": ["Melkor", "Morgoth", "Aulë", "Sauron"],
-            "correct_answer": 1,
-            "topic": "The Lord of the Rings",
-            "difficulty": "Difficult"
-        },
-        {
-            "question_text": "Which two wizards are known as the 'Blue Wizards'?",
-            "answer_choices": ["Gandalf and Radagast", "Saruman and Gandalf", "Pallando and Alatar", "Saruman and Radagast"],
-            "correct_answer": 2,
-            "topic": "The Lord of the Rings",
-            "difficulty": "Difficult"
-        },
-        {
-            "question_text": "What is the Sindarin name for the region of Rivendell?",
-            "answer_choices": ["Imladris", "Lórien", "Edhellond", "Harlindon"],
-            "correct_answer": 0,
-            "topic": "The Lord of the Rings",
-            "difficulty": "Difficult"
-        }
-    ]
-
+    },
+    {
+        "question_text": "Who is known as the 'Lord of Rivendell'?",
+        "answer_choices": [
+            "Elrond",
+            "Galadriel",
+            "Celeborn",
+            "Glorfindel"
+        ],
+        "correct_answer": 0,
+        "topic": "The Lord of the Rings",
+        "difficulty": "Medium"
+    },
+    {
+        "question_text": "What is the name of the land where the Hobbits live?",
+        "answer_choices": [
+            "The Shire",
+            "Rohan",
+            "Gondor",
+            "Mordor"
+        ],
+        "correct_answer": 0,
+        "topic": "The Lord of the Rings",
+        "difficulty": "Easy"
+    },
+    {
+        "question_text": "What is the name of Aragorn's father?",
+        "answer_choices": [
+            "Aragorn II",
+            "Aragorn I",
+            "Araglas",
+            "Arathorn II"
+        ],
+        "correct_answer": 3,
+        "topic": "The Lord of the Rings",
+        "difficulty": "Medium"
+    },
+    {
+        "question_text": "What is the name of the volcano where the One Ring is destroyed?",
+        "answer_choices": [
+            "Mount Doom",
+            "Mount Erebor",
+            "Mount Celebdil",
+            "Mount Gundabad"
+        ],
+        "correct_answer": 0,
+        "topic": "The Lord of the Rings",
+        "difficulty": "Easy"
+    },
+    {
+        "question_text": "Who is known as the 'Shieldmaiden of Rohan'?",
+        "answer_choices": [
+            "Éowyn",
+            "Galadriel",
+            "Arwen",
+            "Tauriel"
+        ],
+        "correct_answer": 0,
+        "topic": "The Lord of the Rings",
+        "difficulty": "Medium"
+    },
+    {
+        "question_text": "What is the name of the river that flows through Lothlórien?",
+        "answer_choices": [
+            "Anduin",
+            "Bruinen",
+            "Lhûn",
+            "Isen"
+        ],
+        "correct_answer": 1,
+        "topic": "The Lord of the Rings",
+        "difficulty": "Medium"
+    },
+    {
+        "question_text": "What is the name of the Elven city where the Fellowship is formed?",
+        "answer_choices": [
+            "Rivendell",
+            "Lothlórien",
+            "Mirkwood",
+            "Valinor"
+        ],
+        "correct_answer": 0,
+        "topic": "The Lord of the Rings",
+        "difficulty": "Easy"
+    },
+    {
+        "question_text": "What is the name of the spider-like creature encountered by Frodo and Sam in Shelob's Lair?",
+        "answer_choices": [
+            "Shelob",
+            "Ungoliant",
+            "Arachne",
+            "Lobelia"
+        ],
+        "correct_answer": 0,
+        "topic": "The Lord of the Rings",
+        "difficulty": "Medium"
+    },
+    {
+        "question_text": "What is the name of the tower in Mordor where Sauron's Dark Tower resides?",
+        "answer_choices": [
+            "Barad-dûr",
+            "Orthanc",
+            "Minas Tirith",
+            "Isengard"
+        ],
+        "correct_answer": 0,
+        "topic": "The Lord of the Rings",
+        "difficulty": "Medium"
+    },
+    {
+        "question_text": "What is the name of the creature Gollum was before he became corrupted by the One Ring?",
+        "answer_choices": [
+            "Smeagol",
+            "Deagol",
+            "Sméarag",
+            "Gullin"
+        ],
+        "correct_answer": 0,
+        "topic": "The Lord of the Rings",
+        "difficulty": "Medium"
+    },
+    {
+        "question_text": "Which of the following is not one of the Rings of Power?",
+        "answer_choices": [
+            "Nenya",
+            "Narya",
+            "Vilya",
+            "Andúril"
+        ],
+        "correct_answer": 3,
+        "topic": "The Lord of the Rings",
+        "difficulty": "Medium"
+    },
+    {
+        "question_text": "What is the name of Gandalf's horse?",
+        "answer_choices": [
+            "Shadowfax",
+            "Brego",
+            "Roheryn",
+            "Arod"
+        ],
+        "correct_answer": 0,
+        "topic": "The Lord of the Rings",
+        "difficulty": "Medium"
+    },
+    {
+        "question_text": "What is the name of the sword wielded by Aragorn in 'The Lord of the Rings'?",
+        "answer_choices": [
+            "Glamdring",
+            "Andúril",
+            "Sting",
+            "Narsil"
+        ],
+        "correct_answer": 1,
+        "topic": "The Lord of the Rings",
+        "difficulty": "Medium"
+    },
+    {
+        "question_text": "What is the name of the main antagonist in 'The Lord of the Rings'?",
+        "answer_choices": [
+            "Sauron",
+            "Saruman",
+            "Gollum",
+            "Witch-king of Angmar"
+        ],
+        "correct_answer": 0,
+        "topic": "The Lord of the Rings",
+        "difficulty": "Easy"
+    },
+    {
+        "question_text": "Who is the author of 'The Lord of the Rings'?",
+        "answer_choices": [
+            "J.R.R. Tolkien",
+            "C.S. Lewis",
+            "George R.R. Martin",
+            "J.K. Rowling"
+        ],
+        "correct_answer": 0,
+        "topic": "The Lord of the Rings",
+        "difficulty": "Easy"
+    },
+    {
+        "question_text": "What is the significance of the name 'Mithrandir', which is another name for Gandalf?",
+        "answer_choices": [
+            "It means 'Grey Pilgrim' in Sindarin",
+            "It means 'Bearer of Light' in Quenya",
+            "It means 'Wise Counselor' in Westron",
+            "It means 'Stormcrow' in Rohirric"
+        ],
+        "correct_answer": 1,
+        "topic": "The Lord of the Rings",
+        "difficulty": "Difficult"
+    },
+    {
+        "question_text": "What is the Quenya name for Aragorn?",
+        "answer_choices": [
+            "Eldarion",
+            "Estel",
+            "Telcontar",
+            "Elessar"
+        ],
+        "correct_answer": 3,
+        "topic": "The Lord of the Rings",
+        "difficulty": "Difficult"
+    },
+    {
+        "question_text": "What is the name of the ancient being who created the Rings of Power?",
+        "answer_choices": [
+            "Melkor",
+            "Morgoth",
+            "Aulë",
+            "Sauron"
+        ],
+        "correct_answer": 1,
+        "topic": "The Lord of the Rings",
+        "difficulty": "Difficult"
+    },
+    {
+        "question_text": "Which two wizards are known as the 'Blue Wizards'?",
+        "answer_choices": [
+            "Gandalf and Radagast",
+            "Saruman and Gandalf",
+            "Pallando and Alatar",
+            "Saruman and Radagast"
+        ],
+        "correct_answer": 2,
+        "topic": "The Lord of the Rings",
+        "difficulty": "Difficult"
+    },
+    {
+        "question_text": "What is the Sindarin name for the region of Rivendell?",
+        "answer_choices": [
+            "Imladris",
+            "Lórien",
+            "Edhellond",
+            "Harlindon"
+        ],
+        "correct_answer": 0,
+        "topic": "The Lord of the Rings",
+        "difficulty": "Difficult"
+    },
+    {
+        "question_text": "Who is the author of the novel Dune?",
+        "answer_choices": [
+            "Frank Herbert",
+            "Isaac Asimov",
+            "Arthur C. Clarke",
+            "Philip K. Dick"
+        ],
+        "correct_answer": 0,
+        "topic": "Dune",
+        "difficulty": "Easy"
+    },
+    {
+        "question_text": "In which year was the novel Dune first published?",
+        "answer_choices": [
+            "1958",
+            "1965",
+            "1970",
+            "1980"
+        ],
+        "correct_answer": 1,
+        "topic": "Dune",
+        "difficulty": "Easy"
+    },
+    {
+        "question_text": "What is the name of the desert planet in the novel Dune?",
+        "answer_choices": [
+            "Arrakis",
+            "Tatooine",
+            "Hoth",
+            "Jakku"
+        ],
+        "correct_answer": 0,
+        "topic": "Dune",
+        "difficulty": "Easy"
+    },
+    {
+        "question_text": "Who is the protagonist of the novel Dune?",
+        "answer_choices": [
+            "Paul Atreides",
+            "Leto Atreides",
+            "Duncan Idaho",
+            "Baron Harkonnen"
+        ],
+        "correct_answer": 0,
+        "topic": "Dune",
+        "difficulty": "Easy"
+    },
+    {
+        "question_text": "What is the substance mined on the desert planet in Dune that is crucial for space travel?",
+        "answer_choices": [
+            "Melange",
+            "Spice",
+            "Etherium",
+            "Plasma"
+        ],
+        "correct_answer": 1,
+        "topic": "Dune",
+        "difficulty": "Easy"
+    },
+    {
+        "question_text": "What is the name of the native people of the desert planet in Dune?",
+        "answer_choices": [
+            "Fremen",
+            "Bene Gesserit",
+            "Sardaukar",
+            "Guild Navigators"
+        ],
+        "correct_answer": 0,
+        "topic": "Dune",
+        "difficulty": "Medium"
+    },
+    {
+        "question_text": "Who is the main antagonist of the novel Dune?",
+        "answer_choices": [
+            "Baron Harkonnen",
+            "Emperor Shaddam IV",
+            "Feyd-Rautha Harkonnen",
+            "Glossu Rabban"
+        ],
+        "correct_answer": 0,
+        "topic": "Dune",
+        "difficulty": "Medium"
+    },
+    {
+        "question_text": "What is the name of the giant sandworms that roam the desert of Arrakis?",
+        "answer_choices": [
+            "Sand Dragons",
+            "Spice Worms",
+            "Muad'Dib",
+            "Shai-Hulud"
+        ],
+        "correct_answer": 3,
+        "topic": "Dune",
+        "difficulty": "Difficult"
+    },
+    {
+        "question_text": "What is the name of the organization that controls the production and distribution of the spice in Dune?",
+        "answer_choices": [
+            "Spacing Guild",
+            "House Harkonnen",
+            "House Atreides",
+            "CHOAM"
+        ],
+        "correct_answer": 0,
+        "topic": "Dune",
+        "difficulty": "Difficult"
+    },
+    {
+        "question_text": "Who is known as the Kwisatz Haderach in the novel Dune?",
+        "answer_choices": [
+            "Paul Atreides",
+            "Leto Atreides",
+            "Gurney Halleck",
+            "Duncan Idaho"
+        ],
+        "correct_answer": 0,
+        "topic": "Dune",
+        "difficulty": "Difficult"
+    },
+    {
+        "question_text": "What is the name of the Bene Gesserit's breeding program aimed at producing the Kwisatz Haderach?",
+        "answer_choices": [
+            "Missionaria Protectiva",
+            "Progenitor Project",
+            "The Golden Path",
+            "The Great Revolt"
+        ],
+        "correct_answer": 2,
+        "topic": "Dune",
+        "difficulty": "Difficult"
+    },
+    {
+        "question_text": "What is the name of the personal force field used in combat in Dune?",
+        "answer_choices": [
+            "Energy Shield",
+            "Holtzman Field",
+            "Lasgun",
+            "Crysknife"
+        ],
+        "correct_answer": 1,
+        "topic": "Dune",
+        "difficulty": "Difficult"
+    },
+    {
+        "question_text": "What is the name of the housekeeper and mentor to Paul Atreides?",
+        "answer_choices": [
+            "Gurney Halleck",
+            "Duncan Idaho",
+            "Thufir Hawat",
+            "Dr. Yueh"
+        ],
+        "correct_answer": 2,
+        "topic": "Dune",
+        "difficulty": "Difficult"
+    },
+    {
+        "question_text": "What is the name of the ancient order of space navigators who control interstellar travel in Dune?",
+        "answer_choices": [
+            "Spacing Guild",
+            "Bene Tleilax",
+            "CHOAM",
+            "Ixians"
+        ],
+        "correct_answer": 0,
+        "topic": "Dune",
+        "difficulty": "Difficult"
+    },
+    {
+        "question_text": "Which character is known as the 'Beast' and is the antagonist of House Atreides?",
+        "answer_choices": [
+            "Piter De Vries",
+            "Glossu Rabban",
+            "Feyd-Rautha Harkonnen",
+            "Count Fenring"
+        ],
+        "correct_answer": 1,
+        "topic": "Dune",
+        "difficulty": "Medium"
+    },
+    {
+        "question_text": "What is the name of the mysterious substance that allows prescient visions in Dune?",
+        "answer_choices": [
+            "Melange",
+            "Sapho",
+            "The Water of Life",
+            "The Elixir of Life"
+        ],
+        "correct_answer": 2,
+        "topic": "Dune",
+        "difficulty": "Medium"
+    },
+    {
+        "question_text": "Who is the father of Paul Atreides?",
+        "answer_choices": [
+            "Leto Atreides",
+            "Duke Emeric",
+            "Baron Harkonnen",
+            "Duke Euphrates"
+        ],
+        "correct_answer": 0,
+        "topic": "Dune",
+        "difficulty": "Easy"
+    },
+    {
+        "question_text": "What is the name of the ancient prophecy that foretells the coming of the Kwisatz Haderach?",
+        "answer_choices": [
+            "The Butlerian Jihad",
+            "The Golden Path",
+            "The Orange Catholic Bible",
+            "The Missionaria Protectiva"
+        ],
+        "correct_answer": 3,
+        "topic": "Dune",
+        "difficulty": "Difficult"
+    },
+    {
+        "question_text": "What is the name of the religious figure that Paul Atreides becomes known as among the Fremen?",
+        "answer_choices": [
+            "Kwisatz Haderach",
+            "Shai-Hulud",
+            "Liet-Kynes",
+            "Muad'Dib"
+        ],
+        "correct_answer": 3,
+        "topic": "Dune",
+        "difficulty": "Difficult"
+    },
+    {
+        "question_text": "Who is the emperor of the known universe in the novel Dune?",
+        "answer_choices": [
+            "Shaddam IV",
+            "Leto Atreides",
+            "Vladimir Harkonnen",
+            "Paul Atreides"
+        ],
+        "correct_answer": 0,
+        "topic": "Dune",
+        "difficulty": "Medium"
+    }
+]

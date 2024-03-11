@@ -21,6 +21,7 @@ const Header = () => {
 
   useEffect(() => {
     if (!loading && data) {
+      console.log(data);
       const isInstructor = data.me.instructor;
       setMeRoute(isInstructor ? "/instructor" : "/student");
     }
