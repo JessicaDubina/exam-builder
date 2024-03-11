@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
-import { ALL_QUESTIONS} from '../utils/queries';
+import { ALL_QUESTIONS, GET_ME} from '../utils/queries';
 import { ADD_EXAM } from '../utils/mutations';
 
 const InstLanding = () => {
@@ -12,6 +12,8 @@ const InstLanding = () => {
     const [selectedTopics, setSelectedTopics] = useState([]);
     const { loading, error, data } = useQuery(ALL_QUESTIONS);
     const [addExam] = useMutation(ADD_EXAM);
+
+    const { loading2, data2 } = useQuery(GET_ME);
 
     useEffect(() => {
         if (!loading && data) {
