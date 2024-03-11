@@ -116,6 +116,25 @@ export const UPDATE_EXAM = gql`
   }
 `;
 
+export const UPDATE_EXAM_GRADE = gql`
+  mutation updateExamGrade($userId: String!, $examId: String!, $grade: Float!) {
+    updateExamGrade(userId: $userId, examId: $examId, grade: $grade) {
+      _id
+      username
+      email
+      exams {
+        _id
+        exam {
+          exam_name
+        }
+        grade
+        completed
+      }
+      grade
+    }
+  }
+`;
+
 export const DELETE_EXAM = gql`
   mutation deleteExam($examId: String!) {
     deleteExam(examId: $examId) {

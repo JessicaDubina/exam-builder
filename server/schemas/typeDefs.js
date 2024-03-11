@@ -70,6 +70,7 @@ const typeDefs = `
     assignExam(examId: String!, userId: String!): User
     updateQuestion(questionId: String!, questionData: questionData!): Question
     updateExam(examId: String!, examData: examData!): Exam
+    updateExamGrade(userId: String!, examId: String!, grade: Float!): User
     deleteExam(examId: String!): Exam
     deleteUser(userId: String!): User
     deleteQuestion(questionId: String!): Question
