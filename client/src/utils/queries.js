@@ -38,6 +38,7 @@ query users($usersId: ID) {
       completed
       grade
     }
+    grade
   }
 }
 `;

@@ -46,9 +46,9 @@ const Signup = () => {
      
       Auth.login(data.addUser.token);
       if (data.addUser.user.instructor) {
-        navigate('/InstLanding'); // Redirect to InstLanding if user is instructor
+        navigate('/instructor'); // Redirect to InstLanding if user is instructor
       } else {
-        navigate('/StudentLanding'); // Redirect to StuLanding if user is student
+        navigate('/student'); // Redirect to StuLanding if user is student
       }
     } catch (e) {
       console.error(e);
