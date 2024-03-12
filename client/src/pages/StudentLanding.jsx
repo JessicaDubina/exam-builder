@@ -52,7 +52,7 @@ const StudentLanding = () => {
           {uncompletedExams.map((exam) => (
             <tr key={exam._id}>
               <td style={{ textAlign: "left" }}>
-                <Link to={`/exam/${exam.exam._id}`}>{exam.exam.exam_name}</Link>
+                <Link to={`/exam/${userId}/${exam.exam._id}`}>{exam.exam.exam_name}</Link>
               </td>
             </tr>
           ))}

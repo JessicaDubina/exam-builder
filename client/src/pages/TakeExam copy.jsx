@@ -4,7 +4,7 @@ import { GET_EXAM } from "../utils/queries";
 import { useParams } from "react-router-dom";
 
 const TakeExam = () => {
-  const { userId, examId } = useParams();
+  const { examId } = useParams();
   const { loading, data } = useQuery(GET_EXAM, {
     variables: { examId },
   });
