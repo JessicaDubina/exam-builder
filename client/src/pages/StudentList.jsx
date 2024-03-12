@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_USERS, ALL_EXAMS } from '../utils/queries';
 import { ASSIGN_EXAM } from '../utils/mutations';
+import Navbar from '../components/Navbar'
 
 const StudentList = () => {
     const { loading: usersLoading, data: usersData } = useQuery(QUERY_USERS);
@@ -55,6 +56,8 @@ const StudentList = () => {
     if (usersLoading || examsLoading) return <div>Loading...</div>;
 
     return (
+        <>
+        <Navbar />
         <div className='container'>
             <h2 className='page-title'>Students</h2>
             {assignmentSuccess && <div><strong>{selectedStudent.username}'s exam assigned successfully!</strong></div>}
@@ -120,6 +123,7 @@ const StudentList = () => {
         </div>
         </div>
         </div>
+        </>
     );
 };
 

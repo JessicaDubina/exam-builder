@@ -3,6 +3,7 @@ import { useQuery, useMutation } from '@apollo/client';
 import { ALL_QUESTIONS, QUERY_USERS, GET_ME } from '../utils/queries';
 import { ADD_EXAM, ADD_QUESTION } from '../utils/mutations';
 import { useNavigate } from 'react-router-dom'; 
+import Navbar from '../components/Navbar'
 
 const CreateQuestion = () => {
     const [ addQuestion, {error} ] = useMutation(ADD_QUESTION);
@@ -75,6 +76,8 @@ const CreateQuestion = () => {
     const newAnswerChoices = [];
 
     return (
+        <>
+        <Navbar />
         <form id='new-question-form' style={{ marginTop: '50px', marginLeft: '20%', display: 'flex', flexDirection: 'column', width: '60%', justfyContent: 'center', textAlign: 'center'}}>
         <div id='question-text-input'>
         <input 
@@ -142,6 +145,7 @@ const CreateQuestion = () => {
             </div>
             <input onClick={handleAddQuestion} type="submit" value="Submit"></input>
         </form>
+        </>
     )
 
 }
