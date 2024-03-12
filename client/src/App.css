@@ -143,6 +143,7 @@ th, .table-title {
   border: lightgray;
   padding: .3rem;
   box-shadow: 0 2px 4px 0 #afb1b1;
+  min-height: 20vh;
 }
 
 .section {
