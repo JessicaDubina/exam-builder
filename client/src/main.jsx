@@ -12,8 +12,9 @@ import InstLanding from './pages/InstLanding.jsx';
 import StudentLanding from './pages/StudentLanding.jsx';
 import TakeExam from './pages/TakeExam.jsx';
 import StudentList from './pages/StudentList.jsx';
-import CreateExam from './pages/CreateExam.jsx';
-import CreateQuestion from './pages/CreateQuestion.jsx'
+import CreateExam from './pages/CreateExam';
+import CreateQuestion from './pages/CreateQuestion';
+import Exams from './pages/Exams.jsx'
 
 const router = createBrowserRouter([
   {
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
       {
         path: '/createquestion',
         element: <CreateQuestion />
+      },
+      {
+        path: '/exams',
+        element: <Exams />
       }
     ]
   }

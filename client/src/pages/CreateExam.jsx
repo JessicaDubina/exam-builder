@@ -11,6 +11,8 @@ const CreateExam  = () => {
     const [selectedQuestions, setSelectedQuestions] = useState([]);
     const [questions, setQuestions] = useState([]);
     const [selectedTopics, setSelectedTopics] = useState([]);
+    const [createExamClicked, setCreateExamClicked] = useState(false);
+    const [addExam] = useMutation(ADD_EXAM);
     const { loading: questionsLoading, data: questionsData } = useQuery(ALL_QUESTIONS);
 
     useEffect(() => {
@@ -25,10 +27,6 @@ const CreateExam  = () => {
 
     const handleQuestionDeselect = (questionId) => {
         setSelectedQuestions(selectedQuestions.filter(id => id !== questionId));
-    };
-
-    const handleCreateExam = () => {
-        setCreateExamClicked(true);
     };
 
     const handleExamNameChange = (e) => {
