@@ -4,7 +4,6 @@ import { GET_ME, QUERY_USERS } from "../utils/queries";
 
 const StudentLanding = () => {
   const { loading, data } = useQuery(GET_ME);
-  const { loading: usersLoading, data: usersData } = useQuery(QUERY_USERS);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -15,7 +14,7 @@ const StudentLanding = () => {
   const uncompletedExams = exams.filter((exam) => !exam.completed);
 
   return (
-    <div>
+    <div style={{ display: "flex", flexDirection: "column" }}>
       <h2>Welcome!</h2>
 
 {/* Render completed exams */}
@@ -68,7 +67,7 @@ const StudentLanding = () => {
   )}
   
    <div style={{ marginLeft: "100px" }}>
-        <h3 style={{ textAlign: "left", marginBottom: "10px" }}>Overall Grade:</h3>
+        <h3 style={{ textAlign: "left", marginTop: "40px", marginBottom: "10px" }}>Overall Grade:</h3>
         <p style={{ textAlign: "left" }}>{data.me.grade}%</p>
       </div>
     </div>
