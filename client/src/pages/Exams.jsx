@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
 import { DELETE_EXAM, UPDATE_EXAM } from '../utils/mutations';
 import { ALL_EXAMS } from "../utils/queries";
+import Navbar from '../components/Navbar'
 
 const Exams = () => {
   // Fetch all exams using the ALL_EXAMS query
@@ -47,6 +48,8 @@ const Exams = () => {
 
   // Render the table of exams
   return (
+    <>
+    <Navbar />
     <div>
       {deleteSuccess && <div><strong>{deleteMessage}</strong></div>}
       <h2>Exams</h2>
@@ -81,6 +84,7 @@ const Exams = () => {
         </div>
       )}
     </div>
+    </>
   );
 };
 
