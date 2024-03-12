@@ -14,8 +14,6 @@ import TakeExam from './pages/TakeExam.jsx';
 import StudentList from './pages/StudentList.jsx';
 import CreateExam from './pages/CreateExam.jsx';
 import CreateQuestion from './pages/CreateQuestion.jsx'
-import CreateExam from './pages/CreateExam';
-import CreateQuestion from './pages/CreateQuestion';
 
 const router = createBrowserRouter([
   {
