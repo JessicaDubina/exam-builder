@@ -24,7 +24,7 @@ const populateExamData = (questions) => {
   for (const topic in topics) {
     const topicQuestions = topics[topic];
     const selectedQuestions = [];
-    const totalQuestions = Math.min(5, topicQuestions.length);
+    const totalQuestions = Math.min(10, topicQuestions.length);
 
     while (selectedQuestions.length < totalQuestions) {
       const randomIndex = Math.floor(Math.random() * topicQuestions.length);

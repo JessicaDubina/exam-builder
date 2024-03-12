@@ -88,6 +88,37 @@
 
 .card {
   padding: 2em;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: row;
+  margin: 1rem;
+}
+
+li {
+  list-style: none;
+  padding: 0 .3rem;
+}
+
+table {
+  border-collapse: collapse;
+  font-size: .8em;
+}
+
+td {
+  border-top: 1px dashed lightgrey;
+  padding: 3px;
+}
+
+th, .table-title {
+  color: #4dd7db;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border-bottom: 1px dashed lightgrey;
+
 }
 
 .read-the-docs {
@@ -114,7 +145,7 @@
   box-shadow: 0 2px 4px 0 #afb1b1;
 }
 
-.login-title {
+.page-title {
   margin: 1rem;
 }
 
@@ -137,8 +168,21 @@ input {
 }
 
 .selection-list-item {
+  display: flex;
+  justify-content: left;
+  align-items: center;
   padding: 10px;
-  border-bottom: 1px solid #ccc;
+  padding-left: 1rem;
+  border-bottom: 1px dashed lightgrey;
+}
+
+.btn-main-function {
+  height: fit-content;
+  align-self: center;
+  margin-top: 40px;
+  background-color: #4dd7db;
+  color: white;
+  box-shadow: 0 4px 8px 0 #088c8c;
 }
 
 .selected-questions {
