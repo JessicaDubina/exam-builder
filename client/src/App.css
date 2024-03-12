@@ -145,6 +145,13 @@ th, .table-title {
   box-shadow: 0 2px 4px 0 #afb1b1;
 }
 
+.section {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  margin: .5rem;
+}
+
 .page-title {
   margin: 1rem;
 }
@@ -152,6 +159,15 @@ th, .table-title {
 input {
   margin: 0 1rem;
   padding: .5rem;
+}
+
+form div input {
+  margin: .5rem;
+}
+
+#dropdown {
+  align-self: center;
+  min-width: 10%;
 }
 
 .questions-container {
@@ -185,6 +201,18 @@ input {
   background-color: #4dd7db;
   color: white;
   box-shadow: 0 4px 8px 0 #088c8c;
+}
+
+.submit-btn {
+  border-radius: 5px;
+  border: none;
+  margin: .5rem;
+  margin-bottom: 1rem;
+}
+
+.delete-btn {
+  background-color: #01969b;
+  color: white;
 }
 
 .selected-questions {
