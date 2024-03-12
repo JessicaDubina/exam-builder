@@ -43,7 +43,7 @@ const router = createBrowserRouter([
         element: <StudentLanding />
       } ,
       {
-        path: '/exam/:examId',
+        path: '/exam/:userId/:examId',
         element: <TakeExam />
       },
       {
