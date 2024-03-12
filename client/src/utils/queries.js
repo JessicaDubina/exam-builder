@@ -50,6 +50,7 @@ export const GET_ME = gql`
       username
       email
       instructor
+      grade
       exams {
         _id
         exam {

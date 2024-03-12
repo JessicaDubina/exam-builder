@@ -36,7 +36,7 @@ A web application for creating, administering, and taking exams, this is a colla
 ## Contributors
 * Jessica Dubina ([Jessica's Portfolio Site](https://jessdubina.netlify.app/))
 * Brendan McGinty 
-* Warren "Trey" Lathe III ([Trey's Portfolio Site] (https://stellar-figolla-219043.netlify.app))
+* Warren "Trey" Lathe III ([Trey's Portfolio Site](https://stellar-figolla-219043.netlify.app))
 * Kevin Hogan . ([Kevin's Portfolio Site](https://kevinhogansprofile.netlify.app/))
 
 <a id="credits"></a>
@@ -62,6 +62,7 @@ Copyright © 2014-2015 Douglas Christopher Wilson <doug@somethingdoug.com>
 * Eslint-plugin-react-hooks Copyright © Meta Platforms, Inc. and affiliates.
 * Eslint-plugin-react-refresh Copyright © [Arnaud Barré](https://github.com/ArnaudBarre)
 * Vite Copyright © 2019-present, Yuxi (Evan) You and Vite contributors
+* Dotenv Copyright (c) 2015, Scott Motte. All rights reserved.
 
 ## License
 

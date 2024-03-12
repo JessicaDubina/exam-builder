@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
+require('dotenv').config();
 
 const db = require("../config/connection");
 const { Question, Exam, User } = require("../models");
@@ -48,6 +49,7 @@ const populateExamData = (questions) => {
 const populateUserData = async (exams) => {
   let examArray = [];
   let examIds = [];
+  const salt = parseInt(process.env.SALT_ITERATION);
 
   for (i = 0; i < exams.length; i++) {
     newExam = {
@@ -61,10 +63,10 @@ const populateUserData = async (exams) => {
   }
 
   userData[0].created_exams = examIds;
-  const passwordHash = await bcrypt.hash(userData[0].password, 10);
+  const passwordHash = await bcrypt.hash(userData[0].password, salt);
   userData[0].password = passwordHash;
   for (i = 1; i < userData.length; i++) {
-    const passwordHash = await bcrypt.hash(userData[i].password, 10);
+    const passwordHash = await bcrypt.hash(userData[i].password, salt);
     userData[i].password = passwordHash;
     userData[i].exams = examArray;
   }
