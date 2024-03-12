@@ -15,7 +15,7 @@ const StudentLanding = () => {
 
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
-      <h2 className="page-title">Welcome!</h2>
+      <h2 className="page-title">Welcome, {data.me.username}!</h2>
 
 {/* Render completed exams */}
 {/* If there are completed exams, print them */}
@@ -37,7 +37,7 @@ const StudentLanding = () => {
     </div>
   ) : (
     // If there are no completed exams, print this message
-    <div className="segment" style={{justifyContent: "center", padding: "1rem"}}>
+    <div>
     <h3 className="table-title">Completed Exams:</h3>
     <p >No completed exams</p>
   </div>
