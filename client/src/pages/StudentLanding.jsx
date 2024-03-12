@@ -15,13 +15,16 @@ const StudentLanding = () => {
 
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
-      <h2>Welcome!</h2>
+      <h2 className="page-title">Welcome!</h2>
 
 {/* Render completed exams */}
 {/* If there are completed exams, print them */}
+<div className="page-container" style={{justifyContent: "center"}}>
+
+  <div className="segment" style={{justifyContent: "center", padding: "1rem"}}>
 {completedExams.length > 0 ? (
-    <div style={{ marginLeft: "100px", marginBottom: "50px"}}>
-      <h3 style={{ textAlign: "left", marginBottom: "10px" }}>Completed Exams: {completedExams.length}</h3>
+    <div >
+      <h3 className="table-title">Completed Exams: {completedExams.length}</h3>
       <table style={{ width: "100%" }}>
         <tbody>
           {completedExams.map((exam) => (
@@ -34,19 +37,20 @@ const StudentLanding = () => {
     </div>
   ) : (
     // If there are no completed exams, print this message
-    <div style={{ marginLeft: "100px", marginBottom: "50px" }} >
-    <h3 style={{ textAlign: "left", marginBottom: "10px" }}>Completed Exams:</h3>
-    <p style={{ textAlign: "left" }}>No completed exams</p>
+    <div className="segment" style={{justifyContent: "center", padding: "1rem"}}>
+    <h3 className="table-title">Completed Exams:</h3>
+    <p >No completed exams</p>
   </div>
   )}
-      
+    </div>  
 
  {/* Render uncompleted exams */}
  {/* If there are uncompleted exams, print them */}
+ <div className="segment" style={{justifyContent: "center", padding: "1rem"}}>
  {uncompletedExams.length > 0 ? (
-    <div style={{ marginLeft: "100px" }}>
-      <h3 style={{ textAlign: "left", marginBottom: "10px"}}>Uncompleted Exams: {uncompletedExams.length}</h3>
-      <table style={{ width: "50%", float: "left" }}>
+    <div >
+      <h3 className="table-title">Uncompleted Exams: {uncompletedExams.length}</h3>
+      <table >
         <tbody>
           {uncompletedExams.map((exam) => (
             <tr key={exam._id}>
@@ -60,16 +64,20 @@ const StudentLanding = () => {
       </table>
     </div>
   ) : (
-    <div style={{ marginLeft: "100px" }}>
-    <h3 style={{ textAlign: "left", marginBottom: "10px" }}>Uncompleted Exams:</h3>
-    <p style={{ textAlign: "left" }}>All exams done!</p>
+    <div>
+    <h3 className="table-title">Uncompleted Exams:</h3>
+    <p >All exams done!</p>
   </div>
   )}
+  </div>
   
-   <div style={{ marginLeft: "100px" }}>
-        <h3 style={{ textAlign: "left", marginTop: "40px", marginBottom: "10px" }}>Overall Grade:</h3>
-        <p style={{ textAlign: "left" }}>{data.me.grade}%</p>
+  <div className="segment" style={{justifyContent: "center", padding: "1rem"}}>
+   <div>
+        <h3 className="table-title">Overall Grade:</h3>
+        <p >{data.me.grade}%</p>
       </div>
+    </div>
+    </div>
     </div>
   );
 };

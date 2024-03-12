@@ -48,9 +48,9 @@ button {
   font-size: .8rem;
   font-weight: 500;
   font-family: inherit;
-  /* background-color: var(--button-background); */
-  background-color: green;
-  box-shadow: 0 2px 4px 0 #afb1b1;
+  background-color: var(--button-background);
+  /* background-color: green;
+  box-shadow: 0 2px 4px 0 #afb1b1; */
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -62,22 +62,6 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto #088c8c;
-}
-
-.update-button {
-  background-color: blue;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-}
-
-.delete-button {
-  background-color: red;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
 }
 
 @media (prefers-color-scheme: light) {
