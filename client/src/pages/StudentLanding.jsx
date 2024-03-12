@@ -34,7 +34,7 @@ const StudentLanding = () => {
 
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
-      <h2 className="page-title">Welcome, {data.me.username}!</h2>
+      <h2 className="page-title">Welcome!</h2>
 
       <div className="page-container" style={{ justifyContent: "center" }}>
         {/* Render completed exams */}
@@ -59,7 +59,6 @@ const StudentLanding = () => {
             </div>
           )}
         </div>
-
 
         {/* Render uncompleted exams */}
         <div className="segment" style={{ justifyContent: "center", padding: "1rem" }}>
