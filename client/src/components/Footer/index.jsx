@@ -8,7 +8,7 @@ const Footer = () => {
     <footer className="">
       
         
-        <h4 className='footer-content text-center mb-5'>
+        <h4 className='footer-content'>
           Find us{' '}
           <span
             className="emoji"
@@ -18,7 +18,7 @@ const Footer = () => {
           >
             ❤️
           </span>{' '}
-          HERE
+          <a href="https://github.com/JessicaDubina/exam-builder" style={{textDecoration: "none", color: "black", fontWeight: "bold"}}>Here</a>
         </h4>
         <div className="btn-container">
           {location.pathname !== '/' && (
