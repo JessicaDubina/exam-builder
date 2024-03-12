@@ -56,12 +56,11 @@ const StudentList = () => {
     if (usersLoading || examsLoading) return <div>Loading...</div>;
 
     return (
-        <div className='segment'>
-            <div className='card'></div>
+        <div className='container'>
             <h2 className='page-title'>Students</h2>
-            <div className='card'>
             {assignmentSuccess && <div><strong>{selectedStudent.username}'s exam assigned successfully!</strong></div>}
-            
+            <div className='page-container'> 
+            <div className='segment'>
             <table>
                 <thead>
                     <tr>
@@ -97,21 +96,27 @@ const StudentList = () => {
                 ))}
                 </tbody>
             </table>
-            <div className='card'>
+            </div>
+            <div className='container' style={{padding: "0"}}>
             {assignExamMode && selectedStudent._id && (
-            <div>
-                <h3>Select Exams for {selectedStudent.username}</h3>
-                <ul>
-                    {examsData.allExams.map(exam => (
-                        <li key={exam._id}>
-                            {exam.exam_name}
-                            <button onClick={() => handleSelectExam(exam._id)}>Select</button>
-                        </li>
-                    ))}
-                </ul>
-                <button onClick={handleAssignExam}>Assign Selected Exams</button>
+            <div className='segment'>
+                <table>
+                    <thead>
+                        <th>Select Exams for {selectedStudent.username}</th>
+                    </thead>
+                    <tbody>
+                        {examsData.allExams.map(exam => (
+                        <tr key={exam._id}>
+                            <td >{exam.exam_name}</td>
+                            <td><button onClick={() => handleSelectExam(exam._id)}>Select</button></td>
+                        </tr>
+                        ))}
+                    </tbody>
+                </table>
+                <button className='btn-main-function' onClick={handleAssignExam}>Assign Selected Exams</button>
             </div>
         )}
+        
         </div>
         </div>
         </div>

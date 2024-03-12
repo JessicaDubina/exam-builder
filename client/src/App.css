@@ -92,6 +92,35 @@
   flex-direction: column;
 }
 
+.page-container {
+  display: flex;
+  flex-direction: row;
+  margin: 1rem;
+}
+
+li {
+  list-style: none;
+  padding: 0 .3rem;
+}
+
+table {
+  border-collapse: collapse;
+  font-size: .8em;
+}
+
+td {
+  border-top: 1px dashed lightgrey;
+  padding: 3px;
+}
+
+th, .table-title {
+  color: #4dd7db;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border-bottom: 1px dashed lightgrey;
+
+}
+
 .read-the-docs {
   color: #888;
 }
@@ -139,8 +168,20 @@ input {
 }
 
 .selection-list-item {
+  display: flex;
+  justify-content: left;
+  align-items: center;
   padding: 10px;
-  border-bottom: 1px solid #ccc;
+  padding-left: 1rem;
+  border-bottom: 1px dashed lightgrey;
+}
+
+.btn-main-function {
+  height: fit-content;
+  align-self: center;
+  margin-top: 40px;
+  background-color: #4dd7db;
+  color: white;
 }
 
 .selected-questions {
