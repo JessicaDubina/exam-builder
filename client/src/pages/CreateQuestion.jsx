@@ -78,33 +78,37 @@ const CreateQuestion = () => {
     return (
         <>
         <Navbar />
-        <form id='new-question-form' style={{ marginTop: '50px', marginLeft: '20%', display: 'flex', flexDirection: 'column', width: '60%', justfyContent: 'center', textAlign: 'center'}}>
-        <div id='question-text-input'>
-        <input 
-            type='text'
-            name='question_text'
-            value = {newQuestion.question_text}
-            onChange={addQuestionData}
-            placeholder="Enter the new question"
-            />
-        
+        <h2 className='page-title'>Create a new question</h2>
+        <div className='page-container' style={{justifyContent: "center"}}>
+        <div className='segment card'>
+        <form id='new-question-form'>
+        <div className='section'>
+        <label className='table-title'> Question Details: </label>
+                <input 
+                    type='text'
+                    name='question_text'
+                    value = {newQuestion.question_text}
+                    onChange={addQuestionData}
+                    placeholder="Enter the new question"
+                    />
+                <input 
+                type='text'
+                name='topic'
+                value = {newQuestion.topic}
+                onChange={addQuestionData}
+                placeholder="Enter the topic of the question"
+                />
+            <div >
+                <label style={{ marginRight: "10px"}}>Difficulty:</label>
+                <select onChange={addQuestionData} id="dropdown" name="difficulty" >
+                    <option value="Easy">Easy</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Difficult">Difficult</option>
+                </select>
+            </div>
         </div>
-        <div id='question-topic-input'>
-            <input 
-            type='text'
-            name='topic'
-            value = {newQuestion.topic}
-            onChange={addQuestionData}
-            placeholder="Enter the topic of the question"
-            />
-        </div>
-            <label style={{ marginTop: '3%'}}>Difficulty:</label>
-            <select onChange={addQuestionData} id="dropdown" name="difficulty" style={{ width: '10%', alignSelf: 'center', margin: '20px'}}>
-                <option value="Easy">Easy</option>
-                <option value="Medium">Medium</option>
-                <option value="Difficult">Difficult</option>
-            </select>
-            <label> Answer Choices: </label>
+        <div className='section'>
+            <label className='table-title'> Answer Choices: </label>
             <div style={{ display: 'flex', flexDirection: 'column', justfyContent: 'space-between'}}>
             <input 
                 type='text'
@@ -134,7 +138,7 @@ const CreateQuestion = () => {
                 onChange={addQuestionData}
                 placeholder="Enter the fourth answer choice"
             />
-            <label htmlFor='correct_answer'>Select the correct answer from the above choices (1-4)
+            <label style={{ marginRight: "10px", marginTop: "1rem"}} htmlFor='correct_answer'>Select the correct answer from the above choices (1-4): 
             <select onChange={addQuestionData} id='correct_answer' name='correct_answer' type='integer'> 
                 <option value='0'>1</option>
                 <option value='1'>2</option>
@@ -143,8 +147,11 @@ const CreateQuestion = () => {
             </select>
             </label>
             </div>
-            <input onClick={handleAddQuestion} type="submit" value="Submit"></input>
+            </div>
+            <input onClick={handleAddQuestion} type="submit" value="Submit" className='btn-main-function submit-btn'></input>
         </form>
+        </div>
+        </div>
         </>
     )
 
