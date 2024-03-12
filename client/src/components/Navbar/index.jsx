@@ -21,10 +21,7 @@ export default function Nav() {
             <Link to="/instructor" className={currentPage === '/instructor' ? 'nav-link active' : 'nav-link text-light'}>Create Exam</Link>
           </li>
           <li className="nav-item">
-            <Link to="/contact" className={currentPage === '/contact' ? 'nav-link active' : 'nav-link text-light'}>Contact Me</Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/resume" className={currentPage === '/resume' ? 'nav-link active' : 'nav-link text-light'}>Resume</Link>
+            <Link to="/instructor" className={currentPage === '/instructor' ? 'nav-link active' : 'nav-link text-light'}>Add Questions</Link>
           </li>
         </ul>
       </section>
