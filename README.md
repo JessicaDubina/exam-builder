@@ -35,7 +35,7 @@ A web application for creating, administering, and taking exams, this is a colla
 
 ## Contributors
 * Jessica Dubina ([Jessica's Portfolio Site](https://jessdubina.netlify.app/))
-* Brendan McGinty 
+* Brendan McGinty
 * Warren "Trey" Lathe III 
 * git add . ([Kevin's Portfolio Site](https://kevinhogansprofile.netlify.app/))
 
