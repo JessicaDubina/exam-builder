@@ -15,13 +15,13 @@ export default function Nav() {
       >
         <ul className="nav nav-tabs">
           <li className="nav-item">
-            <Link to="/" className={currentPage === '/students' ? 'nav-link active' : 'nav-link text-light'}>Students</Link>
+            <Link to="/students" className={currentPage === '/students' ? 'nav-link active' : 'nav-link text-light'}>Students</Link>
           </li>
           <li className="nav-item">
             <Link to="/createexam" className={currentPage === '/createexam' ? 'nav-link active' : 'nav-link text-light'}>Create Exam</Link>
           </li>
           <li className="nav-item">
-            <Link to="/instructor" className={currentPage === '/instructor' ? 'nav-link active' : 'nav-link text-light'}>Add Questions</Link>
+            <Link to="/createquestion" className={currentPage === '/createquestion' ? 'nav-link active' : 'nav-link text-light'}>Add Questions</Link>
           </li>
         </ul>
       </section>
