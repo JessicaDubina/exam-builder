@@ -182,6 +182,7 @@ input {
   margin-top: 40px;
   background-color: #4dd7db;
   color: white;
+  box-shadow: 0 4px 8px 0 #088c8c;
 }
 
 .selected-questions {

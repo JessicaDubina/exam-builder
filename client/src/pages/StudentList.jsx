@@ -32,8 +32,6 @@ const StudentList = () => {
             );
             // Reset selected exams
             setSelectedExams([]);
-            // Reset selected student
-            setSelectedStudent({});
             // Exit assign exam mode
             setAssignExamMode(false);
             // Set assignment success message
@@ -43,6 +41,7 @@ const StudentList = () => {
             setTimeout(() => {
                 setAssignmentSuccess(false);
                 setSuccessMessage('');
+                setSelectedStudent({});
             }, 5000);
         } catch (error) {
             console.error('Error assigning exams:', error);
@@ -59,6 +58,7 @@ const StudentList = () => {
         <div className='container'>
             <h2 className='page-title'>Students</h2>
             {assignmentSuccess && <div><strong>{selectedStudent.username}'s exam assigned successfully!</strong></div>}
+            {console.log(selectedStudent.username)}
             <div className='page-container'> 
             <div className='segment'>
             <table>
