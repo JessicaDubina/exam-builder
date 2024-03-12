@@ -44,45 +44,52 @@ const Exams = () => {
 
   return (
     <>
-    <Navbar />
-    <div>
-      {deleteSuccess && <div><strong>{deleteMessage}</strong></div>}
-      <h2 className='page-title'>Exams</h2>
-      <div className='page-container' style={{justifyContent: "center"}}>
-        <div className='segment'>
-      <table>
-        <thead>
-          <tr>
-            <th>Exam Name</th>
-            <th>Topic</th>
-            {/* Add more table headers as needed */}
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.allExams.map((exam) => (
-            <tr key={exam._id}>
-              <td>{exam.exam_name}</td>
-              <td>{exam.topic}</td>
-              {/* Add more table cells for other exam properties */}
-              <td>
-                <button className="">Update</button>
-                <button className="delete-btn" onClick={() => handleDeleteConfirmation(exam)}>Delete</button>
-              </td>
+      <Navbar />
+      <div>
+        {deleteSuccess && <div><strong>{deleteMessage}</strong></div>}
+        <h2 className='page-title'>Exams</h2>
+        <div className='page-container' style={{justifyContent: 'center'}}>
+            <div className='segment'>
+        <table>
+          <thead>
+            <tr>
+              <th>Exam Name</th>
+              <th>Topic</th>
+              <th>Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-      </div>
-      </div>
-      {deleteConfirmation && (
-        <div>
-          <p>Are you sure you want to delete "{examToDelete.exam_name}"?</p>
-          <button onClick={handleDeleteExam}>Yes</button>
-          <button onClick={() => setDeleteConfirmation(false)}>No</button>
+          </thead>
+          <tbody>
+            {data.allExams.map((exam) => (
+              <tr key={exam._id}>
+                <td>{exam.exam_name}</td>
+                <td>{exam.topic}</td>
+                <td>
+                  <button
+                    onClick={() => navigate (`/updateexam/${exam._id}`)}
+                  >
+                    Update
+                  </button>
+                  <button
+                    className="delete-btn"
+                    onClick={() => handleDeleteConfirmation(exam)}
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
         </div>
-      )}
-    </div>
+        </div>
+        {deleteConfirmation && (
+          <div>
+            <p>Are you sure you want to delete "{examToDelete.exam_name}"?</p>
+            <button onClick={handleDeleteExam}>Yes</button>
+            <button onClick={() => setDeleteConfirmation(false)}>No</button>
+          </div>
+        )}
+      </div>
     </>
   );
 };
