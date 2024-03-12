@@ -47,28 +47,47 @@ const populateExamData = (questions) => {
 };
 
 const populateUserData = async (exams) => {
-  let examArray = [];
-  let examIds = [];
   const salt = parseInt(process.env.SALT_ITERATION);
+  const user = userData[0];
+  const examIds = [];
 
-  for (i = 0; i < exams.length; i++) {
-    newExam = {
-      _id: new mongoose.Types.ObjectId(),
-      exam: exams[i]._id,
-      grade: 0,
-      completed: false,
-    };
-    examArray.push(newExam);
+  for (let i = 0; i < exams.length; i++) {
     examIds.push(exams[i]._id);
   }
 
-  userData[0].created_exams = examIds;
-  const passwordHash = await bcrypt.hash(userData[0].password, salt);
-  userData[0].password = passwordHash;
-  for (i = 1; i < userData.length; i++) {
+  // set up first user (gandalf) as instructor/creator of exams
+  user.created_exams = examIds;
+  const passwordHash = await bcrypt.hash(user.password, salt);
+  user.password = passwordHash;
+
+  // set up remaining users
+  for (let i = 1; i < userData.length; i++) {
+    const user = userData[i]
+    const examArray = [];
+
+    for (let j = 0; j < exams.length; j++) {
+      if ( Math.random() < 0.5 ) {
+        newExam = {
+          _id: new mongoose.Types.ObjectId(),
+          exam: exams[j]._id,
+          grade: 0,
+          completed: false,
+        };
+      } else {
+        newExam = {
+          _id: new mongoose.Types.ObjectId(),
+          exam: exams[j]._id,
+          grade: Math.floor(Math.random() * 99 + 1),
+          completed: true,
+        };
+  
+      }
+      examArray.push(newExam);
+    }
+
     const passwordHash = await bcrypt.hash(userData[i].password, salt);
-    userData[i].password = passwordHash;
-    userData[i].exams = examArray;
+    user.password = passwordHash;
+    user.exams = examArray;
   }
 
   return userData;
