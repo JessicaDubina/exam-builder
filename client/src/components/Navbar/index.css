@@ -11,4 +11,15 @@ ul {
 li {
     text-decoration: none;
     color: #088c8c;
+    padding: .5rem;
+}
+
+.nav-link {
+    padding: .25rem;
+}
+
+.nav-link.active {
+    border-bottom: 1px solid #088c8c;
+    box-shadow: 0 4px 8px 0 #088c8c;
+    border-radius: 5px;
 }
