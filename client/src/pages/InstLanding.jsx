@@ -7,9 +7,9 @@ const InstLanding = () => {
     return (
         <main>
             <div className="flex-row justify-center">
-                <button onClick={handleCreateExam}>Create Exam</button>
-                <button onClick={handleViewStudents}>See Students</button>
-                <button onClick={handleCreateQuestion}>Create New Questions</button>
+                <button >Create Exam</button>
+                <button >See Students</button>
+                <button >Create New Questions</button>
             </div>
         </main>
     );
