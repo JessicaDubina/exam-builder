@@ -32,8 +32,6 @@ const StudentList = () => {
             );
             // Reset selected exams
             setSelectedExams([]);
-            // Reset selected student
-            setSelectedStudent({});
             // Exit assign exam mode
             setAssignExamMode(false);
             // Set assignment success message
@@ -43,6 +41,7 @@ const StudentList = () => {
             setTimeout(() => {
                 setAssignmentSuccess(false);
                 setSuccessMessage('');
+                setSelectedStudent({});
             }, 5000);
         } catch (error) {
             console.error('Error assigning exams:', error);
@@ -56,30 +55,27 @@ const StudentList = () => {
     if (usersLoading || examsLoading) return <div>Loading...</div>;
 
     return (
-        <div>
-             <h2>Students</h2>
+        <div className='container'>
+            <h2 className='page-title'>Students</h2>
             {assignmentSuccess && <div><strong>{selectedStudent.username}'s exam assigned successfully!</strong></div>}
-            {filteredUsers.map(user => (
-                <div key={user._id}>
-                    {assignExamMode && selectedStudent._id === user._id && (
-                        <div>
-                            <h3>Select Exams for {selectedStudent.username}</h3>
-                            <ul>
-                                {examsData.allExams.map(exam => (
-                                    <li key={exam._id}>
-                                        {exam.exam_name}
-                                        <button onClick={() => handleSelectExam(exam._id)}>Select</button>
-                                    </li>
-                                ))}
-                            </ul>
-                            <button onClick={handleAssignExam}>Assign Selected Exams</button>
-                        </div>
-                    )}
-                    {!assignExamMode && (
-                        <div>
-                            <h3>{user.username}</h3>
-                            <p>Email: {user.email}</p>
-                            <p>Exams:</p>
+            {console.log(selectedStudent.username)}
+            <div className='page-container'> 
+            <div className='segment'>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student</th>
+                        <th>Email</th>
+                        <th>Exams</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {filteredUsers.map(user => (
+                    <tr key={user._id}>
+                        <td>{user.username}</td>
+                        <td>{user.email}</td>
+                        <td>
                             <ul>
                                 {user.exams.map((exam, index) => (
                                     <li key={index}>
@@ -87,16 +83,42 @@ const StudentList = () => {
                                     </li>
                                 ))}
                             </ul>
+                        </td>
+                        <td>
                             <button onClick={() => {
                                 setSelectedStudent(user);
                                 setAssignExamMode(true);
                                 setAssignmentSuccess(false); // Reset success message
                                 setSuccessMessage('');
                             }}>Assign Exam</button>
-                        </div>
-                    )}
-                </div>
-            ))}
+                        </td>
+                    </tr>
+                ))}
+                </tbody>
+            </table>
+            </div>
+            <div className='container' style={{padding: "0"}}>
+            {assignExamMode && selectedStudent._id && (
+            <div className='segment'>
+                <table>
+                    <thead>
+                        <th>Select Exams for {selectedStudent.username}</th>
+                    </thead>
+                    <tbody>
+                        {examsData.allExams.map(exam => (
+                        <tr key={exam._id}>
+                            <td >{exam.exam_name}</td>
+                            <td><button onClick={() => handleSelectExam(exam._id)}>Select</button></td>
+                        </tr>
+                        ))}
+                    </tbody>
+                </table>
+                <button className='btn-main-function' onClick={handleAssignExam}>Assign Selected Exams</button>
+            </div>
+        )}
+        
+        </div>
+        </div>
         </div>
     );
 };

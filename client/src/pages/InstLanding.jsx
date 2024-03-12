@@ -264,7 +264,7 @@ const InstLanding = () => {
                             </ul>
                         </div>
                     </div>
-                    <button style={{ marginTop: '40px', backgroundColor: '#4dd7db', color: 'white' }} onClick={handleAddExam}>Add Exam</button>
+                    <button className='btn-main-function' onClick={handleAddExam}>Add Exam</button>
                 </div>
             ) : null}
         </main>
