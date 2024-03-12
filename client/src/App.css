@@ -187,6 +187,11 @@ input {
   box-shadow: 0 4px 8px 0 #088c8c;
 }
 
+.delete-btn {
+  background-color: #01969b;
+  color: white;
+}
+
 .selected-questions {
   flex: 1;
   height: 50vh;

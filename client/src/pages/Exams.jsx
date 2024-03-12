@@ -52,7 +52,9 @@ const Exams = () => {
     <Navbar />
     <div>
       {deleteSuccess && <div><strong>{deleteMessage}</strong></div>}
-      <h2>Exams</h2>
+      <h2 className='page-title'>Exams</h2>
+      <div className='page-container' style={{justifyContent: "center"}}>
+        <div className='segment'>
       <table>
         <thead>
           <tr>
@@ -69,13 +71,15 @@ const Exams = () => {
               <td>{exam.topic}</td>
               {/* Add more table cells for other exam properties */}
               <td>
-                <button className="update-button">Update</button>
-                <button className="delete-button" onClick={() => handleDeleteConfirmation(exam)}>Delete</button>
+                <button className="">Update</button>
+                <button className="delete-btn" onClick={() => handleDeleteConfirmation(exam)}>Delete</button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+      </div>
+      </div>
       {deleteConfirmation && (
         <div>
           <p>Are you sure you want to delete "{examToDelete.exam_name}"?</p>
