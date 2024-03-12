@@ -84,9 +84,9 @@ return (
                     />
                     <div className="segment ">
                         <div className="questions-container">
-                            <h2>All Questions:</h2>
+                            <h2 className='table-title'>All Questions:</h2>
                             <div>
-                                <h3>Filter by Topic:</h3>
+                                <h4 style={{marginTop: "1rem"}}>Filter by Topic:</h4>
                                 <button onClick={() => setSelectedTopics([])}>All Topics</button>
                                 {uniqueTopics.map(topic => (
                                     <button key={topic} onClick={() => handleTopicFilter(topic)}>{topic}</button>
@@ -102,8 +102,8 @@ return (
                             </ul>
                         </div>
                         <div className="selected-questions">
-                            <h2>Selected Questions:</h2>
-                            <ul style={{ listStyleType: 'none', padding: 0, margin: 0, fontSize: '0.8em' }}>
+                            <h2 className='table-title'>Selected Questions:</h2>
+                            <ul className='selection-box'>
                                 {selectedQuestions.map(questionId => (
                                     <li key={questionId} className='selection-list-item'>
                                         {questions.find(question => question._id === questionId)?.question_text}
