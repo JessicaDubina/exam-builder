@@ -37,16 +37,16 @@ const TakeExam = () => {
   };
 
   return (
-    <div>
-      <h1>{exam.exam_name}</h1>
+    <div style={{ marginLeft: "100px" }}>
+      <h1 style= {{ marginTop: "20px"}}>{exam.exam_name}</h1>
       <h2>{exam.topic}</h2>
       <form>
         {exam.questions.map((question) => (
-          <div key={question._id}>
-            <h3>{question.question_text}</h3>
+          <div key={question._id } style={{ marginBottom: "30px" }}>
+            <h3 style={{ textAlign: "left"}}>{question.question_text}</h3>
             <ul>
               {question.answer_choices.map((choice, index) => (
-                <li key={index}>
+                <li key={index} style={{ textAlign: "left" }}>
                   <input
                     type="radio"
                     id={`answer_${index}`}
