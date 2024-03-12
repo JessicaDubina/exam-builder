@@ -14,7 +14,8 @@ import TakeExam from './pages/TakeExam.jsx';
 import StudentList from './pages/StudentList.jsx';
 import CreateExam from './pages/CreateExam';
 import CreateQuestion from './pages/CreateQuestion';
-import Exams from './pages/Exams.jsx'
+import Exams from './pages/Exams.jsx';
+import UpdateExam from './pages/UpdateExam.jsx';
 
 const router = createBrowserRouter([
   {
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
       {
         path: '/exams',
         element: <Exams />
+      },
+      {
+        path: '/updateexam/:examId', // Define the path for updating an exam
+        element: <UpdateExam /> // Render the UpdateExam component
       }
     ]
   }
