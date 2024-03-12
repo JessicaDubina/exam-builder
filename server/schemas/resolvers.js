@@ -238,7 +238,7 @@ const resolvers = {
             console.error("User not found");
             throw new Error("User not found");
           }
-
+          console.log("user:", user);
           // Find the index of the exam in the user's exams array
           const examIndex = user.exams.findIndex(
             (exam) => exam.exam._id.toString() == examId
