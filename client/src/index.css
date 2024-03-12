@@ -49,8 +49,9 @@ button {
   font-weight: 500;
   font-family: inherit;
   background-color: var(--button-background);
-  /* background-color: green;
-  box-shadow: 0 2px 4px 0 #afb1b1; */
+  /* background-color: green; */
+  box-shadow: 0 2px 4px 0 #afb1b1; 
+  color: black;
   cursor: pointer;
   transition: border-color 0.25s;
 }
