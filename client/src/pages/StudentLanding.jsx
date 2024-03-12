@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import { GET_ME } from "../utils/queries";
+import { GET_ME, QUERY_USERS } from "../utils/queries";
 
 const StudentLanding = () => {
   const { loading, data } = useQuery(GET_ME);
-  console.log(data);
+  const { loading: usersLoading, data: usersData } = useQuery(QUERY_USERS);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -13,8 +13,7 @@ const StudentLanding = () => {
   const exams = data?.me.exams || [];
   const completedExams = exams.filter((exam) => exam.completed);
   const uncompletedExams = exams.filter((exam) => !exam.completed);
-  console.log(uncompletedExams);
-  console.log(completedExams);
+
   return (
     <div>
       <h2>Welcome!</h2>
@@ -54,6 +53,7 @@ const StudentLanding = () => {
             <tr key={exam._id}>
               <td style={{ textAlign: "left" }}>
                 <Link to={`/exam/${data.me._id}/${exam.exam._id}`}>{exam.exam.exam_name}</Link>
+                <Link to={`${data.me.grade}`}></Link>
               </td>
             </tr>
           ))}
@@ -66,7 +66,11 @@ const StudentLanding = () => {
     <p style={{ textAlign: "left" }}>All exams done!</p>
   </div>
   )}
-
+  
+   <div style={{ marginLeft: "100px" }}>
+        <h3 style={{ textAlign: "left", marginBottom: "10px" }}>Overall Grade:</h3>
+        <p style={{ textAlign: "left" }}>{data.me.grade}%</p>
+      </div>
     </div>
   );
 };

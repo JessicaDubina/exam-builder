@@ -65,7 +65,7 @@ const TakeExam = () => {
         {exam.questions.map((question) => (
           <div key={question._id } style={{ marginBottom: "30px" }}>
             <h3 style={{ textAlign: "left"}}>{question.question_text}</h3>
-            <ul>
+            <ul className='selection-box'>
               {question.answer_choices.map((choice, index) => (
                 <li key={index} style={{ textAlign: "left" }}>
                   <input
