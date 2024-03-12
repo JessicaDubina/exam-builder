@@ -3,6 +3,7 @@ import { useQuery, useMutation } from '@apollo/client';
 import { ALL_QUESTIONS, QUERY_USERS, GET_ME } from '../utils/queries';
 import { ADD_EXAM, ADD_QUESTION } from '../utils/mutations';
 import { useNavigate } from 'react-router-dom'; 
+import Navbar from '../components/Navbar'
 
 const CreateExam  = () => {
     const [examName, setExamName] = useState('');
@@ -68,6 +69,8 @@ const CreateExam  = () => {
         questions.filter(question => selectedTopics.includes(question.topic)) : questions;
 
 return (
+<>
+<Navbar />
 <div id="exam-inputs">
                     <input
                         type="text"
@@ -114,6 +117,7 @@ return (
                     </div>
                     <button className='btn-main-function' onClick={handleAddExam}>Add Exam</button>
                 </div>
+                </>
 )
     }
 
