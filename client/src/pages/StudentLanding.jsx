@@ -14,6 +14,7 @@ const StudentLanding = () => {
   const completedExams = exams.filter((exam) => exam.completed);
   const uncompletedExams = exams.filter((exam) => !exam.completed);
   console.log(uncompletedExams);
+  console.log(completedExams);
   return (
     <div>
       <h2>Welcome!</h2>
@@ -27,7 +28,7 @@ const StudentLanding = () => {
         <tbody>
           {completedExams.map((exam) => (
             <tr key={exam._id}>
-              <td style={{ textAlign: "left" }}>{exam.exam_name}</td>
+              <td style={{ textAlign: "left" }}>{exam.exam.exam_name}, grade: {exam.grade}</td>
             </tr>
           ))}
         </tbody>
