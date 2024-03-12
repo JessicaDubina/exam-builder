@@ -1,17 +1,15 @@
 import { useState } from "react";
-import { useQuery, useMutation } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { GET_EXAM } from "../utils/queries";
 import { useParams } from "react-router-dom";
-import { UPDATE_EXAM_GRADE } from "../utils/mutations"
 
 const TakeExam = () => {
-  const { userId, examId } = useParams();
+  const { examId } = useParams();
   const { loading, data } = useQuery(GET_EXAM, {
     variables: { examId },
   });
-  console.log(data);
   const [selectedAnswers, setSelectedAnswers] = useState({});
-  const [updateExamGrade] = useMutation(UPDATE_EXAM_GRADE);
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -23,7 +21,6 @@ const TakeExam = () => {
       ...prevState,
       [questionId]: answerId,
     }));
-    console.log("Selected Answers:", selectedAnswers);
   };
 
   const calculateScore = () => {
@@ -35,26 +32,8 @@ const TakeExam = () => {
       if (selectedAnswerIndex === question.correct_answer) {
         correctCount++;
       }
-      console.log("Correct Count:", correctCount);
     });
     return correctCount;
-    
-  };
-  const handleSubmit = async () => {
-    const grade = calculateScore() / exam.questions.length * 100; // Calculate grade as a floating number
-    try {
-      console.log("examId:", examId);
-      console.log("grade:", grade);
-      console.log("userId:", userId);
-      await updateExamGrade({ variables: { userId, examId, grade } }); // Call the mutation function
-      alert("Exam grade submitted successfully!");
-      
-    } 
-    
-    catch (error) {
-      console.error("Error submitting exam grade:", error);
-      alert("Failed to submit exam grade. Please try again later.");
-    }
   };
 
   return (
@@ -82,7 +61,12 @@ const TakeExam = () => {
             </ul>
           </div>
         ))}
-        <button type="button" onClick={handleSubmit}>
+        <button
+          type="button"
+          onClick={() =>
+            alert(`Your score: ${calculateScore()}/${exam.questions.length}`)
+          }
+        >
           Submit
         </button>
       </form>
