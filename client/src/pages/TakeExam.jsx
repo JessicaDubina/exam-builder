@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { GET_EXAM } from "../utils/queries";
 import { useParams } from "react-router-dom";
+import { UPDATE_EXAM_GRADE } from "../utils/mutations"
 
 const TakeExam = () => {
   const { userId, examId } = useParams();
@@ -9,7 +10,7 @@ const TakeExam = () => {
     variables: { examId },
   });
   const [selectedAnswers, setSelectedAnswers] = useState({});
-
+  const [updateExamGrade] = useMutation(UPDATE_EXAM_GRADE);
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -34,6 +35,18 @@ const TakeExam = () => {
       }
     });
     return correctCount;
+  };
+  const handleSubmit = async () => {
+    const grade = calculateScore() / exam.questions.length * 100; // Calculate grade as a floating number
+    try {
+      await updateExamGrade({ variables: { userId, examId, grade } }); // Call the mutation function
+      alert("Exam grade submitted successfully!");
+    } 
+
+    catch (error) {
+      console.error("Error submitting exam grade:", error);
+      alert("Failed to submit exam grade. Please try again later.");
+    }
   };
 
   return (
@@ -61,12 +74,7 @@ const TakeExam = () => {
             </ul>
           </div>
         ))}
-        <button
-          type="button"
-          onClick={() =>
-            alert(`Your score: ${calculateScore()}/${exam.questions.length}`)
-          }
-        >
+        <button type="button" onClick={handleSubmit}>
           Submit
         </button>
       </form>
