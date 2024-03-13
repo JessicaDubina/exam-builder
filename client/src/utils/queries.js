@@ -39,46 +39,50 @@ query users($usersId: ID) {
       grade
     }
     grade
+    completed_exams
+    incomplete_exams
   }
 }
 `;
 
 export const GET_ME = gql`
-  query me {
-    me {
+query me {
+  me {
+    _id
+    username
+    email
+    instructor
+    exams {
       _id
-      username
-      email
-      instructor
-      grade
-      exams {
-        _id
-        exam {
-          _id
-          exam_name
-          topic
-          questions {
-            question_text
-            difficulty
-            answer_choices
-            correct_answer
-          }
-        }
-        completed
-        grade
-      }
-      created_exams {
+      exam {
         _id
         exam_name
         topic
         questions {
-          _id
           question_text
-          topic
+          difficulty
+          answer_choices
+          correct_answer
         }
       }
+      completed
+      grade
     }
+    created_exams {
+      _id
+      exam_name
+      topic
+      questions {
+        _id
+        question_text
+        topic
+      }
+    }
+    grade
+    completed_exams
+    incomplete_exams
   }
+}
 `;
 
 export const GET_EXAM = gql`
