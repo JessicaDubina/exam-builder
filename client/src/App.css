@@ -105,12 +105,12 @@ li {
 
 table {
   border-collapse: collapse;
-  font-size: .8em;
 }
 
 td {
   border-top: 1px dashed lightgrey;
   padding: 3px;
+  font-size: calc(.5rem + .2vw)
 }
 
 th, .table-title {
@@ -144,6 +144,7 @@ th, .table-title {
   padding: .3rem;
   box-shadow: 0 2px 4px 0 #afb1b1;
   min-height: 20vh;
+  overflow-x: scroll;
 }
 
 .section {
@@ -198,7 +199,7 @@ form div input {
 .btn-main-function {
   height: fit-content;
   align-self: center;
-  margin-top: 40px;
+  margin-top: 1rem;
   background-color: #4dd7db;
   color: white;
   box-shadow: 0 4px 8px 0 #088c8c;
@@ -241,5 +242,12 @@ form div input {
   }
   #student-list-container {
     flex-direction: column-reverse;
+  }
+  .table-title {
+    font-size: calc(.8rem + .2vw);
+  }
+  td {
+    font-size: 75%;
+    overflow-wrap: break-word;
   }
 }

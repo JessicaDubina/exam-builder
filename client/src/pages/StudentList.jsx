@@ -97,7 +97,7 @@ const StudentList = () => {
           </div>
           <div className='container' style={{ padding: "0" }}>
             {assignExamMode && selectedStudent._id && (
-              <div className='segment'>
+              <div className='segment' style={{flexDirection: "column"}}>
                 <table>
                   <thead>
                     <tr>
