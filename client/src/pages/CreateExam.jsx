@@ -69,6 +69,8 @@ const CreateExam  = () => {
 return (
 <>
 <Navbar />
+<div className='container'>
+<h2 className='page-title'>Create Exam</h2>
 <div id="exam-inputs">
                     <input
                         type="text"
@@ -82,7 +84,7 @@ return (
                         onChange={handleExamTopicChange}
                         placeholder="Enter exam topic"
                     />
-                    <div className="segment ">
+                    <div className="segment" id="create-exam-container">
                         <div className="questions-container">
                             <h2 className='table-title'>All Questions:</h2>
                             <div>
@@ -114,6 +116,7 @@ return (
                         </div>
                     </div>
                     <button className='btn-main-function' onClick={handleAddExam}>Add Exam</button>
+                </div>
                 </div>
                 </>
 )

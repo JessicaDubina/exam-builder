@@ -15,7 +15,7 @@ export default function Nav() {
         }}
       >
         <ul className="nav nav-tabs">
-          <li className="nav-item">
+          <li className="nav-item" >
             <Link to="/students" className={currentPage === '/students' ? 'nav-link active' : 'nav-link text-light'}>Students</Link>
           </li>
           <li className="nav-item">

@@ -250,4 +250,13 @@ form div input {
     font-size: 75%;
     overflow-wrap: break-word;
   }
+  #create-exam-container {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .questions-container,
+  .selected-questions {
+    max-height: 60vh;
+    overflow-y: scroll;
+  }
 }
