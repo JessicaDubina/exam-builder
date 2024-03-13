@@ -34,7 +34,7 @@ const StudentLanding = () => {
 
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
-      <h2 className="page-title">Welcome!</h2>
+      <h2 className="page-title">{userData.username}'s' Exam Details</h2>
 
       <div className="page-container" style={{ justifyContent: "center" }}>
         {/* Render completed exams */}
@@ -53,7 +53,7 @@ const StudentLanding = () => {
               </table>
             </div>
           ) : (
-            <div className="segment" style={{ justifyContent: "center", padding: "1rem" }}>
+            <div >
               <h3 className="table-title">Completed Exams:</h3>
               <p>No completed exams</p>
             </div>
