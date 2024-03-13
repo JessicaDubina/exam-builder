@@ -68,13 +68,13 @@ const TakeExam = () => {
                 <li key={index} style={{ textAlign: "left" }}>
                   <input
                     type="radio"
-                    id={`answer_${index}`}
+                    id={`${question._id}_answer_${index}`}
                     name={`question_${question._id}`}
                     value={choice}
                     onChange={() => handleAnswerSelect(question._id, choice)}
                     checked={selectedAnswers[question._id] === choice}
                   />
-                  <label htmlFor={`answer_${index}`}>{choice}</label>
+                  <label htmlFor={`${question._id}_answer_${index}`}>{choice}</label>
                 </li>
               ))}
             </ul>
