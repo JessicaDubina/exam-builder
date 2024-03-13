@@ -24,6 +24,7 @@ const CreateQuestion = () => {
         difficulty: 'Easy',
         topic: ''
     })
+    const [addedSuccess, setAddedSuccess] = useState(false);
 
 
     const handleViewStudents = () => {
@@ -49,6 +50,18 @@ const CreateQuestion = () => {
                     questionData: {...newQuestion, correct_answer: correctAnswerInt}
                 }
             });
+            setAddedSuccess(true);
+            setNewQuestion({
+                answer_choices: ['', '', '', ''], 
+                question_text: '',
+                correct_answer: 0,
+                difficulty: 'Easy',
+                topic: ''
+            })
+            setTimeout(() => {
+                setAddedSuccess(false);
+            }, 5000);
+            
             console.log(data);
         }
         catch (error) {
@@ -79,6 +92,7 @@ const CreateQuestion = () => {
         <>
         <Navbar />
         <h2 className='page-title'>Create a new question</h2>
+        {addedSuccess && <div><strong>Question added successfully!</strong></div>}
         <div className='page-container' style={{justifyContent: "center"}}>
         <div className='segment card'>
         <form id='new-question-form'>

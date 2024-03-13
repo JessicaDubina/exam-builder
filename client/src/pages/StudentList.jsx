@@ -57,14 +57,15 @@ const StudentList = () => {
       <div className='container'>
         <h2 className='page-title'>Students</h2>
         {assignmentSuccess && <div><strong>{selectedStudent.username}'s exam assigned successfully!</strong></div>}
-        <div className='page-container'>
-          <div className='segment'>
+        <div className='page-container' style={{justifyContent: "center"}}>
+          <div className='segment' >
             <table>
               <thead>
                 <tr>
                   <th>Student</th>
                   <th>Email</th>
                   <th>Exams</th>
+                  <th>Grade</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -75,13 +76,11 @@ const StudentList = () => {
                     <td>{user.email}</td>
                     <td>
                       <ul>
-                        {user.exams.map((exam, index) => (
-                          <li key={index}>
-                            Completed: {exam.completed ? 'Yes' : 'No'}, Grade: {exam.grade}
-                          </li>
-                        ))}
+                        <li>Completed: {user.completed_exams}</li>
+                        <li>Incomplete: {user.incomplete_exams}</li>
                       </ul>
                     </td>
+                    <td>{user.grade}%</td>
                     <td>
                       <button onClick={() => {
                         setSelectedStudent(user);
