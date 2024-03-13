@@ -76,6 +76,14 @@ userSchema.virtual('grade').get(function () {
   return acc / count;
 });
 
+userSchema.virtual('completed_exams').get(function () {
+  return this.exams.filter((exam) => exam.completed).length;
+});
+
+userSchema.virtual('incomplete_exams').get(function () {
+  return this.exams.filter((exam) => !exam.completed).length;
+});
+
 const User = model("user", userSchema);
 
 module.exports = User;

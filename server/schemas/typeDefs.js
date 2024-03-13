@@ -32,6 +32,8 @@ const typeDefs = `
     exams: [AssignedExam]
     created_exams: [Exam]
     grade: Float
+    completed_exams: Int
+    incomplete_exams: Int
   }
 
   type Auth {
