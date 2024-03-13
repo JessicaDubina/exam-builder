@@ -57,7 +57,7 @@ const StudentList = () => {
       <div className='container'>
         <h2 className='page-title'>Students</h2>
         {assignmentSuccess && <div><strong>{selectedStudent.username}'s exam assigned successfully!</strong></div>}
-        <div className='page-container' style={{justifyContent: "center"}}>
+        <div className='page-container' id="student-list-container" style={{justifyContent: "center"}}>
           <div className='segment' >
             <table>
               <thead>
@@ -97,7 +97,7 @@ const StudentList = () => {
           </div>
           <div className='container' style={{ padding: "0" }}>
             {assignExamMode && selectedStudent._id && (
-              <div className='segment'>
+              <div className='segment' style={{flexDirection: "column"}}>
                 <table>
                   <thead>
                     <tr>

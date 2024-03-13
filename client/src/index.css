@@ -65,6 +65,14 @@ button:focus-visible {
   outline: 4px auto #088c8c;
 }
 
+@media only screen and (max-width: 720px){
+  button {
+    padding: .25rem;
+    margin: .1rem .2rem;
+    font-size: 80%;
+  }
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

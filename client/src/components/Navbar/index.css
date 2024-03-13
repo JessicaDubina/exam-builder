@@ -23,3 +23,10 @@ li {
     box-shadow: 0 4px 8px 0 #088c8c;
     border-radius: 5px;
 }
+
+@media only screen and (max-width: 720px) {
+    .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
